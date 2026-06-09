@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOTO studio | 小事製作 — 網頁與數位產品設計</title>
+    <title>KOTO studio | 小事製作 — 不是資訊，而是風景。</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+TC:wght@300;400&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 數位實驗室：色系與字體設定 --- */
+        /* --- 日本頂級工作室色系：清水米白、深碳灰、極淡割線 --- */
         :root {
-            --bg-color: #FAFAFA;       /* 數位純淨白 */
-            --text-color: #1A1A1A;     /* 代碼深黑 */
-            --accent-color: #004B49;   /* 匠心極深松綠 */
-            --grid-color: rgba(26, 26, 26, 0.06); /* 網頁網格線色 */
+            --bg-color: #FAF9F6;       /* 彷彿手工和紙的清透米白 */
+            --text-color: #222222;     /* 內斂的深碳灰，比純黑更溫柔 */
+            --text-muted: #777777;     /* 灰調文字 */
+            --line-color: #E5E3DC;     /* KEI 式極淡線條 */
+            --accent-line: #A6A29A;    /* 點綴細線 */
             
-            --dark-bg: #121212;        /* 後台終端機黑 */
-            --dark-text: #E5E5E5;
-            --dark-grid: rgba(229, 229, 229, 0.08);
+            --font-serif: 'Shippori Mincho', 'Cormorant Garamond', serif;
+            --font-sans: 'Noto Sans TC', sans-serif;
         }
 
         * {
@@ -31,518 +31,423 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Noto Sans TC', sans-serif;
-            line-height: 1.7;
-            letter-spacing: 0.03em;
+            font-family: var(--font-sans);
+            line-height: 2;
+            letter-spacing: 0.08em; /* 寬闊的字距，營造空氣感 */
             overflow-x: hidden;
-            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-font-smoothing: antialiased;
         }
 
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 300;
-        }
-
-        /* 全域網格背景（模擬前端開發排版畫布） */
-        .grid-canvas {
-            background-image: 
-                linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        /* --- Section 1: 首頁頂部 (Hero) --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 24px;
-            position: relative;
-            border-bottom: 1px solid var(--grid-color);
-        }
-
-        .hero-tag {
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 24px;
-            border: 1px solid var(--grid-color);
-            padding: 4px 12px;
-            border-radius: 2px;
-        }
-
-        .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            letter-spacing: 0.05em;
-            line-height: 1.4;
-        }
-
-        .hero p {
-            font-size: 0.95rem;
-            opacity: 0.6;
-            max-width: 600px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.6rem; }
-            .hero p { font-size: 0.85rem; }
-        }
-
-        /* --- Section 2: 品牌起點 (The Origin) --- */
-        .origin {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 140px 24px;
-            position: relative;
-            border-left: 1px solid var(--grid-color);
-            border-right: 1px solid var(--grid-color);
-        }
-
-        .section-index {
-            position: absolute;
-            top: 40px;
-            left: 24px;
-            font-size: 0.8rem;
-            opacity: 0.4;
-        }
-
-        .origin h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 40px;
-            color: var(--text-color);
-        }
-
-        .origin p {
-            font-size: 1rem;
-            margin-bottom: 24px;
-            text-align: justify;
-            opacity: 0.8;
-        }
-
-        /* --- Section 3: 核心服務 (Services) --- */
-        .services-header {
-            text-align: center;
-            padding: 80px 24px 40px 24px;
-            border-top: 1px solid var(--grid-color);
-            border-bottom: 1px solid var(--grid-color);
-        }
-        
-        .services-container {
+        /* 頂級留白容器 */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            border-left: 1px solid var(--grid-color);
-            border-right: 1px solid var(--grid-color);
+            padding: 0 60px;
         }
+        @media (max-width: 768px) { .container { padding: 0 24px; } }
 
-        .service-card {
-            display: grid;
-            grid-template-columns: 1fr;
-            border-bottom: 1px solid var(--grid-color);
-            background: transparent;
-            transition: background-color 0.3s ease;
-        }
+        .serif { font-family: var(--font-serif); }
+        .en-sub { font-family: var(--font-serif); font-style: italic; font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.05em; }
 
-        @media (min-width: 768px) {
-            .service-card {
-                grid-template-columns: 400px 1fr;
-            }
-        }
-
-        /* 左側：前端幾何動態視覺 */
-        .service-visual {
-            border-bottom: 1px solid var(--grid-color);
-            padding: 60px 40px;
+        /* --- Header / Nav: 靜謐的邊角定位 --- */
+        header {
+            padding: 60px 0 40px 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(26, 26, 26, 0.01);
-            position: relative;
+            justify-content: space-between;
+            align-items: baseline;
         }
-
-        @media (min-width: 768px) {
-            .service-visual {
-                border-bottom: none;
-                border-right: 1px solid var(--grid-color);
-            }
-        }
-
-        /* 網頁開發骨架模擬器 */
-        .code-box {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            border: 1px solid rgba(18, 18, 18, 0.1);
-            border-radius: 4px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            background: #FFFFFF;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        body.dark-mode .code-box { background: #1E1E1E; border-color: rgba(255,255,255,0.1); }
-
-        .service-card:hover .code-box {
-            border-color: var(--text-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-        }
-
-        /* 各種數位網頁元素的 CSS 模擬 */
-        .bar { height: 6px; background: rgba(26, 26, 26, 0.08); border-radius: 2px; width: 100%; transition: all 0.3s; }
-        body.dark-mode .bar { background: rgba(255, 255, 255, 0.1); }
-        .service-card:hover .bar { background: var(--text-color); }
-
-        /* RWD 響應式動態模擬 */
-        .rwd-box { width: 60px; height: 100%; border: 1px solid rgba(26,26,26,0.15); margin: 0 auto; display:flex; flex-direction:column; padding: 6px; gap:4px; transition: all 0.4s; }
-        body.dark-mode .rwd-box { border-color: rgba(255,255,255,0.2); }
-        .service-card:hover .rwd-box { width: 120px; border-color: var(--text-color); }
-
-        /* 右側：硬核軟體內容 */
-        .service-info {
-            padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .service-num {
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .service-info h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        .service-info p {
-            font-size: 0.95rem;
-            opacity: 0.75;
-            text-align: justify;
-        }
-
-        /* --- Section 4: 數位與生活 (Future) --- */
-        .future {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 140px 24px;
-            text-align: center;
-            border-left: 1px solid var(--grid-color);
-            border-right: 1px solid var(--grid-color);
-            border-bottom: 1px solid var(--grid-color);
-        }
-
-        .future h2 {
+        header .logo {
+            font-family: var(--font-serif);
             font-size: 1.6rem;
             font-weight: 500;
-            margin-bottom: 60px;
+            text-decoration: none;
+            color: var(--text-color);
+            letter-spacing: 0.02em;
+        }
+        header .status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        header .status-dot {
+            width: 4px;
+            height: 4px;
+            background-color: #A3E635;
+            border-radius: 50%;
         }
 
-        .future-grid {
+        /* --- Hero Section: 不是資訊，而是風景 --- */
+        .hero {
+            padding: 100px 0 160px 0;
+            border-bottom: 1px solid var(--line-color);
+        }
+        .hero-concept {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            line-height: 1.8;
+            font-weight: 400;
+            margin-bottom: 60px;
+        }
+        .hero-concept span {
+            display: block;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+        
+        .hero-meta {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1px;
-            background: var(--grid-color);
-            margin-bottom: 60px;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 100px;
+        }
+        @media (min-width: 768px) {
+            .hero-meta { grid-template-columns: 1fr 1fr; }
+        }
+        .hero-brand-name {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        .hero-brand-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 420px;
+            align-self: flex-end;
+            text-align: justify;
         }
 
-        .future-item {
-            background: var(--bg-color);
-            padding: 60px 24px;
+        /* --- Section: About 詩意敘事 --- */
+        .about {
+            padding: 140px 0;
+            border-bottom: 1px solid var(--line-color);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+        @media (min-width: 900px) {
+            .about { grid-template-columns: 300px 1fr; gap: 100px; }
+        }
+        .section-label {
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            position: sticky;
+            top: 60px;
+            height: max-content;
+        }
+        .about-content {
+            max-width: 680px;
+        }
+        .about-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .about-content p {
+            font-size: 0.95rem;
+            color: #444444;
+            margin-bottom: 32px;
+            text-align: justify;
+        }
+
+        /* --- Section: Services 禪意表格清單 --- */
+        .services {
+            padding: 140px 0;
+            border-bottom: 1px solid var(--line-color);
+        }
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 50px 0;
+            border-top: 1px solid var(--line-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: opacity 0.4s ease;
+        }
+        .service-item:last-child {
+            border-bottom: 1px solid var(--line-color);
+        }
+        @media (min-width: 768px) {
+            .service-item {
+                grid-template-columns: 80px 320px 1fr;
+                gap: 40px;
+            }
+        }
+        
+        .service-num {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-top: 4px;
+        }
+        .service-title-block h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+        .service-detail {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            text-align: justify;
+            transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.4s;
+        }
+
+        /* KEI 式優雅微動態：觸碰時其他物件變淡，自身文字產生極微小的位移與色彩沉澱 */
+        .service-list:hover .service-item {
+            opacity: 0.3;
+        }
+        .service-list .service-item:hover {
+            opacity: 1;
+        }
+        .service-item:hover .service-detail {
+            color: var(--text-color);
+            transform: translateX(8px);
+        }
+
+        /* --- Section: Philosophy 職人美學細節 --- */
+        .philosophy {
+            padding: 140px 0;
+            border-bottom: 1px solid var(--line-color);
+        }
+        .phi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+        }
+        .phi-card {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            transition: background-color 0.5s;
+            gap: 24px;
         }
-        
-        .future-item .tag {
-            font-size: 0.8rem;
-            opacity: 0.4;
-            margin-bottom: 16px;
-        }
-
-        .future-item h4 {
-            font-size: 1.1rem;
+        .phi-card h5 {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
             font-weight: 400;
         }
-
-        /* --- Section 5: 終端行動呼吁 (CTA / Footer) --- */
-        .footer {
-            padding: 160px 24px;
-            text-align: center;
-            position: relative;
+        .phi-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: justify;
+            line-height: 1.9;
         }
 
-        .footer h2 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 16px;
+        /* --- Footer: 餘韻悠長的謝幕 --- */
+        footer {
+            padding: 140px 0 80px 0;
         }
-
-        .footer p {
-            font-size: 1rem;
-            opacity: 0.6;
-            max-width: 550px;
-            margin: 0 auto 48px auto;
+        .footer-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
         }
-
-        /* 信箱聯絡按鈕：做成乾淨的代碼輸入框風格 */
-        .cta-button {
-            display: inline-block;
+        @media (min-width: 768px) {
+            .footer-wrap { grid-template-columns: 1fr 1fr; }
+        }
+        .footer-left h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .footer-left p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 400px;
+        }
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+        @media (min-width: 768px) {
+            .footer-right { align-items: flex-end; }
+        }
+        
+        /* 溫潤的信箱連結動態 */
+        .mail-link {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             color: var(--text-color);
             text-decoration: none;
-            font-size: 1.1rem;
-            border: 1px solid var(--text-color);
-            padding: 14px 32px;
-            border-radius: 4px;
-            background: transparent;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-bottom: 1px solid var(--text-color);
+            padding-bottom: 4px;
+            transition: all 0.4s ease;
+        }
+        .mail-link:hover {
+            opacity: 0.5;
+            padding-right: 12px;
         }
 
-        .cta-button:hover {
-            background: var(--text-color);
-            color: var(--bg-color);
-            transform: scale(1.02);
-        }
-
-        /* 彩蛋技術按鈕 */
-        .egg-btn {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
+        .footer-bottom {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--line-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 0.75rem;
-            background: none;
-            border: none;
-            color: var(--text-color);
-            opacity: 0.2;
-            cursor: pointer;
-            transition: opacity 0.3s;
+            color: var(--text-muted);
         }
-        .egg-btn:hover { opacity: 0.7; }
-
-        /* 下落核心碼效應 */
-        .confetti {
-            position: fixed;
-            top: -20px;
-            font-size: 0.7rem;
-            z-index: 999;
-            pointer-events: none;
-            animation: fall linear forwards;
-        }
-        @keyframes fall {
-            to {
-                transform: translateY(105vh) rotate(15deg);
-                opacity: 0;
-            }
-        }
-
-        /* --- 終端機深色模式（當滾動到代碼託管時觸發） --- */
-        body.dark-mode {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-            background-image: 
-                linear-gradient(to right, var(--dark-grid) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--dark-grid) 1px, transparent 1px);
-        }
-        body.dark-mode .hero-tag { color: #81A1C1; border-color: var(--dark-grid); }
-        body.dark-mode .origin,
-        body.dark-mode .services-container,
-        body.dark-mode .service-card,
-        body.dark-mode .service-visual,
-        body.dark-mode .future,
-        body.dark-mode .future-grid,
-        body.dark-mode .line,
-        body.dark-mode .services-header,
-        body.dark-mode .line-divider { border-color: var(--dark-grid) !important; }
-        body.dark-mode .future-grid { background: var(--dark-grid); }
-        body.dark-mode .future-item { background: var(--dark-bg); }
-        body.dark-mode .cta-button { border-color: var(--dark-text); color: var(--dark-text); }
-        body.dark-mode .cta-button:hover { background: var(--dark-text); color: var(--dark-bg); }
-        body.dark-mode .egg-btn { color: var(--dark-text); }
-        body.dark-mode .service-card:hover .code-box { box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-color: var(--dark-text); }
-        body.dark-mode .service-card:hover .bar { background: var(--dark-text); }
-        body.dark-mode .service-card:hover .rwd-box { border-color: var(--dark-text); }
     </style>
 </head>
-<body class="grid-canvas">
+<body>
 
-    <section class="hero">
-        <div class="hero-tag mono">&lt;KOTO-STUDIO /&gt;</div>
-        <h1>大世界很複雜，我們回小事裡見。</h1>
-        <p>在過載的資訊洪流與冰冷代碼之間，KOTO studio 用極致的邏輯與偏執的匠心，為你的品牌理出專屬的數位留白與秩序。</p>
-    </section>
-
-    <section class="origin">
-        <div class="section-index mono">// 01 . THE ORIGIN</div>
-        <h2>解構複雜，沉澱簡單。</h2>
-        <p>我們最初想用的名字是 <strong>Piece of cake</strong>。我們始終相信，那些在你眼裡翻山越嶺的繁雜網路技術，到我們這裡，都能成為輕而易舉的小事。</p>
-        <p>但後來，我們更喜歡「小事製作（KOTO studio）」。</p>
-        <p>因為在軟體的世界裡，簡單的背後，從來都不是真的容易。網路的雜訊太吵、模板太過飽和。當你想在網路上建立一個家，應對的卻常是冰冷的規格、凌亂的動線與看不懂的代碼。</p>
-        <p>我們想當那個為你解構繁雜的人。在你看不到的後台，傾注工程師最偏執的精準度；在你看得到的前台，留下清爽、流暢、呼吸感十足的瀏覽體驗。</p>
-    </section>
-
-    <div class="services-header">
-        <div class="mono" style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 8px;">// 02 . CORE SERVICES</div>
-        <h2 style="font-size: 1.6rem; font-weight: 500;">數位產品與網頁製作</h2>
+    <div class="container">
+        <header>
+            <a href="#" class="logo">KOTO studio.</a>
+            <div class="status">
+                <div class="status-dot"></div>
+                <div>景 // Available for projects</div>
+            </div>
+        </header>
     </div>
 
-    <section class="services-container">
-        
-        <div class="service-card">
-            <div class="service-visual">
-                <div class="code-box">
-                    <div class="bar" style="width: 40%;"></div>
-                    <div style="display: flex; gap: 8px; flex: 1;">
-                        <div class="code-box" style="padding: 6px; width: 35%;"><div class="bar"></div><div class="bar" style="width: 60%;"></div></div>
-                        <div class="code-box" style="padding: 6px; flex: 1;"><div class="bar"></div><div class="bar"></div><div class="bar" style="width: 80%;"></div></div>
+    <main class="container">
+        <section class="hero">
+            <div class="hero-concept serif">
+                情報ではなく、景色として。<br>
+                <span>不是流於表面的資訊，而是值得駐足的風景。</span>
+            </div>
+            
+            <div class="hero-meta">
+                <div class="hero-brand-name">
+                    小事製作<br>
+                    <span class="en-sub">The Art of Small Things.</span>
+                </div>
+                <div class="hero-brand-desc">
+                    網路的世界太過喧囂，充斥著生硬的代碼與飽和的模板。KOTO studio（小事製作）深信，網頁不該只是冰冷的資訊容器。我們靜心端詳每個品牌獨一無二的本質，以職人的偏執將其繾綣翻譯，在屏前留下一幅幅擁有呼吸、溫度與秩序的數位風景。
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="container">
+        <section class="about">
+            <div class="section-label">
+                景について<br><span class="en-sub">About the Essence</span>
+            </div>
+            <div class="about-content">
+                <h3>「大世界很複雜，我們回小事裡見。」</h3>
+                <p>我們最初曾想以 <strong>Piece of cake</strong> 命名。那是一句充滿自信的宣言，代表著任何在您眼裡翻山越嶺的技術繁雜、棘手代碼，交到我們手上，都會被拆解成微不足道的小事。</p>
+                <p>但隨後，我們將這份自信沉澱為日文的<strong>「小事製作（KOTO studio）」</strong>。在茶道與陶藝的世界裡，器皿上的不完美或修復痕跡，被優雅地稱作「景色」，擁有一種被細細愛德與包容的感受性。</p>
+                <p>數位產品也是如此。簡單、乾淨的介面背後，往往伴隨著工程師最偏執的底層秩序。我們甘願隱形於技術之中，為您梳理混亂，將那些真正想傳遞的核心價值，化作這裡獨有的一抹數位景致。</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="services">
+            <div class="section-label" style="margin-bottom: 40px; position: relative; top: 0;">
+                視覚体験の翻訳<br><span class="en-sub">Our Focus & Craft</span>
+            </div>
+            
+            <div class="service-list">
+                
+                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
+                    <div class="service-num">01</div>
+                    <div class="service-title-block">
+                        <h4>UI / UX DESIGN</h4>
+                        <div class="en-sub">介面與動線解構</div>
                     </div>
-                </div>
-            </div>
-            <div class="service-info">
-                <span class="service-num mono">_01 / UI.UX.DESIGN</span>
-                <h3>🔍 〈釐清混亂〉客製化網頁設計</h3>
-                <p>我們不談抽象的風格，我們用邏輯幫你把散落的想法歸位。KOTO 深入剖析你的品牌 DNA，將那些零散、矛盾、理不出的想法，解構為直覺、流暢的介面與視覺動線。拒絕千篇一律的套版，讓每個走進你數位空間的人，都能一眼感知到純粹與清爽。</p>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-visual">
-                <div class="code-box" style="flex-direction: row; justify-content: center; align-items: center;">
-                    <div class="rwd-box">
-                        <div class="bar"></div><div class="bar"></div><div class="bar" style="width:50%;"></div>
+                    <div class="service-detail">
+                        傾聽並深入品牌 DNA，將繁雜、矛盾、尚未理清的想法抽絲剝繭。我們拒絕流於表面且千篇一律的套版，用極簡的視覺邏輯讓每一項資訊歸位，打造直覺而優雅的屏前動線。
                     </div>
-                </div>
-            </div>
-            <div class="service-info">
-                <span class="service-num mono">_02 / FRONT-END.DEV</span>
-                <h3>📱 〈恰到好處的閱讀〉全方位網站架設</h3>
-                <p>從一像素的間距，到一毫米的字體級距。無論你的用戶是用手機在捷運上通勤，還是深夜亮起平板閱讀，KOTO 偏執地校正每一種螢幕的 RWD 響應式排版與前端代碼。我們相信，最好的網頁技術是隱形的──不炫技、不打擾，只用最舒服的屏前距離，照顧好你每一位用戶的眼睛。</p>
-            </div>
-        </div>
+                </a>
 
-        <div class="service-card">
-            <div class="service-visual">
-                <div class="code-box" style="justify-content: space-between;">
-                    <div class="bar" style="width: 25%;"></div>
-                    <div class="bar" style="height: 20px; width: 100%; border: 1px dashed rgba(26,26,26,0.2); display: flex; align-items: center; justify-content: flex-end; padding: 4px; box-sizing: border-box;">
-                        <div style="width: 12px; height: 12px; background: var(--accent-color); border-radius: 1px;"></div>
+                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
+                    <div class="service-num">02</div>
+                    <div class="service-title-block">
+                        <h4>FRONT-END DEV</h4>
+                        <div class="en-sub">響應式網頁工藝</div>
                     </div>
-                </div>
-            </div>
-            <div class="service-info">
-                <span class="service-num mono">_03 / E-COMMERCE</span>
-                <h3>🛒 〈流暢的物件交付〉電商與功能開發</h3>
-                <p>讓購買與支持，像呼吸一樣自然。經營線上商店不需要繁複的阻礙。從購物車的點擊手感到金流、物流的無縫串接，KOTO 幫你把最容易出錯的後台與資料庫打理得毫無落差。讓客人的每一次消費，都轉化為一場流暢、乾淨的點擊體驗。</p>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-visual">
-                <div class="code-box" style="justify-content: center; align-items: center; position: relative;">
-                    <div style="width: 60%; height: 60%; border: 1px dashed rgba(26,26,26,0.15); border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-                        <div class="mono" style="font-size: 0.7rem; opacity: 0.3;">&lt;seo&gt;</div>
+                    <div class="service-detail">
+                        偏執地校正網頁在每種螢幕上的 RWD 響應式呈現。從一像素的間距到一毫米的字體級距，不盲目炫技打擾閱讀，只用最舒服的屏前距離，細心照顧好每一位造訪者的眼睛。
                     </div>
+                </a>
+
+                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
+                    <div class="service-num">03</div>
+                    <div class="service-title-block">
+                        <h4>E-COMMERCE</h4>
+                        <div class="en-sub">流暢功能與電商</div>
+                    </div>
+                    <div class="service-detail">
+                        線上商號的運作不需要繁瑣的阻礙。從購物車的點擊手感到金流、物流的無縫串接，我們細心打理好後台數據架構，讓支持者的每一次消費，都成為一場安靜而乾淨的點擊體驗。
+                    </div>
+                </a>
+
+                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
+                    <div class="service-num">04</div>
+                    <div class="service-title-block">
+                        <h4>SEO & SPEED</h4>
+                        <div class="en-sub">搜尋優化與加速</div>
+                    </div>
+                    <div class="service-detail">
+                        從網頁的最底層語意扎下根基。不盲從喧囂短暫的行銷口號，而是用最紮實的技術指標與代碼精簡，提升加載速度，讓那些正在尋找您、真正懂您價值的知音，順利與您相遇。
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="philosophy">
+            <div class="section-label" style="margin-bottom: 60px; position: relative; top: 0;">
+                職人の美質<br><span class="en-sub">The Standards</span>
+            </div>
+            
+            <div class="phi-grid">
+                <div class="phi-card">
+                    <h5>默默的夜間守護</h5>
+                    <p>把數位世界的風雨、資安隱患與雲端維護留給我們。穩定的雲端主機、定期的系統備份、防患未然的安全防護。這些枯燥卻至關重要的運作細節，全由 KOTO 替您溫柔站崗。</p>
+                </div>
+                <div class="phi-card">
+                    <h5>從代碼去向生活</h5>
+                    <p>網頁是一個容器，用來收納品牌的理想；未來的一本手帳、一盞燈、或一個空間，也是容器。KOTO studio 不做多餘的裝飾，我們只想透過隱形的網頁技術，幫生活刪除贅飾。</p>
+                </div>
+                <div class="phi-card">
+                    <h5>隱形的前端技術</h5>
+                    <p>我們堅信，最好的前端與網頁工程是隱形的。它不該為了炫耀技術而讓使用者迷失方向，而是用極致的速度、完美的流暢度，悄悄地襯托出品牌最核心的靈魂。</p>
                 </div>
             </div>
-            <div class="service-info">
-                <span class="service-num mono">_04 / OPTIMIZATION</span>
-                <h3>🧭 〈引導對的相遇〉SEO 與網路優化</h3>
-                <p>在這個資訊過載的網路荒漠裡，我們用代碼幫你撥開迷霧。我們不追求短暫、喧囂的行銷口號，而是從網頁的最底層架構開始扎下 SEO 語意根基、優化數據加載速度。用最精確的技術指標，讓那些正在尋找你、真正懂你價值的人，能順利與你相遇。</p>
-            </div>
-        </div>
+        </section>
+    </div>
 
-        <div class="service-card" id="night-service">
-            <div class="service-visual">
-                <div class="code-box mono" style="background: #1A1A1A; color: #666; font-size: 0.65rem; padding: 10px; border-color: transparent;">
-                    <span style="color: #A3BE8C;">$ ssh koto@studio_guard</span><br>
-                    <span style="color: #EBCB8B;">status: active</span><br>
-                    <span style="color: #88C0D0;">backing_up... ok</span>
+    <div class="container">
+        <footer>
+            <div class="footer-wrap">
+                <div class="footer-left">
+                    <h2>
+                        ここにしかない確かな一つの<br>
+                        景色として、デザインしていく。
+                    </h2>
+                    <p>生活千頭萬緒，網頁開發更是。搬張椅子坐下來吧，剩下的繁雜細節，交給 KOTO studio 替您打理成一幅風景。</p>
+                </div>
+                <div class="footer-right">
+                    <div class="en-sub" style="margin-bottom: 16px;">// START A LANDSCAPE</div>
+                    <a href="mailto:kotostudio.net@gmail.com" class="mail-link">
+                        kotostudio.net@gmail.com
+                    </a>
                 </div>
             </div>
-            <div class="service-info">
-                <span class="service-num mono">_05 / MAINTENANCE</span>
-                <h3>🌙 〈默默的夜間守護〉網站維護與託管</h3>
-                <p>把數位世界的風雨與資安漏洞留給我們。穩定的雲端主機、定期的系統備份、防患未然的安全防護。這些隱形、枯燥卻至關重要的運作細節，全由 KOTO 替你站崗。最複雜的代碼與硬體留給我們，今晚，換你安心地睡個好覺。</p>
+            
+            <div class="footer-bottom">
+                <div>© 2026 KOTO STUDIO. ALL RIGHTS RESERVED.</div>
+                <div class="serif" style="font-style: italic;">Piece of cake.</div>
             </div>
-        </div>
+        </footer>
+    </div>
 
-    </section>
-
-    <section class="future">
-        <div class="mono" style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 8px;">// 03 . THE FUTURE</div>
-        <h2>從一段程式碼出發，去向生活的純粹。</h2>
-        <div class="future-grid">
-            <div class="future-item">
-                <span class="tag mono">[ TYPE: CODE ]</span>
-                <h4>數位代碼</h4>
-            </div>
-            <div class="future-item">
-                <span class="tag mono">[ TYPE: OBJECT ]</span>
-                <h4>日常物件</h4>
-            </div>
-            <div class="future-item">
-                <span class="tag mono">[ TYPE: SPACE ]</span>
-                <h4>實體留白</h4>
-            </div>
-        </div>
-        <p style="font-size: 0.95rem; max-width: 650px; margin: 0 auto; opacity: 0.7;">網頁是一個容器，用來收納你的品牌理想；未來的一本手帳、一盞燈、或一個空間，也是容器，用來收納生活。KOTO studio 不做多餘的裝飾。我們只想透過技術與「小事製作」，幫生活刪除贅飾、留下純粹。</p>
-    </section>
-
-    <footer class="footer">
-        <h2 class="mono">&lt; CONTACT_US &gt;</h2>
-        <p>
-            生活千頭萬緒，網頁開發更是。<br>
-            搬張椅子坐下來吧，剩下的繁雜細節，交給 KOTO studio 替你打理。
-        </p>
-        <a href="mailto:kotostudio.net@gmail.com" class="cta-button mono">
-            kotostudio.net@gmail.com
-        </a>
-        
-        <button class="egg-btn mono" onclick="dropCode()">[ Execute: Piece of cake. ]</button>
-    </footer>
-
-    <script>
-        // 互動 1：當滾動到第五個服務（夜間維護）時，網頁自動切換至「後台終端機」深色模式
-        const nightService = document.getElementById('night-service');
-        window.addEventListener('scroll', () => {
-            const rect = nightService.getBoundingClientRect();
-            if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        });
-
-        // 互動 2：點擊右下角彩蛋，從天而降的不是花草，而是工程師專屬的「0」與「1」程式碼瀑布
-        function dropCode() {
-            const binArray = ['0', '1', '</div>', '{ }', ';', 'const', '=>'];
-            for (let i = 0; i < 40; i++) {
-                setTimeout(() => {
-                    const codeSnippet = document.createElement('div');
-                    codeSnippet.classList.add('confetti', 'mono');
-                    codeSnippet.innerText = binArray[Math.floor(Math.random() * binArray.length)];
-                    codeSnippet.style.left = Math.random() * 100 + 'vw';
-                    codeSnippet.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
-                    codeSnippet.style.opacity = Math.random() * 0.5 + 0.2;
-                    codeSnippet.style.color = document.body.classList.contains('dark-mode') ? '#A3BE8C' : '#004B49';
-                    
-                    document.body.appendChild(codeSnippet);
-                    
-                    setTimeout(() => { codeSnippet.remove(); }, 3000);
-                }, i * 40);
-            }
-        }
-    </script>
 </body>
 </html>
