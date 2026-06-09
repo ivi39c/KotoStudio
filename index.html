@@ -3,36 +3,729 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOTO studio ｜ 小事製作</title>
-    <link rel="stylesheet" href="style.css">
+    <title>KOTO studio | 小事製作</title>
+    <style>
+        /* ==========================================================================
+           一、 全站全域視覺與排版規範 (Global Design Tokens)
+           ========================================================================== */
+        :root {
+            --bg-oatmeal: #F9F6F0;      /* 溫潤燕麥白 */
+            --bg-white: #FFFFFF;        /* 純淨區塊色 */
+            --text-dark: #1A1A1A;       /* 深邃碳黑 */
+            --text-muted: #555555;      /* 內文深灰 */
+            --line-gray: #D1D1D1;       /* 晨霧灰 */
+            --color-moss: #4A5D4E;      /* 主點綴色：苔蘚綠 */
+            --color-terracotta: #D4A373;/* 強調點綴色：赤陶橘 */
+            --bezier-smooth: cubic-bezier(0.25, 1, 0.5, 1); /* 專屬物理減速阻尼感 */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-oatmeal);
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            letter-spacing: 0.08em;
+            line-height: 1.25;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* 呼吸大留白（垂直視窗高度 15%） */
+        section {
+            padding: 15vh 10% 15vh 10%;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* 全站平滑貝茲轉場 */
+        .smooth-transition {
+            transition: all 0.3s var(--bezier-smooth);
+        }
+
+        /* ==========================================================================
+           二、 全站頂部導覽列規範 (Navigation Bar)
+           ========================================================================== */
+        .koto-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10%;
+            z-index: 1000;
+            background-color: transparent;
+            transition: all 0.4s var(--bezier-smooth);
+        }
+
+        /* 滾動超過 50px 觸發高奢 iOS 磨砂玻璃濾鏡 */
+        .koto-nav.scrolled {
+            padding: 15px 10%;
+            background-color: rgba(249, 246, 240, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 40px;
+            font-weight: 400;
+        }
+
+        /* ==========================================================================
+           三、 逐區塊（Section）樣式設計
+           ========================================================================== */
+        
+        /* Section 1: 品牌開場 */
+        #section1 {
+            height: 100vh;
+            background-color: var(--bg-oatmeal);
+        }
+        #section1 h1 { font-size: 42px; margin-bottom: 20px; opacity: 0; transform: translateY(10px); animation: fadeInIntro 0.8s var(--bezier-smooth) forwards; }
+        #section1 h3 { font-size: 24px; font-weight: 500; margin-bottom: 30px; opacity: 0; transform: translateY(10px); animation: fadeInIntro 0.8s var(--bezier-smooth) 0.2s forwards; }
+        #section1 p { font-size: 15px; max-width: 500px; opacity: 0; transform: translateY(10px); animation: fadeInIntro 0.8s var(--bezier-smooth) 0.4s forwards; }
+
+        @keyframes fadeInIntro {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section 2: 核心解構 (慢半拍聚焦美學) */
+        #section2 h2 { font-size: 32px; margin-bottom: 60px; }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .value-card {
+            background: transparent;
+            padding: 30px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .value-card h3 { font-size: 20px; margin-bottom: 15px; font-weight: 500; }
+        
+        /* 慢半拍聚焦：觸碰卡片其餘非觸碰區自動降噪 */
+        .card-container:hover .value-card:not(:hover) {
+            opacity: 0.3;
+            filter: blur(0.5px);
+        }
+        .value-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        /* Section 3: 痛點鏡像 (強邏輯對照) */
+        #section3 { background-color: var(--bg-oatmeal); }
+        #section3 h2 { font-size: 32px; margin-bottom: 50px; }
+        .mirror-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .pain-point-box {
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .pain-tag {
+            font-size: 18px;
+            color: var(--color-moss);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Section 4: 合作流程 (時光軸秩序感與無痕消散) */
+        #section4 { background-color: var(--bg-white); padding-bottom: 25vh; }
+        #section4 h2 { font-size: 32px; margin-bottom: 80px; text-align: center; }
+        .timeline-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* SVG 滾動監聽線 */
+        .timeline-svg-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--line-gray) 80%, rgba(209,209,209,0) 100%); /* 無痕消散 */
+        }
+        .timeline-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 0%; /* JS 滾動動態控制 */
+            background-color: var(--color-moss);
+            transition: height 0.1s linear;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.6s var(--bezier-smooth);
+        }
+        .timeline-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 16px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--line-gray);
+            border-radius: 50%;
+            transition: all 0.3s var(--bezier-smooth);
+        }
+        .timeline-item.active .timeline-dot {
+            background-color: var(--color-moss);
+            transform: scale(1.3);
+            box-shadow: 0 0 8px rgba(74, 93, 78, 0.4);
+        }
+        .timeline-item h3 { font-size: 22px; margin-bottom: 5px; font-weight: 500; }
+        .timeline-item h4 { font-size: 16px; color: #666666; margin-bottom: 10px; font-weight: 500; }
+
+        /* Section 5: 精選案例展示 (另開網頁跳轉) */
+        #section5 h2 { font-size: 32px; margin-bottom: 60px; }
+        .gallery-stream {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+        .portfolio-card {
+            display: flex;
+            background: transparent;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .portfolio-card:nth-child(even) { flex-direction: row-reverse; }
+        .portfolio-img-wrapper {
+            flex: 1.2;
+            height: 400px;
+            background-color: #EAE5DC;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .portfolio-img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s var(--bezier-smooth);
+        }
+        .portfolio-card:hover .portfolio-img { transform: scale(1.01); }
+        .portfolio-info {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .portfolio-info h3 { font-size: 24px; margin-bottom: 10px; }
+        .portfolio-tag {
+            display: inline-block;
+            font-size: 14px;
+            color: var(--color-moss);
+            background-color: rgba(74, 93, 78, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        /* Section 6: 頁尾與跨裝置心流表單 */
+        #section6 { background-color: var(--bg-oatmeal); min-height: 100vh; justify-content: space-between; }
+        .footer-cta h2 { font-size: 36px; margin-bottom: 40px; }
+        .flow-sentence {
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+        /* 可點擊微互動選項 */
+        .interactive-trigger {
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--color-moss);
+            cursor: pointer;
+            padding: 0 4px;
+            position: relative;
+            display: inline-block;
+        }
+        .input-underline {
+            font-size: 26px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--text-dark);
+            outline: none;
+            color: var(--text-dark);
+            width: 250px;
+            padding: 0 5px;
+        }
+        .input-underline::placeholder { color: #A0A0A0; font-size: 24px; }
+        
+        /* 發送按鈕（赤陶橘強調色） */
+        .btn-submit {
+            background-color: var(--color-terracotta);
+            color: var(--bg-white);
+            border: none;
+            padding: 8px 24px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(212, 163, 115, 0.2);
+            margin-left: 15px;
+        }
+        .btn-submit:hover { filter: brightness(1.05); }
+
+        /* 桌機端彈出式微縮選單 */
+        .desktop-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 6px;
+            z-index: 10;
+            min-width: 200px;
+            padding: 10px 0;
+        }
+        .desktop-dropdown div {
+            font-size: 14px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .desktop-dropdown div:hover {
+            background-color: var(--bg-oatmeal);
+            color: var(--text-dark);
+        }
+
+        /* 手機端 RWD BottomSheet 半版抽屜 */
+        .bottom-sheet-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.2);
+            z-index: 2000;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s var(--bezier-smooth);
+        }
+        .bottom-sheet {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: var(--bg-white);
+            border-radius: 20px 20px 0 0;
+            padding: 30px 20px;
+            z-index: 2001;
+            transform: translateY(100%);
+            transition: transform 0.3s var(--bezier-smooth);
+        }
+        .bottom-sheet-overlay.active { opacity: 1; pointer-events: auto; }
+        .bottom-sheet-overlay.active .bottom-sheet { transform: translateY(0); }
+        .bottom-sheet h3 { font-size: 18px; margin-bottom: 20px; text-align: center; color: var(--text-muted); }
+        .bottom-sheet-option {
+            padding: 16px; text-align: center; font-size: 16px; border-bottom: 1px solid #F0F0F0;
+            cursor: pointer;
+        }
+
+        /* 成功反饋樣式 */
+        .success-msg {
+            font-size: 18px; color: var(--color-moss); display: none;
+            animation: fadeInIntro 0.4s var(--bezier-smooth) forwards;
+        }
+
+        /* Footer 商務底欄 */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-top: 40px;
+            border-top: 1px solid var(--line-gray);
+        }
+        .social-links a {
+            font-size: 12px; color: var(--line-gray); text-decoration: none; margin-right: 20px;
+        }
+        .social-links a:hover { color: var(--text-dark); }
+        .copyright { font-size: 12px; color: var(--line-gray); }
+        
+        /* 右下角彩蛋宣告 */
+        .easter-egg {
+            font-size: 11px; color: #B0B0B0; cursor: pointer; user-select: none; margin-left: 10px;
+        }
+
+        /* 數位落花畫布 */
+        #confetti-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999;
+        }
+
+        /* ==========================================================================
+           四、 RWD 響應式斷點優化
+           ========================================================================== */
+        @media (max-width: 968px) {
+            .card-container, .mirror-grid { grid-template-columns: 1fr; gap: 30px; }
+            .portfolio-card { flex-direction: column !important; }
+            .portfolio-img-wrapper { height: 250px; }
+            .flow-sentence { font-size: 20px; }
+            .input-underline { font-size: 20px; width: 180px; }
+            #section1 h1 { font-size: 32px; }
+            #section1 h3 { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 
-    <section class="hero-container">
-        <div class="hero-content">
-            
-            <h1 class="hero-quote">「我們用冰冷的程式碼，搭建最溫暖的器皿。」</h1>
-            
-            <div class="koto-morph-wrapper">
-                <div class="koto-dot-to-line" id="morphElement"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <nav class="koto-nav smooth-transition" id="navbar">
+        <div class="nav-logo" onclick="window.scrollTo(0,0)">KOTO studio</div>
+        <div class="nav-links">
+            <a href="#section5" class="smooth-transition">Selected Work</a>
+            <a href="#section4" class="smooth-transition">Our Process</a>
+            <a href="#section6" class="smooth-transition">Contact</a>
+        </div>
+    </nav>
+
+    <section id="section1">
+        <h1>致 那些被世界放大的日子</h1>
+        <h3>大世界很複雜，我們回小事裡見。</h3>
+        <p>現代人的生活與數位世界都太過飽和。當你想建立一個屬於自己的數位家園時，迎面而來的卻是繁雜的代碼與臃腫的框架。在這裡，我們退回原點，細心雕琢每一件核心小事。</p>
+    </section>
+
+    <section id="section2">
+        <h2>小事製作的偏執維度</h2>
+        <div class="card-container">
+            <div class="value-card smooth-transition">
+                <h3>01 顯微鏡視角的「解構力」</h3>
+                <p>別人看到的是「大山」，我們看到的是「沙礫」。客戶丟過來的複雜需求，在 KOTO 會被拆解成有條不紊的執行步驟。</p>
             </div>
-            
-            <p class="hero-subtitle">KOTO studio ｜ 大世界很複雜，我們回小事裡見。</p>
-            
+            <div class="value-card smooth-transition">
+                <h3>02 偏執狂般的「代碼打磨」</h3>
+                <p>拋棄臃腫的套版，精準掌控每一行標籤與純淨代碼，追求 100% 印刷級別的抗鋸齒排版與絲滑掌控體驗。</p>
+            </div>
+            <div class="value-card smooth-transition">
+                <h3>03 容器般的「數位留白」</h3>
+                <p>克制不等於空洞，留白是為了給使用者的心流騰出空間。打造最乾淨、最不干擾感官的高級數位容器。</p>
+            </div>
         </div>
     </section>
 
-    <section class="story-section" id="storySection">
-        <div class="story-wrapper">
-            <h2 class="story-title">致 那些被世界放大的日子</h2>
-            <div class="story-body">
-                <p>在這個人人都想做大、做強的數位時代，敢於直言自己專注「小事」的工作室，反而擁有一種高級的鬆弛感與自信。我們跳脫純技術公司的生硬框架，不聊被用爛的「生活美學」，而是聚焦於<strong>「數位的梳理者、日常的道具與容器」</strong>，打造如 MUJI（無印良品）般克制、乾淨、頭腦極度清晰的職人語感。</p>
-                <p>現代人的生活與數位世界都太過飽和——複雜的資訊、繁瑣的系統、過載的感官、千頭萬緒的待辦清單。當你想建立一個屬於自己的數位家園（網站）時，迎面而來的卻是密密麻麻的程式碼與生硬的規格術語。</p>
-                <p><em>「難道，就不能簡單一點嗎？」</em></p>
+    <section id="section3">
+        <h2>你是否也苦於數位世界的喧嚣與繁贅？</h2>
+        <div class="mirror-grid">
+            <div class="pain-point-box">
+                <div class="pain-tag">資訊太混亂 / 系統太臃腫</div>
+                <p>許多大型專案塞滿了華而不實的插件，打開網頁需要漫長等待，後台功能凌亂不堪，找不到核心要件。</p>
+            </div>
+            <div class="pain-point-box">
+                <div class="pain-tag">KOTO 職人手工解法</div>
+                <p>手工鍛造的純淨代碼，能為你擋掉 70% 的感官過載。以 SaaS 精準強邏輯，取代市面上盲目的跟風堆砌。</p>
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <section id="section4">
+        <h2>與我們前行的軌跡</h2>
+        <div class="timeline-wrapper">
+            <div class="timeline-svg-line">
+                <div class="timeline-progress" id="timelineProgress"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>[ 01 ｜ 需求解構與範疇定義 ]</h3>
+                <h4>精準釐清需求、梳理核心邏輯</h4>
+                <p>搬張椅子，我們先退回你的品牌初衷裡聊聊。我們不急著談技術，而是要把千頭萬緒的想法梳理乾淨。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>[ 02 ｜ 品牌靈魂敘事打磨 ]</h3>
+                <h4>文字骨肉塑形、故事定調</h4>
+                <p>由文案師將工作室定位與市場特質結合，撰寫出富有詩意且邏輯清晰的網頁核心敘事文案。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>[ 03 ｜ 心流・職人介面設計 ]</h3>
+                <h4>無邊框微陰影美學、打造容器</h4>
+                <p>不盲從公版，打造專屬高級留白與無割線的視覺平衡，在 Figma 中一像素一像素精準對齊。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>[ 04 ｜ 純手寫乾淨代碼開發 ]</h3>
+                <h4>SaaS級絲滑動態、工程落地</h4>
+                <p>由工程師逐行手工鍛造代碼，全面進行印刷級抗鋸齒優化與貝茲阻尼曲線設定，使網站如絲般順暢。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section5">
+        <h2>被隆重對待的作品</h2>
+        <div class="gallery-stream">
+            <a href="https://example.com/project1" target="_blank" class="portfolio-card smooth-transition">
+                <div class="portfolio-img-wrapper">
+                    <div class="portfolio-img" style="background-color: #D4CDBC; width:100%; height:100%;"></div>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-tag smooth-transition">客製化 UI/UX ✕ WordPress 手工代碼</div>
+                    <h3>[ 01 ｜ 某品牌線上美學館 ]</h3>
+                    <p>挑戰：超過 500 種工藝物件的展示。解法：拋棄套版，逐行手工鍛造乾淨容器，點擊流暢另開外連。</p>
+                </div>
+            </a>
+            
+            <a href="https://example.com/project2" target="_blank" class="portfolio-card smooth-transition">
+                <div class="portfolio-img-wrapper">
+                    <div class="portfolio-img" style="background-color: #C6C0B0; width:100%; height:100%;"></div>
+                </div>
+                <div class="portfolio-info">
+                    <div class="portfolio-tag smooth-transition">SaaS 高階架構 ✕ 極簡心流美學</div>
+                    <h3>[ 02 ｜ 國際永續建築事務所 ]</h3>
+                    <p>將繁複的工程圖紙與龐大資訊，過濾成極具空氣感的留白美學空間，打造絕對放鬆的瀏覽掌控感。</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="section6">
+        <div class="footer-cta">
+            <h2>大世界很複雜，我們回小事裡見。</h2>
+            
+            <form id="kotoContactForm" onsubmit="handleFormSubmit(event)">
+                <div class="flow-sentence">
+                    你好，我們是 KOTO studio。我想為我的 
+                    <span class="interactive-trigger" id="triggerType" onclick="openSelector('type')">
+                        [ 品牌公司 ]
+                        <span class="desktop-dropdown" id="dropType">
+                            <div onclick="selectOption('type', '品牌公司')">品牌公司</div>
+                            <div onclick="selectOption('type', '個人工作室')">個人工作室</div>
+                            <div onclick="selectOption('type', '藝術展演專案')">藝術展演專案</div>
+                        </span>
+                    </span> 
+                    打造一個 
+                    <span class="interactive-trigger" id="triggerProduct" onclick="openSelector('product')">
+                        [ 從零開始的形象網站 ]
+                        <span class="desktop-dropdown" id="dropProduct">
+                            <div onclick="selectOption('product', '從零開始的形象網站')">從零開始的形象網站</div>
+                            <div onclick="selectOption('product', '高階SaaS軟體介面')">高階 SaaS 軟體介面</div>
+                            <div onclick="selectOption('product', '輕量化單頁敘事官網')">輕量化單頁敘事官網</div>
+                        </span>
+                    </span>。
+                    你可以透過 
+                    <input type="email" required class="input-underline" placeholder="留下你的電子信箱"> 
+                    與我聯繫。
+                    <button type="submit" class="btn-submit smooth-transition">發送 ⟶</button>
+                </div>
+            </form>
+            <div class="success-msg" id="successMessage">謝謝你，我們已收到你的想法。請搬張椅子稍坐，我們很快會回信給你。</div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="#" class="smooth-transition">Threads</a>
+                <a href="#" class="smooth-transition">Instagram</a>
+                <a href="#" class="smooth-transition">GitHub</a>
+                <a href="#" class="smooth-transition">LinkedIn</a>
+            </div>
+            <div class="copyright">
+                © 2026 KOTO studio. All Rights Reserved. 
+                <span class="easter-egg" onclick="triggerEasterEgg(event)">Piece of cake.</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="bottom-sheet-overlay" id="mobileBottomSheet" onclick="closeMobileSheet()">
+        <div class="bottom-sheet" onclick="event.stopPropagation()">
+            <h3 id="sheetTitle">請選擇項目</h3>
+            <div id="sheetOptionsContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. 監聽滾動：導覽列磨砂玻璃效果 + 時光軸灰線延伸
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // 時光軸滾動進度控制
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            let activeCount = 0;
+            
+            timelineItems.forEach((item, index) => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.75) {
+                    item.classList.add('active');
+                    activeCount = index + 1;
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            const progressPercentage = (activeCount / timelineItems.length) * 100;
+            document.getElementById('timelineProgress').style.height = `${progressPercentage}%`;
+        });
+
+        // 2. 引導式對話表單選擇邏輯 (自動判斷行動端/桌機端)
+        let activeField = '';
+        const optionsData = {
+            type: ['品牌公司', '個人工作室', '藝術展演專案'],
+            product: ['從零開始的形象網站', '高階SaaS軟體介面', '輕量化單頁敘事官網']
+        };
+
+        function openSelector(field) {
+            event.stopPropagation();
+            activeField = field;
+            
+            if (window.innerWidth < 768) {
+                // 手機端：喚起 BottomSheet
+                document.getElementById('sheetTitle').innerText = field === 'type' ? '選擇主體類別' : '選擇需求項目';
+                const container = document.getElementById('sheetOptionsContainer');
+                container.innerHTML = '';
+                
+                optionsData[field].forEach(opt => {
+                    const div = document.createElement('div');
+                    div.className = 'bottom-sheet-option';
+                    div.innerText = opt;
+                    div.onclick = () => { selectOption(field, opt); closeMobileSheet(); };
+                    container.appendChild(div);
+                });
+                document.getElementById('mobileBottomSheet').classList.add('active');
+            } else {
+                // 桌機端：關閉其他選單，顯示當前選單
+                closeAllDropdowns();
+                const dropId = field === 'type' ? 'dropType' : 'dropProduct';
+                document.getElementById(dropId).style.display = 'block';
+            }
+        }
+
+        function selectOption(field, value) {
+            const triggerId = field === 'type' ? 'triggerType' : 'triggerProduct';
+            // 保留下拉選單結構前提下更改文本
+            const triggerEl = document.getElementById(triggerId);
+            triggerEl.firstChild.textContent = ` [ ${value} ] `;
+            closeAllDropdowns();
+        }
+
+        function closeAllDropdowns() {
+            document.getElementById('dropType').style.display = 'none';
+            document.getElementById('dropProduct').style.display = 'none';
+        }
+
+        function closeMobileSheet() {
+            document.getElementById('mobileBottomSheet').classList.remove('active');
+        }
+
+        // 點擊任意空白處關閉桌機下拉選單
+        document.addEventListener('click', closeAllDropdowns);
+
+        // 3. 表單送出平滑淡出反饋
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('kotoContactForm');
+            form.style.transition = 'opacity 0.2s linear';
+            form.style.opacity = '0';
+            setTimeout(() => {
+                form.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }, 200);
+        }
+
+        // 4. 右下角隱藏彩蛋：Piece of cake. 數位落花特效 (Canvas)
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let confettis = [];
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function triggerEasterEgg(e) {
+            e.stopPropagation();
+            // 在滑鼠附近噴發 30 個晨霧小碎花
+            for (let i = 0; i < 35; i++) {
+                confettis.push({
+                    x: mouseX + (Math.random() - 0.5) * 20,
+                    y: mouseY + (Math.random() - 0.5) * 20,
+                    size: Math.random() * 4 + 2,
+                    color: i % 2 === 0 ? '#D1D1D1' : '#E4E4E4', // 晨霧灰色系
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: Math.random() * 3 + 1,
+                    alpha: 1
+                });
+            }
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = confettis.length - 1; i >= 0; i--) {
+                let p = confettis[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.015; // 1秒左右完全淡出
+                
+                ctx.save();
+                ctx.globalAlpha = p.alpha;
+                ctx.fillStyle = p.color;
+                ctx.fillRect(p.x, p.y, p.size, p.size);
+                ctx.restore();
+
+                if (p.alpha <= 0) {
+                    confettis.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animateConfetti);
+        }
+        animateConfetti();
+    </script>
 </body>
 </html>
