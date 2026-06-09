@@ -3,300 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOTO studio | 小事製作 — 讓複雜落地，讓小事發光</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+TC:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            /* 借鑒 Hipp 的柔和美學，但融入東方溫潤 */
-            --bg-start: #FBFBFA;       /* 溫潤和紙白 */
-            --bg-end: #F4F2EA;         /* 沉澱淺茶色 */
-            --text-main: #1D1D1F;      /* 現代高級深灰（仿 Apple/Hipp 質感） */
-            --text-sub: #6E6E73;       /* 優雅次要灰 */
-            --card-bg: rgba(255, 255, 255, 0.75); /* 霧面半透明卡片 */
-            --card-shadow: rgba(142, 141, 136, 0.08);
-            --accent-glow: rgba(224, 220, 208, 0.4);
-            
-            --font-sans: 'Noto Sans TC', -apple-system, sans-serif;
-            --font-serif: 'Shippori Mincho', 'Cormorant Garamond', serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            /* Hipp 式的大面積柔和漸層背景 */
-            background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            line-height: 1.7;
-            letter-spacing: 0.05em;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        @media (max-width: 768px) { .container { padding: 0 24px; } }
-
-        /* --- Hipp 式優雅懸浮 Navbar --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100px;
-        }
-        header .logo {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-        }
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-        .nav-links a {
-            color: var(--text-sub);
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--text-main); }
-        
-        .btn-demo {
-            background-color: var(--text-main);
-            color: #ffffff;
-            padding: 10px 24px;
-            border-radius: 30px; /* Hipp 風格的圓角膠囊按鈕 */
-            font-size: 0.85rem;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        .btn-demo:hover {
-            transform: scale(1.02);
-            opacity: 0.9;
-        }
-
-        /* --- Hero Section: 大字重、高留白、掌控感開場 --- */
-        .hero {
-            padding: 100px 0 140px 0;
-            text-align: center;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(230, 227, 218, 0.5);
-            color: var(--text-sub);
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 6px 16px;
-            border-radius: 20px;
-            margin-bottom: 32px;
-            letter-spacing: 0.08em;
-            backdrop-filter: blur(4px);
-        }
-        .hero h1 {
-            font-family: var(--font-sans);
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            font-weight: 500;
-            line-height: 1.35;
-            max-width: 950px;
-            margin: 0 auto 32px auto;
-            color: var(--text-main);
-        }
-        .hero h1 span {
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            display: block;
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            color: var(--text-sub);
-            margin-top: 12px;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-sub);
-            max-width: 680px;
-            margin: 0 auto 48px auto;
-            line-height: 1.8;
-        }
-
-        /* --- Feature Section: Hipp 核心圓角無邊框卡片排版 --- */
-        .features {
-            padding: 40px 0 100px 0;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-        .section-title h2 {
-            font-size: 2rem;
-            font-weight: 500;
-        }
-        .section-title p {
-            color: var(--text-sub);
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
-
-        .grid-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
-        }
-        @media (min-width: 768px) {
-            .grid-cards { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        /* 卡片設計：極致柔和、無粗糙邊框、自帶環境光暈 */
-        .card {
-            background: var(--card-bg);
-            padding: 48px 40px;
-            border-radius: 24px; /* Hipp 風格的大圓角 */
-            box-shadow: 0 10px 30px var(--card-shadow);
-            backdrop-filter: blur(20px); /* 輕微毛玻璃質感 */
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 絲滑的貝茲曲線動態 */
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        
-        /* 滑鼠移入時：優雅上浮，擴散出溫潤的環境光 */
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px var(--accent-glow);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            background: #ffffff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        .card h3 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--text-main);
-        }
-        .card p {
-            font-size: 0.92rem;
-            color: var(--text-sub);
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        /* --- Footer Zone --- */
-        footer {
-            padding: 100px 0 60px 0;
-            border-top: 1px solid rgba(29, 29, 31, 0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-            text-align: center;
-        }
-        footer .brand {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            color: var(--text-main);
-        }
-        footer .copy {
-            font-size: 0.8rem;
-            color: var(--text-sub);
-        }
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            font-size: 0.8rem;
-            color: var(--text-sub);
-        }
-        .footer-links a:hover { color: var(--text-main); }
-    </style>
+    <title>KOTO studio ｜ 小事製作</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="logo">KOTO studio.</div>
-            <nav class="nav-links">
-                <a href="#features">核心價值</a>
-                <a href="mailto:kotostudio.net@gmail.com" class="btn-demo">聯絡我們</a>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <div class="badge">Your Digital Landscape on Autopilot</div>
-            <h1>
-                大世界很複雜，<br>我們回小事裡見。
-                <span>讓複雜落地，讓小事發光。</span>
-            </h1>
-            <p>
-                網路的世界充斥著冗贅的訊息與繁雜的代碼。KOTO studio（小事製作）將科技的冷冽轉化為職人的安定秩序，幫您打理最純粹、流暢且具有呼吸感的屏前風景。
-            </p>
-            <a href="mailto:kotostudio.net@gmail.com" class="btn-demo" style="padding: 14px 36px; font-size: 0.95rem;">開始打理品牌場景</a>
-        </section>
-
-        <section class="features" id="features">
-            <div class="section-title">
-                <h2>從小事出發的數位工藝</h2>
-                <p>我們隱形於技術背後，專注將每一件微小的事情做到極致。</p>
+    <section class="hero-container">
+        <div class="hero-content">
+            
+            <h1 class="hero-quote">「我們用冰冷的程式碼，搭建最溫暖的器皿。」</h1>
+            
+            <div class="koto-morph-wrapper">
+                <div class="koto-dot-to-line" id="morphElement"></div>
             </div>
+            
+            <p class="hero-subtitle">KOTO studio ｜ 大世界很複雜，我們回小事裡見。</p>
+            
+        </div>
+    </section>
 
-            <div class="grid-cards">
-                <div class="card">
-                    <div class="card-icon">🔍</div>
-                    <h3>顯微鏡視角的「解構力」</h3>
-                    <p>
-                        別人看到的是龐雜的「大山」，我們看到的是有序的「沙礫」。客戶丟過來的複雜需求，在我們這裡都會被抽絲剝繭，拆解成有條不紊的精準執行步驟。
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">📐</div>
-                    <h3>強迫症級別的「細節控」</h3>
-                    <p>
-                        偏執地校正網頁在每種螢幕上的呈現。從一像素的間距到一毫米的字體級距，不盲目炫技打擾閱讀，只用最溫潤的屏前距離，照顧好每一位造訪者的眼睛。
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">🪐</div>
-                    <h3>守護終點的「落實力」</h3>
-                    <p>
-                        打理好流暢的金物流，並從網頁最底層語意扎下根基，優化 SEO 與速度。讓那些正在尋找您、真正懂您價值的知音，順利在最舒服的景色中與您相遇。
-                    </p>
-                </div>
+    <section class="story-section" id="storySection">
+        <div class="story-wrapper">
+            <h2 class="story-title">致 那些被世界放大的日子</h2>
+            <div class="story-body">
+                <p>在這個人人都想做大、做強的數位時代，敢於直言自己專注「小事」的工作室，反而擁有一種高級的鬆弛感與自信。我們跳脫純技術公司的生硬框架，不聊被用爛的「生活美學」，而是聚焦於<strong>「數位的梳理者、日常的道具與容器」</strong>，打造如 MUJI（無印良品）般克制、乾淨、頭腦極度清晰的職人語感。</p>
+                <p>現代人的生活與數位世界都太過飽和——複雜的資訊、繁瑣的系統、過載的感官、千頭萬緒的待辦清單。當你想建立一個屬於自己的數位家園（網站）時，迎面而來的卻是密密麻麻的程式碼與生硬的規格術語。</p>
+                <p><em>「難道，就不能簡單一點嗎？」</em></p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <div class="brand">KOTO studio / 小事製作</div>
-            <div class="footer-links">
-                <a href="#">INSTAGRAM</a>
-                <a href="#">LINKEDIN</a>
-            </div>
-            <div class="copy">© 2026 KOTO STUDIO. All rights reserved. <span style="font-family: var(--font-serif); font-style: italic; margin-left: 6px;">Piece of cake.</span></div>
-        </footer>
-    </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
