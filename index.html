@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOTO Studio 小事創意 - 數位創意工作室</title>
-    <!-- 引入高質感國際感英文字型及黑體 -->
+    <title>KOTO Studio 小事創意 — Digital Creative Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Noto+Sans+TC:wght@300;500;900&display=swap" rel="stylesheet">
+    <!-- 引入極致現代感的幾何無襯線字體與高端黑體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+TC:wght@200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- KOTO.COM 樂觀主義與大膽網格 核心樣式 --- */
         :root {
-            --bg-primary: #ffffff;
-            --bg-dark: #000000;
-            --accent: #fff200; /* Koto 標誌性高飽和亮黃 */
-            --text-dark: #000000;
-            --text-light: #ffffff;
-            --text-muted: #666666;
-            --text-muted-light: #a0a0a0;
-            --grid-border: #111111;
+            --bg-canvas: #F4F3EF;       /* 高級燕麥冷米色，頂級畫廊質感 */
+            --bg-dark: #111111;         /* 內斂深碳黑，非純黑 */
+            --text-dark: #111111;
+            --text-light: #F4F3EF;
+            --text-muted: #7A7A75;      /* 帶有微暖調的灰色 */
+            --border-color: rgba(17, 17, 17, 0.08); /* 超細優雅線條 */
+            --border-light: rgba(244, 243, 239, 0.15);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* 高級感標配的緩動特效 */
         }
 
         * {
@@ -29,14 +28,15 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-primary);
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-canvas);
             color: var(--text-dark);
             overflow-x: hidden;
-            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.02em;
         }
 
-        /* 導覽列 */
+        /* 頂級質感的微光模糊導覽列 */
         nav {
             position: fixed;
             top: 0;
@@ -44,215 +44,241 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 4%;
+            padding: 1.8rem 4%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #eeeeee;
+            background: rgba(244, 243, 239, 0.75);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
             color: var(--text-dark);
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-left: 2rem;
-            transition: opacity 0.2s;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-left: 2.5rem;
+            transition: var(--transition-smooth);
+            opacity: 0.8;
         }
         
         .nav-links a:hover {
-            opacity: 0.6;
+            opacity: 0.4;
         }
 
-        /* HERO AREA - 巨大的大膽標題與強烈對比 */
+        /* HERO SECTION：頂級大廠的呼吸感與極大化留白 */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 10rem 4% 4rem 4%;
-            background-color: var(--bg-primary);
+            justify-content: space-between;
+            padding: 12rem 4% 4rem 4%;
         }
 
         .hero-tag {
-            font-size: 1rem;
-            font-weight: 800;
+            font-size: 0.75rem;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 6.5rem);
-            font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 2.5rem;
+            font-size: clamp(2.2rem, 5.5vw, 5rem);
+            font-weight: 200; /* 輕量化字重，散發前衛奢華感 */
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            max-width: 1400px;
         }
 
-        .hero h1 span {
-            display: block;
+        .hero h1 strong {
+            font-weight: 500;
         }
 
         .hero-footer {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: auto;
-            border-top: 2px solid var(--text-dark);
-            padding-top: 2rem;
+            gap: 4rem;
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 3rem;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             .hero-footer {
-                grid-template-columns: 2fr 1fr;
+                grid-template-columns: 1.6fr 1fr;
             }
         }
 
         .hero-desc {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            font-weight: 500;
-            line-height: 1.4;
+            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            font-weight: 300;
+            line-height: 1.6;
             color: var(--text-dark);
+            text-align: justify;
         }
 
-        /* 滿版雙欄大膽網格佈局 */
+        .hero-quote {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-muted);
+            border-left: 2px solid var(--text-dark);
+            padding-left: 1.5rem;
+        }
+
+        /* 高級線性網格佈局 */
         .koto-grid-section {
             display: grid;
             grid-template-columns: 1fr;
-            border-top: 1px solid var(--grid-border);
+            border-top: 1px solid var(--border-color);
+            background-color: #ffffff; /* 切換到純白純淨背景 */
         }
 
-        @media (min-width: 992px) {
+        @media (min-width: 768px) {
             .koto-grid-section {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         .grid-block {
-            padding: 5rem 6%;
+            padding: 6rem 8%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-bottom: 1px solid var(--grid-border);
+            min-height: 420px;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
         }
 
-        @media (min-width: 992px) {
+        @media (min-width: 768px) {
             .grid-block:nth-child(odd) {
-                border-right: 1px solid var(--grid-border);
+                border-right: 1px solid var(--border-color);
             }
         }
 
-        /* 各別方塊的主題顏色賦予 - 複製 Koto 拼貼感 */
-        .bg-black {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+        /* 懸停時的細緻微動，高級感在於不著痕跡 */
+        .grid-block:hover {
+            background-color: var(--bg-canvas);
         }
 
-        .bg-yellow {
-            background-color: var(--accent);
-            color: var(--text-dark);
-        }
-
-        .bg-white {
-            background-color: var(--bg-primary);
-            color: var(--text-dark);
-        }
-
-        .block-num {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 4rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        .block-meta {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
         }
 
         .grid-block h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            margin-bottom: 2rem;
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
         }
 
         .grid-block p {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.7;
+            color: #4a4a45;
+            text-align: justify;
         }
 
-        .bg-black p { color: #d0d0d0; }
-
-        /* 特色與架構表格區塊 */
+        /* 方案架構表格：極簡線條化 */
         .matrix-section {
-            padding: 6rem 4%;
-            background-color: #f9f9f9;
+            padding: 8rem 4%;
+            background-color: var(--bg-canvas);
         }
 
         .section-header {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .section-header .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .section-header h3 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 900;
-            letter-spacing: -1px;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
         }
 
         .matrix-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 2rem;
         }
 
         .matrix-table tr {
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .matrix-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.4);
         }
 
         .matrix-table td {
-            padding: 2.5rem 1rem;
+            padding: 3rem 1.5rem;
             vertical-align: top;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .matrix-table tr {
                 display: flex;
                 flex-direction: column;
-                padding: 1.5rem 0;
+                padding: 2rem 0;
             }
             .matrix-table td {
                 padding: 0.5rem 0;
+                width: 100% !important;
             }
         }
 
         .matrix-label {
-            font-weight: 900;
-            font-size: 1.3rem;
+            font-weight: 500;
+            font-size: 1.2rem;
             width: 25%;
         }
 
         .matrix-detail {
-            font-weight: 500;
-            font-size: 1.05rem;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #333330;
             width: 50%;
         }
 
         .matrix-target {
-            font-size: 1rem;
+            font-size: 0.9rem;
+            font-weight: 300;
             color: var(--text-muted);
             width: 25%;
+            text-align: right;
         }
 
-        /* 合作故事流程區塊 */
+        @media (max-width: 992px) {
+            .matrix-target { text-align: left; margin-top: 0.5rem; }
+        }
+
+        /* 合作流程：極簡數字對齊 */
         .process-section {
-            padding: 6rem 4%;
+            padding: 8rem 4%;
             background-color: var(--bg-dark);
             color: var(--text-light);
         }
@@ -260,8 +286,7 @@
         .process-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem;
-            margin-top: 4rem;
+            gap: 4rem;
         }
 
         @media (min-width: 768px) {
@@ -271,105 +296,121 @@
         }
 
         .process-node {
-            border-top: 2px solid var(--text-light);
-            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+            transition: var(--transition-smooth);
         }
 
         .process-node:hover {
-            border-top-color: var(--accent);
+            border-top-color: var(--text-light);
         }
 
         .process-step {
-            font-size: 0.9rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 1rem;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--text-muted-light);
+            margin-bottom: 1.5rem;
         }
 
         .process-title {
-            font-size: 1.4rem;
-            font-weight: 900;
+            font-size: 1.15rem;
+            font-weight: 400;
             margin-bottom: 1rem;
         }
 
         .process-node p {
-            font-size: 0.95rem;
-            color: var(--text-muted-light);
+            font-size: 0.9rem;
+            color: #b0b0b0;
             font-weight: 300;
+            line-height: 1.6;
         }
 
-        /* 精選案例誌 */
+        /* 精選案例：現代藝廊清單風格 */
         .works-section {
-            padding: 6rem 4%;
-            background-color: var(--bg-primary);
+            padding: 8rem 4%;
+            background-color: #ffffff;
         }
 
         .work-item {
-            display: block;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             text-decoration: none;
             color: var(--text-dark);
-            padding: 3rem 0;
-            border-bottom: 2px solid var(--text-dark);
-            transition: transform 0.2s ease;
+            padding: 3.5rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
         }
 
         .work-item:hover {
-            transform: translateX(15px);
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            background-color: var(--bg-canvas);
         }
 
         .work-title {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
         }
 
         .work-meta {
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 400;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.05em;
+            text-align: right;
         }
 
-        /* FOOTER / CONTACT 大膽黑底滿版 */
+        @media (max-width: 576px) {
+            .work-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .work-meta { text-align: left; }
+        }
+
+        /* FOOTER / CONTACT：極致奢華沉靜的收尾 */
         footer {
             background-color: var(--bg-dark);
             color: var(--text-light);
-            padding: 6rem 4% 3rem 4%;
+            padding: 10rem 4% 4rem 4%;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 4rem;
-            margin-bottom: 5rem;
+            gap: 6rem;
+            margin-bottom: 8rem;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             .footer-grid {
                 grid-template-columns: 1.5fr 1fr;
             }
         }
 
         .footer-cta h4 {
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 2rem;
+            font-size: clamp(2rem, 4.5vw, 3.8rem);
+            font-weight: 200;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
         }
 
         .footer-mail-box {
             display: inline-block;
-            font-size: clamp(1.3rem, 3vw, 2.5rem);
-            font-weight: 800;
-            color: var(--accent);
+            font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+            font-weight: 300;
+            color: var(--text-light);
             text-decoration: none;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--text-light);
+            padding-bottom: 0.6rem;
+            transition: var(--transition-smooth);
             word-break: break-all;
+        }
+
+        .footer-mail-box:hover {
+            opacity: 0.5;
+            padding-left: 1rem;
         }
 
         .footer-info-block {
@@ -377,9 +418,10 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: flex-start;
+            gap: 0.5rem;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             .footer-info-block {
                 align-items: flex-end;
                 text-align: right;
@@ -387,20 +429,19 @@
         }
 
         .footer-company {
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            font-weight: 300;
             color: var(--text-muted-light);
-            margin-bottom: 1rem;
         }
 
         .footer-copyright {
-            font-size: 0.85rem;
-            color: #444444;
-            border-top: 1px solid #222222;
-            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: #555555;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 3rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         @media (min-width: 768px) {
@@ -413,80 +454,80 @@
 </head>
 <body>
 
-    <!-- 導覽列 -->
+    <!-- 頂級輕量導覽 -->
     <nav>
-        <div class="logo">KOTO STUDIO.</div>
+        <div class="logo">Koto Studio.</div>
         <div class="nav-links">
             <a href="#about">關於</a>
             <a href="#services">服務</a>
-            <a href="#matrix">架構</a>
+            <a href="#matrix">技術</a>
             <a href="#works">作品</a>
-            <a href="#contact">聯絡</a>
+            <a href="#contact">對接</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
     <section class="hero" id="about">
-        <div class="hero-tag">Digital Creative Studio / 台灣小事創意</div>
+        <div class="hero-tag">Digital Creative Studio ｜ 台灣在地合法行號</div>
         <h1>
-            <span>像大品牌一樣克制。</span>
-            <span>像好朋友一樣體貼。</span>
+            我們打破技術的生硬高牆，<br>
+            用貼心的<strong>「日系減法哲學」</strong>，幫企業主與創作者把大事化小。
         </h1>
         <div class="hero-footer">
             <div class="hero-desc">
-                我們是一家專業數位創意工作室。在萬物聯網、數位思維領頭的時代，網站不該只是生硬的排版，機器人也不該只是冰冷的系統回覆。我們用貼心的「日系減法哲學」，幫企業主與創作者把大事化小。
+                我們是一家立足於台灣的專業數位創意工作室。在萬物聯網、數位思維領頭的時代，網站不該只是生硬的排版，機器人也不該只是冰冷的系統回覆。我們深信，好的技術應該像空氣和流水一樣，不著痕跡地解決問題。
             </div>
             <div>
-                <p style="font-weight: 800; font-size: 1.1rem; color: var(--text-dark);">
-                    「只要程式碼寫得出來，在 KOTO 都有可能實現。」
-                </p>
+                <div class="hero-quote">
+                    「只要程式碼能夠寫得出來的，在 KOTO 都有可能實現。」
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- KOTO GRID WALL - 滿版服務方塊 -->
+    <!-- KOTO STYLE LINEAR GRID WALL -->
     <section class="koto-grid-section" id="services">
-        <!-- 01 客製化網頁 -->
-        <div class="grid-block bg-black">
-            <div class="block-num">01 / BRANDING & DESIGN</div>
+        <!-- 01 -->
+        <div class="grid-block">
+            <div class="block-meta">01 ｜ UI. UX. VISUAL</div>
             <div>
                 <h2>客製化網頁設計</h2>
                 <p>深入梳理品牌 DNA，拒絕套版。我們將使用者體驗（UI/UX）與品牌美學完美交織，打造極具靈魂、讓人一進來就想停留的高質感線上門面。</p>
             </div>
         </div>
         
-        <!-- 02 全方位網站 -->
-        <div class="grid-block bg-yellow">
-            <div class="block-num">02 / WEB DEVELOPMENT</div>
+        <!-- 02 -->
+        <div class="grid-block">
+            <div class="block-meta">02 ｜ ENGINEERING. SEO</div>
             <div>
                 <h2>全方位網站架設</h2>
                 <p>全面建構 RWD 響應式網頁，不論是手機、平板還是桌機都能完美渲染。同時內建流暢的動態特效、極速載入技術與全站基礎 SEO 優化架構。</p>
             </div>
         </div>
 
-        <!-- 03 LINE 機器人 -->
-        <div class="grid-block bg-white">
-            <div class="block-num">03 / AUTOMATION & API</div>
+        <!-- 03 -->
+        <div class="grid-block">
+            <div class="block-meta">03 ｜ API. INTEGRATION</div>
             <div>
                 <h2>LINE 機器人與自動化</h2>
                 <p>曾獨立開發 LINE 多國語言即時翻譯機器人等高技術產品。擅長串接 API、將繁瑣的對話轉化為自動化工具，幫您的社群化身 24 小時不打烊的科技秘書。</p>
             </div>
         </div>
 
-        <!-- 04 核心堅持 -->
-        <div class="grid-block bg-black">
-            <div class="block-num">04 / OUR PHILOSOPHY</div>
+        <!-- 04 -->
+        <div class="grid-block">
+            <div class="block-meta">04 ｜ OUR PHILOSOPHY</div>
             <div>
-                <h2>我們的精簡堅持</h2>
-                <p>小事創意工作室不追求堆疊複雜難懂的專有名詞。擁有大廠般的代碼技術實現力，同時保有個人工作室的柔軟與親和力。您不需搞懂金流串接與 API 阻斷，把想像告訴我們，我們負責把它變成日常。</p>
+                <h2>像大品牌一樣克制、像好朋友一樣體貼</h2>
+                <p>我們不追求堆疊複雜難懂的專有名詞。擁有大廠般的代碼技術實現力，同時保有個人工作室的柔軟與親和力。您不需要搞懂什麼是金流串接，只要把想像告訴我們，我們負責把它變成生活中輕而易舉的日常。</p>
             </div>
         </div>
     </section>
 
-    <!-- 技術與方案架構矩陣 -->
+    <!-- 技術與方案架構 -->
     <section class="matrix-section" id="matrix">
         <div class="section-header">
-            <div style="font-size:0.9rem; font-weight:800; letter-spacing:2px; margin-bottom:1rem;">TECHNICAL MATRIX</div>
+            <div class="tag">Technical Matrix</div>
             <h3>技術與方案架構</h3>
         </div>
         
@@ -495,17 +536,17 @@
                 <tr>
                     <td class="matrix-label">品牌客製化官網</td>
                     <td class="matrix-detail">純手寫乾淨代碼、極致渲染速度（PageSpeed 頂級優化）、獨家微互動（Micro-interactions）動態特效、語系國際化擴充。</td>
-                    <td class="matrix-target">新創品牌、設計師品牌、尋求轉型的傳統企業、個人創作者。</td>
+                    <td class="matrix-target">新創品牌 / 傳統轉型 / 創作者</td>
                 </tr>
                 <tr>
                     <td class="matrix-label">高轉化電商系統</td>
                     <td class="matrix-detail">流暢的一頁式結帳流程、支援多種在地金流（綠界、藍新）與物流串接、購物車遺棄挽回系統、後台營運數據分析。</td>
-                    <td class="matrix-target">獨立零售品牌、KOL 週邊販售、線上數位產品創作者。</td>
+                    <td class="matrix-target">獨立零售 / KOL 週邊 / 數位資產</td>
                 </tr>
                 <tr>
                     <td class="matrix-label">LINE 自動化應用</td>
                     <td class="matrix-detail">Webhooks 高速響應、多國語言 AI 即時翻譯、使用者標籤（Tagging）分眾精準推播、預約與點餐自動化模組。</td>
-                    <td class="matrix-target">跨國商務人士、在地餐飲零售、需要高頻客服的品牌主。</td>
+                    <td class="matrix-target">跨國商務 / 零售餐飲 / 高頻客服</td>
                 </tr>
             </tbody>
         </table>
@@ -514,28 +555,28 @@
     <!-- COOPERATION PROCESS -->
     <section class="process-section">
         <div class="section-header">
-            <div style="font-size:0.9rem; font-weight:800; letter-spacing:2px; margin-bottom:1rem; color:var(--accent);">HOW WE WORK</div>
+            <div class="tag" style="color: #a0a0a0;">Process</div>
             <h3 style="color: var(--text-light);">合作故事流程</h3>
         </div>
         
         <div class="process-grid">
             <div class="process-node">
-                <div class="process-step">STEP 01</div>
+                <div class="process-step">01</div>
                 <div class="process-title">需求聆聽</div>
                 <p>聊聊您的天馬行空，由主理人親自梳理核心痛點。</p>
             </div>
             <div class="process-node">
-                <div class="process-step">STEP 02</div>
+                <div class="process-step">02</div>
                 <div class="process-title">日系提案</div>
                 <p>提煉精簡方案，剔除冗餘功能，報價透明不堆疊。</p>
             </div>
             <div class="process-node">
-                <div class="process-step">STEP 03</div>
+                <div class="process-step">03</div>
                 <div class="process-title">精準開發</div>
                 <p>美學與代碼同步推進，定期交付進度，安心看得見。</p>
             </div>
             <div class="process-node">
-                <div class="process-step">STEP 04</div>
+                <div class="process-step">04</div>
                 <div class="process-title">維護孵化</div>
                 <p>上線即附基礎 SEO，提供完整後台教學，成為長期夥伴。</p>
             </div>
@@ -545,21 +586,21 @@
     <!-- SELECTED WORKS -->
     <section class="works-section" id="works">
         <div class="section-header">
-            <div style="font-size:0.9rem; font-weight:800; letter-spacing:2px; margin-bottom:1rem;">SELECTED WORKS</div>
+            <div class="tag">Selected Works</div>
             <h3>精選案例誌</h3>
         </div>
         
         <a href="#" class="work-item">
             <div class="work-title">KOTO Multi-Lang Translator</div>
-            <div class="work-meta">LINE 多國語言即時翻譯機器人 / Node.js & AI API</div>
+            <div class="work-meta">LINE 多國語言即時翻譯機器人<br>Node.js / Cloud Functions</div>
         </a>
         <a href="#" class="work-item">
             <div class="work-title">獨立設計師品牌官網</div>
-            <div class="work-meta">沉浸式高質感 3D 微動態形象官網 / Vanilla JS & SEO</div>
+            <div class="work-meta">沉浸式高質感形象官網<br>Vanilla JS / Minimalist Animation</div>
         </a>
         <a href="#" class="work-item">
             <div class="work-title">創作者工坊轉化系統</div>
-            <div class="work-meta">高轉化率一頁式數位資產電商系統 / RWD & ECPay</div>
+            <div class="work-meta">高轉化率一頁式電商系統<br>RWD / Automated Delivery</div>
         </a>
     </section>
 
@@ -567,15 +608,15 @@
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-cta">
-                <h4>聊聊您的下一項<br>大創意。</h4>
-                <p style="font-size: 1.1rem; color: var(--text-muted-light); max-width: 500px; margin-bottom: 2rem;">
+                <h4>聊聊您的下一項大創意。</h4>
+                <p style="font-size: 1rem; color: #888883; max-width: 600px; margin-bottom: 3rem; font-weight: 300;">
                     不論是想做網頁、串機器人，還是天馬行空的跨界合作，歡迎隨時來信。主理人將於 24 小時內親自與您對接聯繫。
                 </p>
                 <a href="mailto:kotostudio.net@gmail.com" class="footer-mail-box">kotostudio.net@gmail.com</a>
             </div>
             <div class="footer-info-block">
-                <div class="footer-company">商業登記名稱：小事創意工作室</div>
-                <div class="footer-company" style="font-size:0.9rem; color:#666666;">台灣在地合法行號</div>
+                <div class="footer-company">商業登記名稱 ｜ 小事創意工作室</div>
+                <div class="footer-company" style="color: #555555;">主理人將於 24 小時內親自聯繫</div>
             </div>
         </div>
         
