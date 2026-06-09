@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOTO Studio ｜ 小事創意工作室 - 網頁設計與科技整合</title>
+    <meta name="description" content="把冰冷的代碼化為日常的溫度。在 KOTO Studio，那些您覺得複雜的科技難題，都只是微不足道的小事。提供客製化網頁設計、網站架設與 LINE 機器人自動化開發。">
+    <!-- 引入 Google 字體與 Tailwind CSS 增強美感 -->
+    <script src="https://tailwindcss.com"></script>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #FCFBF9; color: #1C1C1C; }
+        .serif-font { font-family: 'Playfair Display', 'Noto Sans TC', serif; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 1. 導覽列 Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-[#FCFBF9]/80 backdrop-blur-md z-50 border-b border-[#EAE6DF]">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-baseline space-x-2">
+                <span class="serif-font text-2xl font-bold tracking-widest text-[#FF6A39]">KOTO</span>
+                <span class="text-xs tracking-wider text-[#8C867A] uppercase font-light">Studio</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm tracking-widest font-medium text-[#5C564C]">
+                <a href="#about" class="hover:text-[#FF6A39] transition-colors">關於小事</a>
+                <a href="#services" class="hover:text-[#FF6A39] transition-colors">精選服務</a>
+                <a href="#philosophy" class="hover:text-[#FF6A39] transition-colors">職人精神</a>
+                <a href="#contact" class="hover:text-[#FF6A39] transition-colors">聯絡我們</a>
+            </div>
+            <div>
+                <a href="#contact" class="bg-[#1C1C1C] text-white text-xs tracking-widest px-5 py-3 rounded-full hover:bg-[#FF6A39] transition-all shadow-sm">
+                    開始把事變小
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. 首頁視覺 Hero Section -->
+    <section class="pt-40 pb-24 md:pt-48 md:pb-36 px-6 max-w-5xl mx-auto text-center relative overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#FF6A39]/5 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 -right-20 w-96 h-96 bg-[#F5A623]/5 rounded-full blur-3xl"></div>
+        
+        <p class="text-xs md:text-sm tracking-[0.2em] text-[#8C867A] uppercase mb-4 font-medium">Web Design & Digital Integration</p>
+        <h1 class="serif-font text-4xl md:text-6xl font-light tracking-wide leading-tight md:leading-snug mb-8">
+            把冰冷的代碼，<br class="md:hidden">化為<span class="font-normal italic text-[#FF6A39]">日常的溫度</span>。
+        </h1>
+        <p class="text-sm md:text-base text-[#5C564C] leading-relaxed max-w-2xl mx-auto mb-12 font-light px-4">
+            在 <span class="font-medium text-[#1C1C1C]">KOTO Studio（小事創意工作室）</span>，那些您覺得像宇宙大爆炸一樣複雜的科技與網頁難題，來到這裡，都將淬鍊成微不足道的小事。
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#services" class="w-full sm:w-auto border border-[#1C1C1C] text-[#1C1C1C] text-sm tracking-widest px-8 py-4 rounded-full hover:bg-[#1C1C1C] hover:text-white transition-all">
+                探索服務項目
+            </a>
+            <a href="#contact" class="w-full sm:w-auto bg-[#FF6A39] text-white text-sm tracking-widest px-8 py-4 rounded-full hover:bg-[#E05526] transition-all shadow-md shadow-[#FF6A39]/10">
+                線上諮詢提案
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. 關於我們 About Section -->
+    <section id="about" class="py-20 bg-[#F5F2EC] border-y border-[#EAE6DF] px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                <div class="md:col-span-1">
+                    <h2 class="text-xs tracking-[0.2em] text-[#8C867A] uppercase font-bold mb-2">About Us</h2>
+                    <p class="text-xl font-medium tracking-wider text-[#1C1C1C]">關於小事創意</p>
+                    <div class="w-8 h-[2px] bg-[#FF6A39] mt-3"></div>
+                </div>
+                <div class="md:col-span-2 text-sm md:text-base text-[#4A443C] leading-loose space-y-6 font-light">
+                    <p>
+                        我們是一家立足於台灣的專業數位創意工作室。在萬物聯網、數位思維領頭的時代，網站不該只是生硬的排版，機器人也不該只是冰冷的系統回復。我們深信，好的技術應該像空氣和流水一樣，不著痕跡地解決問題。
+                    </p>
+                    <p class="font-normal text-[#1C1C1C]">
+                        「只要程式碼能夠寫得出來的，在 KOTO 都有可能實現。」
+                    </p>
+                    <p>
+                        不論是為品牌量身建構的形象官網、流暢好買的電商轉化系統，還是幫您簡化繁瑣流程的 LINE 智慧翻譯與自動化機器人。我們打破生硬的技術高牆，用貼心的「日系減法哲學」，幫企業主與創作者把大事化小，讓您可以專注在更重要的核心業務上。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 精選服務 Services Section -->
+    <section id="services" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <p class="text-xs tracking-[0.2em] text-[#8C867A] uppercase font-bold mb-2">Our Services</p>
+            <h3 class="text-2xl md:text-3xl font-light tracking-widest text-[#1C1C1C]">我們能為您實現的事</h3>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- 服務一 -->
+            <div class="bg-white p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#8C867A]/5 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-[#FF6A39]/10 flex items-center justify-center mb-6 text-[#FF6A39] font-bold text-xl transition-colors group-hover:bg-[#FF6A39] group-hover:text-white">
+                    01
+                </div>
+                <h4 class="text-lg font-medium tracking-wider mb-4 text-[#1C1C1C]">客製化網頁設計</h4>
+                <p class="text-sm text-[#5C564C] leading-relaxed font-light">
+                    深入梳理品牌 DNA，拒絕套版。我們將使用者體驗（UI/UX）與品牌美學完美交織，打造極具靈魂、讓人一進來就想停留的高質感線上門面。
+                </p>
+            </div>
+            <!-- 服務二 -->
+            <div class="bg-white p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#8C867A]/5 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-[#F5A623]/10 flex items-center justify-center mb-6 text-[#F5A623] font-bold text-xl transition-colors group-hover:bg-[#F5A623] group-hover:text-white">
+                    02
+                </div>
+                <h4 class="text-lg font-medium tracking-wider mb-4 text-[#1C1C1C]">全方位網站架設</h4>
+                <p class="text-sm text-[#5C564C] leading-relaxed font-light">
+                    全面建構 RWD 響應式網頁，不論是手機、平板還是桌機都能完美渲染。同時內建流暢的動態特效、極速載入技術與全站基礎 SEO 優化架構。
+                </p>
+            </div>
+            <!-- 服務三 -->
+            <div class="bg-white p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#8C867A]/5 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-[#4A90E2]/10 flex items-center justify-center mb-6 text-[#4A90E2] font-bold text-xl transition-colors group-hover:bg-[#4A90E2] group-hover:text-white">
+                    03
+                </div>
+                <h4 class="text-lg font-medium tracking-wider mb-4 text-[#1C1C1C]">LINE 機器人與自動化</h4>
+                <p class="text-sm text-[#5C564C] leading-relaxed font-light">
+                    曾獨立開發 LINE 多國語言即時翻譯機器人等高技術產品。擅長串接 API、將繁瑣的對話轉化為自動化工具，幫您的社群化身 24 小時不打烊的科技秘書。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 核心哲學 Philosophy Section -->
+    <section id="philosophy" class="py-24 bg-[#1C1C1C] text-white px-6 relative overflow-hidden">
+        <div class="absolute right-0 bottom-0 w-80 h-80 bg-[#FF6A39]/10 rounded-full blur-3xl"></div>
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-xs tracking-[0.2em] text-[#8C867A] uppercase font-bold mb-4">Our Philosophy</p>
+            <h3 class="serif-font text-2xl md:text-4xl font-light tracking-widest leading-relaxed mb-8">
+                「像大品牌一樣克制、像好朋友一樣體貼」
+            </h3>
+            <p class="text-sm md:text-base text-[#BEB9B0] max-w-2xl mx-auto leading-loose font-light">
+                小事創意工作室不追求堆疊複雜難懂的專有名詞。我們擁有大廠般的代碼技術實現力，同時保有個人工作室的柔軟與親和力。您不需要搞懂什麼是金流串接、什麼是 API 阻斷，只要把想像告訴我們，我們負責把它變成生活中輕而易舉的日常。
+            </p>
+        </div>
+    </section>
+
+    <!-- 6. 聯絡我們 Contact Section -->
+    <section id="contact" class="py-24 px-6 max-w-3xl mx-auto text-center">
+        <p class="text-xs tracking-[0.2em] text-[#8C867A] uppercase font-bold mb-2">Contact Us</p>
+        <h3 class="text-2xl md:text-3xl font-light tracking-widest text-[#1C1C1C] mb-4">聊聊您的下一項大創意</h3>
+        <p class="text-sm text-[#5C564C] font-light mb-12">不論是想做網頁、串機器人，還是天馬行空的跨界合作，歡迎隨時來信。</p>
+        
+        <div class="bg-white p-8 md:p-12 rounded-3xl border border-[#EAE6DF] shadow-md shadow-[#8C867A]/5 inline-block w-full">
+            <p class="text-xs tracking-widest text-[#8C867A] uppercase mb-2 font-medium">Official Email</p>
+            <a href="mailto:kotostudio.net@gmail.com" class="serif-font text-xl md:text-3xl font-light text-[#FF6A39] hover:underline break-all transition-all">
+                kotostudio.net@gmail.com
+            </a>
+            <div class="w-full h-[1px] bg-[#EAE6DF] my-6"></div>
+            <p class="text-xs text-[#8C867A] font-light leading-relaxed">
+                主理人將於 24 小時內親自與您對接聯繫。<br>
+                商業登記名稱：小事創意工作室 ｜ 台灣在地合法行號
+            </p>
+        </div>
+    </section>
+
+    <!-- 7. 頁尾 Footer -->
+    <footer class="bg-[#F5F2EC] border-t border-[#EAE6DF] py-12 px-6 text-center text-xs text-[#8C867A] tracking-widest font-light">
+        <p class="mb-2">&copy; 2026 KOTO Studio / 小事創意工作室. All Rights Reserved.</p>
+        <p>Designed and Powered by <span class="text-[#FF6A39] font-normal">KOTO Studio</span>.</p>
+    </footer>
+
+</body>
+</html>
