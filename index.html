@@ -10,13 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+TC:wght@300;400&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 日本頂級工作室色系：清水米白、深碳灰、極淡割線 --- */
         :root {
-            --bg-color: #FAF9F6;       /* 彷彿手工和紙的清透米白 */
-            --text-color: #222222;     /* 內斂的深碳灰，比純黑更溫柔 */
-            --text-muted: #777777;     /* 灰調文字 */
-            --line-color: #E5E3DC;     /* KEI 式極淡線條 */
-            --accent-line: #A6A29A;    /* 點綴細線 */
+            --bg-color: #FAF9F6;       /* 和紙般溫潤米白 */
+            --text-color: #222222;     /* 深碳灰 */
+            --text-muted: #777777;     /* 隱形灰調文字 */
+            --line-color: #E6E4DD;     /* Optikka 骨架結構線的溫潤化 */
+            --accent-line: #B8B5AD;    /* 核心提示線 */
             
             --font-serif: 'Shippori Mincho', 'Cormorant Garamond', serif;
             --font-sans: 'Noto Sans TC', sans-serif;
@@ -32,16 +31,25 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-sans);
-            line-height: 2;
-            letter-spacing: 0.08em; /* 寬闊的字距，營造空氣感 */
-            overflow-x: hidden;
+            line-height: 1.8;
+            letter-spacing: 0.08em;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 頂級留白容器 */
-        .container {
-            max-width: 1200px;
+        a { text-decoration: none; color: inherit; }
+
+        /* --- 全域結構：Optikka 式的網格邊框包覆 --- */
+        .site-wrapper {
+            max-width: 1400px;
             margin: 0 auto;
+            border-left: 1px solid var(--line-color);
+            border-right: 1px solid var(--line-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
             padding: 0 60px;
         }
         @media (max-width: 768px) { .container { padding: 0 24px; } }
@@ -49,404 +57,311 @@
         .serif { font-family: var(--font-serif); }
         .en-sub { font-family: var(--font-serif); font-style: italic; font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.05em; }
 
-        /* --- Header / Nav: 靜謐的邊角定位 --- */
+        /* --- Header / Navigation --- */
         header {
-            padding: 60px 0 40px 0;
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
+            height: 90px;
+            border-bottom: 1px solid var(--line-color);
         }
         header .logo {
             font-family: var(--font-serif);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 500;
-            text-decoration: none;
-            color: var(--text-color);
-            letter-spacing: 0.02em;
         }
-        header .status {
+        .nav-links {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.75rem;
+            gap: 40px;
+            font-size: 0.85rem;
+        }
+        .nav-links a {
             color: var(--text-muted);
+            transition: color 0.3s;
         }
-        header .status-dot {
-            width: 4px;
-            height: 4px;
-            background-color: #A3E635;
-            border-radius: 50%;
-        }
+        .nav-links a:hover { color: var(--text-color); }
 
-        /* --- Hero Section: 不是資訊，而是風景 --- */
+        /* --- Hero Section: 借鑒 Optikka 的大字沉浸式開場 --- */
         .hero {
-            padding: 100px 0 160px 0;
+            padding: 120px 0;
             border-bottom: 1px solid var(--line-color);
         }
-        .hero-concept {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            line-height: 1.8;
-            font-weight: 400;
-            margin-bottom: 60px;
-        }
-        .hero-concept span {
-            display: block;
-            font-size: clamp(1rem, 2vw, 1.2rem);
+        .hero-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
             color: var(--text-muted);
-            margin-top: 12px;
+            margin-bottom: 30px;
+            display: inline-block;
+            border: 1px solid var(--line-color);
+            padding: 4px 12px;
+            border-radius: 20px;
         }
-        
-        .hero-meta {
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            line-height: 1.5;
+            font-weight: 400;
+            max-width: 1000px;
+        }
+        .hero-footer {
+            margin-top: 100px;
             display: grid;
             grid-template-columns: 1fr;
             gap: 40px;
-            margin-top: 100px;
         }
         @media (min-width: 768px) {
-            .hero-meta { grid-template-columns: 1fr 1fr; }
+            .hero-footer { grid-template-columns: 2fr 1fr; }
         }
-        .hero-brand-name {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            font-weight: 400;
-            line-height: 1.2;
-        }
-        .hero-brand-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            max-width: 420px;
-            align-self: flex-end;
+        .hero-desc {
+            font-size: 1rem;
+            color: #444444;
+            max-width: 640px;
             text-align: justify;
         }
-
-        /* --- Section: About 詩意敘事 --- */
-        .about {
-            padding: 140px 0;
-            border-bottom: 1px solid var(--line-color);
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-        }
-        @media (min-width: 900px) {
-            .about { grid-template-columns: 300px 1fr; gap: 100px; }
-        }
-        .section-label {
+        .hero-scroll {
             font-family: var(--font-serif);
             font-size: 0.85rem;
             color: var(--text-muted);
-            position: sticky;
-            top: 60px;
-            height: max-content;
-        }
-        .about-content {
-            max-width: 680px;
-        }
-        .about-content h3 {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        .about-content p {
-            font-size: 0.95rem;
-            color: #444444;
-            margin-bottom: 32px;
-            text-align: justify;
+            align-self: flex-end;
+            text-align: right;
         }
 
-        /* --- Section: Services 禪意表格清單 --- */
-        .services {
-            padding: 140px 0;
-            border-bottom: 1px solid var(--line-color);
-        }
-        .service-item {
+        /* --- Intro Block: 核心精神的大跨度網格 --- */
+        .intro {
             display: grid;
             grid-template-columns: 1fr;
-            padding: 50px 0;
-            border-top: 1px solid var(--line-color);
-            text-decoration: none;
-            color: var(--text-color);
-            transition: opacity 0.4s ease;
-        }
-        .service-item:last-child {
             border-bottom: 1px solid var(--line-color);
         }
         @media (min-width: 768px) {
-            .service-item {
-                grid-template-columns: 80px 320px 1fr;
-                gap: 40px;
-            }
+            .intro { grid-template-columns: 1fr 1fr; }
         }
-        
-        .service-num {
+        .intro-left {
+            padding: 80px 60px;
+            border-bottom: 1px solid var(--line-color);
+        }
+        @media (min-width: 768px) {
+            .intro-left { border-bottom: none; border-right: 1px solid var(--line-color); }
+        }
+        .intro-right {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .intro-heading {
             font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .intro-text {
             font-size: 0.9rem;
             color: var(--text-muted);
-            padding-top: 4px;
+            text-align: justify;
         }
-        .service-title-block h4 {
+
+        /* --- Work Flow Section: 深度借鑒 Optikka 01/02/03 的流水線架構 --- */
+        .workflow {
+            border-bottom: 1px solid var(--line-color);
+        }
+        .wf-header {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--line-color);
+        }
+        .wf-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 900px) {
+            .wf-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        .wf-card {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            transition: background-color 0.4s ease, opacity 0.4s ease;
+            position: relative;
+        }
+        /* 網格邊框精準調教 */
+        .wf-card:not(:last-child) {
+            border-bottom: 1px solid var(--line-color);
+        }
+        @media (min-width: 900px) {
+            .wf-card:not(:last-child) { border-bottom: none; border-right: 1px solid var(--line-color); }
+        }
+
+        .wf-num {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--accent-line);
+            line-height: 1;
+        }
+        .wf-body h3 {
             font-family: var(--font-serif);
             font-size: 1.3rem;
             font-weight: 400;
-            margin-bottom: 6px;
+            margin-bottom: 16px;
         }
-        .service-detail {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            max-width: 540px;
-            text-align: justify;
-            transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.4s;
-        }
-
-        /* KEI 式優雅微動態：觸碰時其他物件變淡，自身文字產生極微小的位移與色彩沉澱 */
-        .service-list:hover .service-item {
-            opacity: 0.3;
-        }
-        .service-list .service-item:hover {
-            opacity: 1;
-        }
-        .service-item:hover .service-detail {
-            color: var(--text-color);
-            transform: translateX(8px);
-        }
-
-        /* --- Section: Philosophy 職人美學細節 --- */
-        .philosophy {
-            padding: 140px 0;
-            border-bottom: 1px solid var(--line-color);
-        }
-        .phi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 60px;
-        }
-        .phi-card {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        .phi-card h5 {
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
-            font-weight: 400;
-        }
-        .phi-card p {
+        .wf-body p {
             font-size: 0.85rem;
             color: var(--text-muted);
             text-align: justify;
             line-height: 1.9;
         }
 
-        /* --- Footer: 餘韻悠長的謝幕 --- */
-        footer {
-            padding: 140px 0 80px 0;
+        /* KEI 式高級微互動：移入時其餘流水線淡化，自身凸顯 */
+        .wf-grid:hover .wf-card {
+            opacity: 0.3;
         }
-        .footer-wrap {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-        }
-        @media (min-width: 768px) {
-            .footer-wrap { grid-template-columns: 1fr 1fr; }
-        }
-        .footer-left h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 400;
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
-        .footer-left p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            max-width: 400px;
-        }
-        .footer-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-start;
-        }
-        @media (min-width: 768px) {
-            .footer-right { align-items: flex-end; }
-        }
-        
-        /* 溫潤的信箱連結動態 */
-        .mail-link {
-            font-family: var(--font-serif);
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 1px solid var(--text-color);
-            padding-bottom: 4px;
-            transition: all 0.4s ease;
-        }
-        .mail-link:hover {
-            opacity: 0.5;
-            padding-right: 12px;
+        .wf-grid .wf-card:hover {
+            opacity: 1;
+            background-color: #F5F3EB; /* 微妙的深色沉澱，像紙張陰影 */
         }
 
-        .footer-bottom {
-            margin-top: 100px;
-            padding-top: 40px;
-            border-top: 1px solid var(--line-color);
+        /* --- Action Section: 底部呼籲區塊 --- */
+        .action-zone {
+            padding: 140px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--line-color);
+        }
+        .action-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+        .btn-koto {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 14px 40px;
+            display: inline-block;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .btn-koto:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            letter-spacing: 0.12em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 0;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 20px;
             font-size: 0.75rem;
             color: var(--text-muted);
         }
+        @media (min-width: 768px) {
+            footer { flex-direction: row; justify-content: space-between; }
+        }
+        .footer-left { display: flex; gap: 30px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <a href="#" class="logo">KOTO studio.</a>
-            <div class="status">
-                <div class="status-dot"></div>
-                <div>景 // Available for projects</div>
-            </div>
-        </header>
-    </div>
+    <div class="site-wrapper">
+        
+        <div class="container">
+            <header>
+                <div class="logo">KOTO studio.</div>
+                <nav class="nav-links">
+                    <a href="#">Abilities</a>
+                    <a href="#">How it works</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </header>
+        </div>
 
-    <main class="container">
-        <section class="hero">
-            <div class="hero-concept serif">
-                情報ではなく、景色として。<br>
-                <span>不是流於表面的資訊，而是值得駐足的風景。</span>
-            </div>
-            
-            <div class="hero-meta">
-                <div class="hero-brand-name">
-                    小事製作<br>
-                    <span class="en-sub">The Art of Small Things.</span>
-                </div>
-                <div class="hero-brand-desc">
-                    網路的世界太過喧囂，充斥著生硬的代碼與飽和的模板。KOTO studio（小事製作）深信，網頁不該只是冰冷的資訊容器。我們靜心端詳每個品牌獨一無二的本質，以職人的偏執將其繾綣翻譯，在屏前留下一幅幅擁有呼吸、溫度與秩序的數位風景。
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="container">
-        <section class="about">
-            <div class="section-label">
-                景について<br><span class="en-sub">About the Essence</span>
-            </div>
-            <div class="about-content">
-                <h3>「大世界很複雜，我們回小事裡見。」</h3>
-                <p>我們最初曾想以 <strong>Piece of cake</strong> 命名。那是一句充滿自信的宣言，代表著任何在您眼裡翻山越嶺的技術繁雜、棘手代碼，交到我們手上，都會被拆解成微不足道的小事。</p>
-                <p>但隨後，我們將這份自信沉澱為日文的<strong>「小事製作（KOTO studio）」</strong>。在茶道與陶藝的世界裡，器皿上的不完美或修復痕跡，被優雅地稱作「景色」，擁有一種被細細愛德與包容的感受性。</p>
-                <p>數位產品也是如此。簡單、乾淨的介面背後，往往伴隨著工程師最偏執的底層秩序。我們甘願隱形於技術之中，為您梳理混亂，將那些真正想傳遞的核心價值，化作這裡獨有的一抹數位景致。</p>
-            </div>
-        </section>
-    </div>
-
-    <div class="container">
-        <section class="services">
-            <div class="section-label" style="margin-bottom: 40px; position: relative; top: 0;">
-                視覚体験の翻訳<br><span class="en-sub">Our Focus & Craft</span>
-            </div>
-            
-            <div class="service-list">
+        <main class="container">
+            <section class="hero">
+                <div class="hero-tag">Creativity Powered by Order</div>
+                <h1 class="hero-title">
+                    情報ではなく、景色として。<br>
+                    將冰冷的代碼，精雕細琢成專屬於品牌的屏前風景。
+                </h1>
                 
-                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
-                    <div class="service-num">01</div>
-                    <div class="service-title-block">
-                        <h4>UI / UX DESIGN</h4>
-                        <div class="en-sub">介面與動線解構</div>
-                    </div>
-                    <div class="service-detail">
-                        傾聽並深入品牌 DNA，將繁雜、矛盾、尚未理清的想法抽絲剝繭。我們拒絕流於表面且千篇一律的套版，用極簡的視覺邏輯讓每一項資訊歸位，打造直覺而優雅的屏前動線。
-                    </div>
-                </a>
+                <div class="hero-footer">
+                    <p class="hero-desc">
+                        網路的世界太過喧囂，充斥著模板化的複製品。KOTO studio（小事製作）深信，優秀的數位產品不只是冰冷的數據容器。我們端詳品牌的獨特本質，以網頁工程的偏執與克制，為您在屏前梳理出擁有呼吸感與秩序感的安靜景致。
+                    </p>
+                    <div class="hero-scroll">Scroll to breathe ↓</div>
+                </div>
+            </section>
+        </main>
 
-                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
-                    <div class="service-num">02</div>
-                    <div class="service-title-block">
-                        <h4>FRONT-END DEV</h4>
-                        <div class="en-sub">響應式網頁工藝</div>
-                    </div>
-                    <div class="service-detail">
-                        偏執地校正網頁在每種螢幕上的 RWD 響應式呈現。從一像素的間距到一毫米的字體級距，不盲目炫技打擾閱讀，只用最舒服的屏前距離，細心照顧好每一位造訪者的眼睛。
-                    </div>
-                </a>
-
-                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
-                    <div class="service-num">03</div>
-                    <div class="service-title-block">
-                        <h4>E-COMMERCE</h4>
-                        <div class="en-sub">流暢功能與電商</div>
-                    </div>
-                    <div class="service-detail">
-                        線上商號的運作不需要繁瑣的阻礙。從購物車的點擊手感到金流、物流的無縫串接，我們細心打理好後台數據架構，讓支持者的每一次消費，都成為一場安靜而乾淨的點擊體驗。
-                    </div>
-                </a>
-
-                <a href="mailto:kotostudio.net@gmail.com" class="service-item">
-                    <div class="service-num">04</div>
-                    <div class="service-title-block">
-                        <h4>SEO & SPEED</h4>
-                        <div class="en-sub">搜尋優化與加速</div>
-                    </div>
-                    <div class="service-detail">
-                        從網頁的最底層語意扎下根基。不盲從喧囂短暫的行銷口號，而是用最紮實的技術指標與代碼精簡，提升加載速度，讓那些正在尋找您、真正懂您價值的知音，順利與您相遇。
-                    </div>
-                </a>
-
+        <section class="intro">
+            <div class="intro-left">
+                <h2 class="intro-heading">「大世界很複雜，我們回小事裡見。」</h2>
+                <p class="intro-text" style="color: var(--text-color);">
+                    複雜的需求，在我們手裡都會被拆解成微不足道的小事。我們不盲目宏圖大略，只隱形於技術背後，專注於將每一件微小的事情，做到極致。
+                </p>
+            </div>
+            <div class="intro-right">
+                <h2 class="intro-heading">Design as Craft</h2>
+                <p class="intro-text">
+                    在茶道與陶藝的世界裡，器皿上的修復痕跡擁有一種被細細愛德與包容的感受性，那被稱作「景色」。我們將這種感受力注入網頁開發，讓功能、動線、程式碼的底層秩序，都成為觸動人心的一抹風景。
+                </p>
             </div>
         </section>
-    </div>
 
-    <div class="container">
-        <section class="philosophy">
-            <div class="section-label" style="margin-bottom: 60px; position: relative; top: 0;">
-                職人の美質<br><span class="en-sub">The Standards</span>
+        <section class="workflow">
+            <div class="container wf-header">
+                <div class="en-sub">// HOW IT WORKS</div>
+                <h2 class="serif" style="font-size: 1.5rem; font-weight: 400; margin-top: 10px;">從小事出發的數位工藝流程</h2>
             </div>
             
-            <div class="phi-grid">
-                <div class="phi-card">
-                    <h5>默默的夜間守護</h5>
-                    <p>把數位世界的風雨、資安隱患與雲端維護留給我們。穩定的雲端主機、定期的系統備份、防患未然的安全防護。這些枯燥卻至關重要的運作細節，全由 KOTO 替您溫柔站崗。</p>
+            <div class="wf-grid">
+                <div class="wf-card">
+                    <div class="wf-num">01.</div>
+                    <div class="wf-body">
+                        <h3>Pipeline ( 解構 )</h3>
+                        <p>傾聽並深入品牌 DNA，將繁雜、尚未理清的想法抽絲剝繭。拒絕千篇一律的套版，用最乾淨的視覺邏輯讓資訊歸位，打造優雅的屏前動線。</p>
+                    </div>
                 </div>
-                <div class="phi-card">
-                    <h5>從代碼去向生活</h5>
-                    <p>網頁是一個容器，用來收納品牌的理想；未來的一本手帳、一盞燈、或一個空間，也是容器。KOTO studio 不做多餘的裝飾，我們只想透過隱形的網頁技術，幫生活刪除贅飾。</p>
+
+                <div class="wf-card">
+                    <div class="wf-num">02.</div>
+                    <div class="wf-body">
+                        <h3>Scale ( 雕琢 )</h3>
+                        <p>偏執地校正網頁在每種螢幕上的呈現。從一像素的間距到一毫米的字體級距，不盲目炫技打擾閱讀，只用最溫潤的屏前距離，照顧好每一位造訪者的眼睛。</p>
+                    </div>
                 </div>
-                <div class="phi-card">
-                    <h5>隱形的前端技術</h5>
-                    <p>我們堅信，最好的前端與網頁工程是隱形的。它不該為了炫耀技術而讓使用者迷失方向，而是用極致的速度、完美的流暢度，悄悄地襯托出品牌最核心的靈魂。</p>
+
+                <div class="wf-card">
+                    <div class="wf-num">03.</div>
+                    <div class="wf-body">
+                        <h3>Render ( 息之 )</h3>
+                        <p>打理好流暢的電商金物流，並從網頁最底層語意扎下根基，優化 SEO 與速度。讓那些正在尋找您、真正懂您價值的知音，順利在最舒服的景色中與您相遇。</p>
+                    </div>
                 </div>
             </div>
         </section>
-    </div>
 
-    <div class="container">
-        <footer>
-            <div class="footer-wrap">
+        <section class="container">
+            <div class="action-zone">
+                <h2 class="action-title">準備好為您的品牌，打理一幅數位風景了嗎？</h2>
+                <a href="mailto:kotostudio.net@gmail.com" class="btn-koto">START A LANDSCAPE</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <footer>
                 <div class="footer-left">
-                    <h2>
-                        ここにしかない確かな一つの<br>
-                        景色として、デザインしていく。
-                    </h2>
-                    <p>生活千頭萬緒，網頁開發更是。搬張椅子坐下來吧，剩下的繁雜細節，交給 KOTO studio 替您打理成一幅風景。</p>
+                    <div>© 2026 KOTO STUDIO.</div>
+                    <div>INSTAGRAM</div>
+                    <div>LINKEDIN</div>
                 </div>
-                <div class="footer-right">
-                    <div class="en-sub" style="margin-bottom: 16px;">// START A LANDSCAPE</div>
-                    <a href="mailto:kotostudio.net@gmail.com" class="mail-link">
-                        kotostudio.net@gmail.com
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div>© 2026 KOTO STUDIO. ALL RIGHTS RESERVED.</div>
                 <div class="serif" style="font-style: italic;">Piece of cake.</div>
-            </div>
-        </footer>
+            </footer>
+        </div>
+
     </div>
 
 </body>
