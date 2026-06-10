@@ -2,82 +2,39 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOTO Studio | 讓複雜落地，讓小事發光</title>
-    <meta name="description" content="KOTO Studio 專注於網頁設計與數位架構。我們將繁雜的需求拆解為簡潔、流暢的職人作品，大世界很複雜，我們回小事裡見。">
-    
-    <style>
-        :root {
-            --oatmeal: #F9F6F0;
-            --carbon: #1A1A1A;
-            --gray: #D1D1D1;
-            --moss: #4A5D4E;
-            --terracotta: #D4A373;
-        }
-        body { background-color: var(--oatmeal); color: var(--carbon); font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.25; margin: 0; }
-        header { padding: 40px; font-weight: bold; font-size: 20px; }
-        section { padding: 100px 20px; max-width: 800px; margin: auto; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
-        .btn-primary { background: var(--terracotta); color: #fff; padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer; transition: 0.3s; }
-        .process-line { width: 1px; background: var(--gray); margin: 40px auto; height: 300px; }
-        footer { padding: 40px; text-align: center; color: var(--gray); font-size: 12px; }
-        /* 隱藏彩蛋樣式 */
-        .easter-egg { cursor: pointer; }
-    </style>
+    <title>KOTO studio | 大世界很複雜，我們回小事裡見。</title>
+    <meta name="description" content="KOTO studio 小事製作，專注於品牌網頁設計與架設，將複雜的技術轉化為輕盈的小事。">
 </head>
 <body>
+    <nav>...</nav>
 
-    <header>
-        <nav>KOTO Studio</nav>
-    </header>
+    <section id="hero">
+        <h1>大世界很複雜，我們回小事裡見。</h1>
+    </section>
 
-    <main>
-        <section class="hero">
-            <h1>大世界很複雜，我們回小事裡見。</h1>
-            <p>將千頭萬緒的需求，梳理為極致流暢的數位體驗。</p>
+    <section id="origin">
+        <h2>致 那些被世界放大的日子</h2>
+        <p>我們就像是數位的梳理者...</p>
+    </section>
+
+    <section id="services">
+        <div class="horizontal-scroll">
+            <div class="service-item">🔍 〈釐清混亂〉</div>
+            <div class="service-item">📱 〈恰到好處的閱讀〉</div>
+            <div class="service-item">🛒 〈流暢的物件交付〉</div>
+            <div class="service-item">🧭 〈引導對的相遇〉</div>
+            <div class="service-item">🌙 〈默默的夜間守護〉</div>
+        </div>
+    </section>
+
+    <section id="future">...</section>
+
+    <section id="work">
+        <h2>精選案例</h2>
         </section>
 
-        <section id="process">
-            <h2>合作流程</h2>
-            <div class="process-line"></div>
-            <div id="step-01">
-                <h3>01｜需求解構與範疇定義</h3>
-                <p>我們先退回你的品牌初衷，不談技術，只談邏輯。</p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>準備好開始了嗎？</h2>
-            <form>
-                <input type="email" placeholder="留下你的電子信箱..." required style="padding: 10px;">
-                <button type="submit" class="btn-primary">發送 ⟶</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 KOTO Studio. All rights reserved.</p>
-        <p class="easter-egg">Piece of cake.</p>
-    </footer>
-
-    <script>
-        // Intersection Observer 用於滾動淡入效果
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.style.opacity = 1;
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('section').forEach(s => {
-            s.style.opacity = 0;
-            s.style.transition = "opacity 1s ease";
-            observer.observe(s);
-        });
-
-        // 隱藏彩蛋互動
-        document.querySelector('.easter-egg').addEventListener('click', () => {
-            alert('KOTO 職人彩蛋已觸發：我們不僅是技術提供者，更是你的品牌梳理者。');
-        });
-    </script>
+    <footer id="contact">
+        <p>「大世界很複雜，我們回小事裡見。」</p>
+        </footer>
 </body>
 </html>
