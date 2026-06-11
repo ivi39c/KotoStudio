@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>KOTO Studio｜職人級網頁設計與網站開發</title>
-  <meta name="description" content="KOTO Studio 以職人手感打造高奢質感網頁，融合東方留白美學與頂級 SaaS 體驗。讓您的品牌在數位世界被隆重對待。">
+  <title>KOTO Studio｜客製化 WordPress 網頁設計 · 品牌官網 · 電商網站</title>
+  <meta name="description" content="KOTO Studio 專注客製化 WordPress 網頁設計，提供品牌官網、行銷專頁、電商網站建置服務。不套版、不將就，每個專案親自執行，讓你的品牌被記住。">
   <link rel="canonical" href="https://koto.studio/">
 
   <!-- OG / Social -->
-  <meta property="og:title" content="KOTO Studio｜職人級網頁設計">
+  <meta property="og:title" content="KOTO Studio｜客製化 WordPress 網頁設計">
   <meta property="og:description" content="大世界很複雜，我們回小事裡見。">
   <meta property="og:image" content="https://koto.studio/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -18,6 +18,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://koto.studio/">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 強制瀏覽器不快取（開發期間使用）-->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,10 +39,9 @@
     <div class="koto-container nav-inner">
       <a href="#" class="nav-logo" aria-label="KOTO Studio 首頁">KOTO Studio</a>
       <ul class="nav-links" role="list">
-        <li><a href="#section-services">Services</a></li>
-        <li><a href="#section-work">Selected Work</a></li>
-        <li><a href="#section-process">Our Process</a></li>
-        <li><a href="#section-contact">Contact</a></li>
+        <li><a href="#section-services">服務項目</a></li>
+        <li><a href="#section-process">合作流程</a></li>
+        <li><a href="#section-contact">聯絡我們</a></li>
       </ul>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-mobile-overlay">
         <span></span><span></span><span></span>
@@ -49,10 +53,9 @@
   <div class="nav-mobile-overlay" id="nav-mobile-overlay" role="dialog" aria-modal="true" aria-label="行動裝置選單">
     <button class="nav-close" id="nav-close" aria-label="關閉選單">✕</button>
     <ul role="list">
-      <li><a href="#section-services" class="nav-mobile-link">Services</a></li>
-      <li><a href="#section-work" class="nav-mobile-link">Selected Work</a></li>
-      <li><a href="#section-process" class="nav-mobile-link">Our Process</a></li>
-      <li><a href="#section-contact" class="nav-mobile-link">Contact</a></li>
+      <li><a href="#section-services" class="nav-mobile-link">服務項目</a></li>
+      <li><a href="#section-process" class="nav-mobile-link">合作流程</a></li>
+      <li><a href="#section-contact" class="nav-mobile-link">聯絡我們</a></li>
     </ul>
   </div>
 
@@ -62,15 +65,14 @@
     <section id="section-hero" class="section-hero" aria-labelledby="hero-h1">
       <div class="koto-container hero-inner">
         <div class="hero-text">
-          <p class="hero-eyebrow animate-in" data-delay="0">— WordPress 建站 · 品牌網頁設計</p>
-          <h1 id="hero-h1" class="animate-in" data-delay="1">幫你的品牌打造<br>一個<em>值得被記住</em><br>的網站</h1>
+          <p class="hero-eyebrow animate-in" data-delay="0">— 台灣 · 客製化網頁設計</p>
+          <h1 id="hero-h1" class="animate-in" data-delay="1">幫你的品牌<br>打造一個<br><em>值得被記住的網站</em></h1>
           <p class="hero-sub animate-in" data-delay="2">不套版、不將就。每一行程式碼手工鍛造，<br>讓你的網站在第一眼就說服每一位訪客。</p>
           <div class="hero-service-pills animate-in" data-delay="3" aria-label="服務項目快覽">
             <span class="pill">品牌官網</span>
             <span class="pill">電商網站</span>
             <span class="pill">行銷專頁</span>
-            <span class="pill">WordPress 建站</span>
-            <span class="pill">網站健檢改版</span>
+            <span class="pill">WordPress</span>
           </div>
           <div class="hero-ctas animate-in" data-delay="4">
             <a href="#section-contact" class="hero-cta" aria-label="免費諮詢專案">
@@ -97,57 +99,38 @@
     <!-- ══ SECTION 2：核心價值 ══ -->
     <section id="section-values" class="section-values" aria-labelledby="values-h2">
       <div class="koto-container">
-        <div class="section-label" aria-hidden="true">02</div>
-        <h2 id="values-h2" class="section-title reveal">小事製作的偏執維度</h2>
+        <div class="section-label" aria-hidden="true">為什麼選我們</div>
+        <h2 id="values-h2" class="section-title reveal">我們為什麼<br>與眾不同？</h2>
         <div class="values-grid focus-gallery">
           <article class="gallery-item reveal" data-reveal-delay="0">
             <div class="card-num" aria-hidden="true">01</div>
-            <h3>顯微鏡視角的<br>「解構力」</h3>
-            <p>別人看到的是「大山」，我們看到的是「沙礫」。在每一個細節、每一段程式碼後面，我們追問的是：這裡真的需要嗎？</p>
+            <h3>不套版，<br>每個專案都唯一</h3>
+            <p>我們不用現成模板套版了事。每一個網站都從品牌核心出發，手工鍛造，確保你的網站跟任何人都不一樣。</p>
             <div class="card-accent" aria-hidden="true"></div>
           </article>
           <article class="gallery-item reveal" data-reveal-delay="1">
             <div class="card-num" aria-hidden="true">02</div>
-            <h3>偏執狂般的<br>「程式碼打磨」</h3>
-            <p>我們不套用現成樣板。每一行程式碼都是手工鍛造，像老師傅打刀一樣，反覆淬火，直到它足夠輕盈、足夠快，足夠乾淨。</p>
+            <h3>速度快，<br>手機平板都好看</h3>
+            <p>網站跑得慢、手機版跑版，是業主最常遇到的問題。我們從一開始就把效能和 RWD 寫進每一行程式碼。</p>
             <div class="card-accent" aria-hidden="true"></div>
           </article>
           <article class="gallery-item reveal" data-reveal-delay="2">
             <div class="card-num" aria-hidden="true">03</div>
-            <h3>容器般的<br>「數位留白」</h3>
-            <p>留白不是空洞，是呼吸的空間。我們相信，一個好的數位空間，應該讓使用者的目光有地方停留，有地方放鬆。</p>
+            <h3>設計有質感，<br>業主看得懂</h3>
+            <p>美不是只有設計師才能感受到的東西。我們讓每一個設計決策都有理由，也讓業主在提案時就能清楚感受到。</p>
             <div class="card-accent" aria-hidden="true"></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ══ 服務快速導覽列 ══ -->
-    <div class="service-quicknav" role="navigation" aria-label="服務快速導覽">
-      <div class="koto-container quicknav-inner">
-        <a href="#section-services" class="quicknav-item">
-          <span class="quicknav-icon" aria-hidden="true">◎</span>
-          <span class="quicknav-label">品牌官網</span>
-          <span class="quicknav-price">免費諮詢報價</span>
-        </a>
-        <a href="#section-services" class="quicknav-item">
-          <span class="quicknav-icon" aria-hidden="true">◈</span>
-          <span class="quicknav-label">行銷專頁</span>
-          <span class="quicknav-price">免費諮詢報價</span>
-        </a>
-        <a href="#section-services" class="quicknav-item">
-          <span class="quicknav-icon" aria-hidden="true">◉</span>
-          <span class="quicknav-label">電商網站</span>
-          <span class="quicknav-price">免費諮詢報價</span>
-        </a>
-      </div>
     </div>
 
     <!-- ══ SECTION 2.5：我們能為你做什麼 ══ -->
     <section id="section-services" class="section-services" aria-labelledby="services-h2">
       <div class="koto-container">
         <div class="section-label" aria-hidden="true">我們能為你做的事</div>
-        <h2 id="services-h2" class="section-title reveal">不管你的品牌在哪個階段，<br>我們都能幫你找到那個「小事」</h2>
+        <h2 id="services-h2" class="section-title reveal">我們提供<br>哪些服務？</h2>
 
         <div class="services-grid services-grid--3col">
 
@@ -163,9 +146,7 @@
                 <li>✓ SEO 基礎架構</li>
                 <li>✓ 聯絡表單整合</li>
               </ul>
-              <div class="service-cta">
-                <a href="#section-contact" class="service-cta-link">免費諮詢 ⟶</a>
-              </div>
+
             </div>
           </article>
 
@@ -180,9 +161,7 @@
                 <li>✓ 單頁式，無需後台管理</li>
                 <li>✓ GA4 ／ 追蹤碼整合</li>
               </ul>
-              <div class="service-cta">
-                <a href="#section-contact" class="service-cta-link">免費諮詢 ⟶</a>
-              </div>
+
             </div>
           </article>
 
@@ -198,9 +177,7 @@
                 <li>✓ 管理後臺介面</li>
                 <li>✓ 會員系統整合</li>
               </ul>
-              <div class="service-cta">
-                <a href="#section-contact" class="service-cta-link">免費諮詢 ⟶</a>
-              </div>
+
             </div>
           </article>
 
@@ -212,24 +189,55 @@
       </div>
     </section>
 
+
+    <!-- ══ WordPress 說明區塊 ══ -->
+    <section class="section-wp" aria-labelledby="wp-h2">
+      <div class="koto-container">
+        <div class="section-label" aria-hidden="true">為什麼用 WordPress</div>
+        <h2 id="wp-h2" class="section-title reveal">我們用 WordPress，<br>因為它對你最好</h2>
+        <div class="wp-grid">
+          <div class="wp-item reveal" data-reveal-delay="0">
+            <div class="wp-icon" aria-hidden="true">◎</div>
+            <h3>你可以自己更新內容</h3>
+            <p>網站上線後，換一張圖、改一段文字，你自己就能做，不用每次都找我們，省時又省錢。</p>
+          </div>
+          <div class="wp-item reveal" data-reveal-delay="1">
+            <div class="wp-icon" aria-hidden="true">◈</div>
+            <h3>全球 43% 的網站都在用</h3>
+            <p>從個人品牌到《紐約時報》、迪士尼都在用 WordPress。成熟穩定、生態豐富，不用擔心技術過時。</p>
+          </div>
+          <div class="wp-item reveal" data-reveal-delay="2">
+            <div class="wp-icon" aria-hidden="true">◉</div>
+            <h3>SEO 友善，Google 喜歡</h3>
+            <p>WordPress 的程式架構對搜尋引擎非常友善。加上我們的 SEO 基礎設定，讓你的網站更容易被找到。</p>
+          </div>
+          <div class="wp-item reveal" data-reveal-delay="3">
+            <div class="wp-icon" aria-hidden="true">◇</div>
+            <h3>未來要擴充很容易</h3>
+            <p>今天是品牌官網，明天想加購物車、會員系統、多語言？WordPress 都能擴充，不用砍掉重練。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ══ SECTION 3：痛點對照 ══ -->
     <section id="section-pain" class="section-pain" aria-labelledby="pain-h2">
       <div class="koto-container">
-        <div class="section-label" aria-hidden="true">03</div>
-        <h2 id="pain-h2" class="section-title reveal">你是否也苦於<br>數位世界的喧囂與繁贅？</h2>
+        <div class="section-label" aria-hidden="true">你的煩惱我們懂</div>
+        <h2 id="pain-h2" class="section-title reveal">這些煩惱，<br>你是否也有過？</h2>
         <dl class="pain-grid">
           <div class="pain-row reveal" data-reveal-delay="0">
             <div class="pain-left">
               <div class="pain-tag">
                 <span class="pain-icon" aria-hidden="true">⊘</span>
-                <dt>資訊太混亂</dt>
+                <dt>網站做完跟想像差很多</dt>
               </div>
-              <p class="pain-desc">每個頁面都在搶注意力，使用者根本不知道該看哪裡。</p>
+              <p class="pain-desc">跟設計公司溝通了很久，成品卻完全不是自己要的感覺。</p>
             </div>
             <div class="pain-right">
               <dd>
                 <span class="solution-label">KOTO 解法</span>
-                手工鍛造的純淨程式碼，能為你擋掉 70% 的感官過載。清晰的視覺層級，讓每一個重點都被準確接收。
+                我們在開始動工前，花足夠的時間理解你的品牌和期望。設計稿確認後才進入開發，不會讓你拿到一個「不對味」的成品。
               </dd>
             </div>
           </div>
@@ -237,14 +245,14 @@
             <div class="pain-left">
               <div class="pain-tag">
                 <span class="pain-icon" aria-hidden="true">⊘</span>
-                <dt>系統太臃腫</dt>
+                <dt>網站跑很慢、手機版很醜</dt>
               </div>
-              <p class="pain-desc">外掛套件不斷堆疊，網站愈來愈慢，改一個東西，壞三個地方。</p>
+              <p class="pain-desc">Google 搜不到、手機打開跑版、頁面要等好幾秒才載入。</p>
             </div>
             <div class="pain-right">
               <dd>
                 <span class="solution-label">KOTO 解法</span>
-                從零手寫，不依賴臃腫框架。輕盈的程式碼帶來極速載入，每一個功能都精準存在，沒有多餘。
+                我們從架構階段就把速度和 SEO 寫進去。手機版不是事後補做，而是一開始就同步設計開發。
               </dd>
             </div>
           </div>
@@ -252,14 +260,14 @@
             <div class="pain-left">
               <div class="pain-tag">
                 <span class="pain-icon" aria-hidden="true">⊘</span>
-                <dt>缺乏高奢質感</dt>
+                <dt>找了好幾家都不滿意</dt>
               </div>
-              <p class="pain-desc">用了現成版型，做出來的網站看起來跟別人都一樣，沒有靈魂。</p>
+              <p class="pain-desc">價格便宜的用套版應付，貴的又說不清楚差在哪裡。</p>
             </div>
             <div class="pain-right">
               <dd>
                 <span class="solution-label">KOTO 解法</span>
-                每一個專案都是唯一的。我們深入品牌核心，找到屬於你的那個「小事」，然後把它做到極致。
+                KOTO Studio 只做客製化，不接套版案。每一個專案我們都親自執行，你的網站不會被外包或用 AI 一鍵生成。
               </dd>
             </div>
           </div>
@@ -270,7 +278,7 @@
     <!-- ══ SECTION 4：合作流程 ══ -->
     <section id="section-process" class="section-process" aria-labelledby="process-h2">
       <div class="koto-container">
-        <div class="section-label" aria-hidden="true">04</div>
+        <div class="section-label" aria-hidden="true">合作流程</div>
         <h2 id="process-h2" class="section-title reveal">網站架設流程，<br>用心完成每一步</h2>
 
         <div class="process-cards">
@@ -327,8 +335,8 @@
       </div>
     </section>
 
-    <!-- ══ SECTION 5：精選作品 ══ -->
-    <section id="section-work" class="section-work" aria-labelledby="work-h2">
+    <!-- ══ SECTION 5：精選作品 ══ 目前隱藏，有作品後移除 hidden 即可顯示 ══ -->
+    <section id="section-work" class="section-work" aria-labelledby="work-h2" hidden>
       <div class="koto-container">
         <div class="section-label" aria-hidden="true">05</div>
         <h2 id="work-h2" class="section-title reveal">被隆重對待的作品</h2>
@@ -417,8 +425,8 @@
     <section id="section-contact" class="section-contact" aria-labelledby="contact-h2">
       <div class="koto-container">
         <div class="section-label" aria-hidden="true">06 · CONTACT</div>
-        <h2 id="contact-h2" class="section-title reveal">告訴我們你的需求</h2>
-        <p class="contact-intro reveal">填寫以下表單，我們將在 2 個工作天內與您聯繫。</p>
+        <h2 id="contact-h2" class="section-title reveal">準備好了嗎？<br>讓我們來聊聊</h2>
+        <p class="contact-intro reveal">填寫以下表單，我們將在 2 個工作天內回覆，初次諮詢完全免費。</p>
 
         <div class="contact-wrap reveal" id="contact-form-wrap">
 
@@ -537,7 +545,7 @@
     <div class="koto-container footer-inner">
       <div class="footer-left">
         <span class="footer-logo">KOTO Studio</span>
-        <p class="footer-tagline">大世界很複雜，我們回小事裡見。</p>
+        <p class="footer-tagline">專注客製化 WordPress 網頁設計</p>
       </div>
       <nav class="footer-socials" aria-label="社群連結">
         <a href="#" rel="noopener noreferrer" aria-label="Threads">Threads</a>
@@ -547,7 +555,7 @@
       </nav>
     </div>
     <div class="koto-container footer-bottom">
-      <span class="footer-copy">© 2025 KOTO Studio. All rights reserved.</span>
+      <span class="footer-copy">© 2026 KOTO Studio. All rights reserved.</span>
       <span class="footer-easter" id="footer-easter" role="button" tabindex="0" aria-label="彩蛋">Piece of cake.</span>
     </div>
   </footer>
