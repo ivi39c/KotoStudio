@@ -463,6 +463,137 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 1024px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 767px)  { .values-grid { grid-template-columns: 1fr; gap: 1px; } }
 
+/* ── Hero 升級樣式 ────────────────────────────────────────────── */
+.hero-text h1 em {
+  font-style: normal;
+  color: var(--terra);
+  position: relative;
+}
+.hero-text h1 em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 0;
+  width: 100%; height: 2px;
+  background: var(--terra);
+  opacity: 0.4;
+}
+
+.hero-service-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+.pill {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--moss-deep);
+  background: rgba(74, 93, 78, 0.08);
+  border: 1px solid rgba(74, 93, 78, 0.2);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-cta-ghost {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--carbon);
+  border-bottom: 1px solid var(--gray-light);
+  padding-bottom: 2px;
+  transition: border-color 0.3s var(--ease-koto), color 0.3s;
+}
+.hero-cta-ghost:hover {
+  color: var(--moss-deep);
+  border-color: var(--moss-deep);
+}
+
+/* ── 服務快速導覽列 ──────────────────────────────────────────── */
+.service-quicknav {
+  background: var(--white);
+  border-top: 1px solid var(--gray-ultra);
+  border-bottom: 1px solid var(--gray-ultra);
+  position: relative;
+  z-index: 10;
+}
+
+.quicknav-inner {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.quicknav-inner::-webkit-scrollbar { display: none; }
+
+.quicknav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 20px 28px;
+  border-right: 1px solid var(--gray-ultra);
+  flex: 1;
+  min-width: 140px;
+  transition: background 0.3s var(--ease-koto);
+  text-decoration: none;
+  position: relative;
+}
+.quicknav-item:last-child { border-right: none; }
+.quicknav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--terra);
+  transition: width 0.4s var(--ease-koto);
+}
+.quicknav-item:hover { background: var(--oat); }
+.quicknav-item:hover::after { width: 100%; }
+
+.quicknav-icon {
+  font-size: 14px;
+  color: var(--terra);
+  margin-bottom: 2px;
+}
+.quicknav-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--carbon);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.quicknav-price {
+  font-size: 11px;
+  color: var(--gray-mid);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .quicknav-item { min-width: 130px; padding: 18px 20px; }
+}
+@media (max-width: 767px) {
+  .quicknav-inner { padding: 0 0 0 24px; }
+  .quicknav-item  { min-width: 120px; padding: 16px 16px 16px 0; }
+  /* 手機版顯示可左右滑動提示 */
+  .service-quicknav::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0;
+    width: 40px; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.9));
+    pointer-events: none;
+  }
+}
+
 /* ── 8.5. Section 2.5：服務項目 ──────────────────────────────── */
 .section-services {
   padding: 15vh 0;
