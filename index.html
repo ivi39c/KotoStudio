@@ -1,40 +1,487 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>KOTO studio | 大世界很複雜，我們回小事裡見。</title>
-    <meta name="description" content="KOTO studio 小事製作，專注於品牌網頁設計與架設，將複雜的技術轉化為輕盈的小事。">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>KOTO Studio｜職人級網頁設計與前端開發</title>
+  <meta name="description" content="KOTO Studio 以職人手感打造高奢質感網頁，融合東方留白美學與頂級 SaaS 體驗。讓您的品牌在數位世界被隆重對待。">
+  <link rel="canonical" href="https://koto.studio/">
+
+  <!-- OG / Social -->
+  <meta property="og:title" content="KOTO Studio｜職人級網頁設計">
+  <meta property="og:description" content="大世界很複雜，我們回小事裡見。">
+  <meta property="og:image" content="https://koto.studio/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://koto.studio/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>...</nav>
 
-    <section id="hero">
-        <h1>大世界很複雜，我們回小事裡見。</h1>
-    </section>
+  <!-- ══ NAV ══ -->
+  <nav class="koto-nav" id="koto-nav" aria-label="主要導覽">
+    <div class="koto-container nav-inner">
+      <a href="#" class="nav-logo" aria-label="KOTO Studio 首頁">KOTO studio</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#section-work">Selected Work</a></li>
+        <li><a href="#section-process">Our Process</a></li>
+        <li><a href="#section-contact">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-mobile-overlay">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <section id="origin">
-        <h2>致 那些被世界放大的日子</h2>
-        <p>我們就像是數位的梳理者...</p>
-    </section>
+  <!-- Mobile Overlay -->
+  <div class="nav-mobile-overlay" id="nav-mobile-overlay" role="dialog" aria-modal="true" aria-label="行動裝置選單">
+    <button class="nav-close" id="nav-close" aria-label="關閉選單">✕</button>
+    <ul role="list">
+      <li><a href="#section-work" class="nav-mobile-link">Selected Work</a></li>
+      <li><a href="#section-process" class="nav-mobile-link">Our Process</a></li>
+      <li><a href="#section-contact" class="nav-mobile-link">Contact</a></li>
+    </ul>
+  </div>
 
-    <section id="services">
-        <div class="horizontal-scroll">
-            <div class="service-item">🔍 〈釐清混亂〉</div>
-            <div class="service-item">📱 〈恰到好處的閱讀〉</div>
-            <div class="service-item">🛒 〈流暢的物件交付〉</div>
-            <div class="service-item">🧭 〈引導對的相遇〉</div>
-            <div class="service-item">🌙 〈默默的夜間守護〉</div>
+  <main>
+
+    <!-- ══ SECTION 1：品牌開場 ══ -->
+    <section id="section-hero" class="section-hero" aria-labelledby="hero-h1">
+      <div class="koto-container hero-inner">
+        <div class="hero-text">
+          <p class="hero-eyebrow animate-in" data-delay="0">— 職人手感 · 東方留白</p>
+          <h1 id="hero-h1" class="animate-in" data-delay="1">致&ensp;那些被<br>世界放大的日子</h1>
+          <p class="hero-sub animate-in" data-delay="2">大世界很複雜，我們回小事裡見。</p>
+          <p class="hero-body animate-in" data-delay="3">現代人的生活與數位世界都太過飽和。<br>我們相信，真正讓人屏息的設計，<br>從來不是加法，而是精準的減法。</p>
+          <a href="#section-contact" class="hero-cta animate-in" data-delay="4" aria-label="與我們合作">
+            <span>開始一件小事</span>
+            <span class="cta-arrow" aria-hidden="true">⟶</span>
+          </a>
         </div>
+        <div class="hero-deco" aria-hidden="true">
+          <div class="deco-circle"></div>
+          <div class="deco-line"></div>
+          <div class="deco-dot"></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint animate-in" data-delay="5" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span class="scroll-label">scroll</span>
+      </div>
     </section>
 
-    <section id="future">...</section>
+    <!-- ══ SECTION 2：核心價值 ══ -->
+    <section id="section-values" class="section-values" aria-labelledby="values-h2">
+      <div class="koto-container">
+        <div class="section-label" aria-hidden="true">02</div>
+        <h2 id="values-h2" class="section-title reveal">小事製作的偏執維度</h2>
+        <div class="values-grid focus-gallery">
+          <article class="gallery-item reveal" data-reveal-delay="0">
+            <div class="card-num" aria-hidden="true">01</div>
+            <h3>顯微鏡視角的<br>「解構力」</h3>
+            <p>別人看到的是「大山」，我們看到的是「沙礫」。在每一個像素、每一段代碼後面，我們追問的是：這裡真的需要嗎？</p>
+            <div class="card-accent" aria-hidden="true"></div>
+          </article>
+          <article class="gallery-item reveal" data-reveal-delay="1">
+            <div class="card-num" aria-hidden="true">02</div>
+            <h3>偏執狂般的<br>「代碼打磨」</h3>
+            <p>我們不用模板。每一行代碼都是手工鍛造，像老師傅打刀一樣，反覆淬火，直到它足夠輕盈、足夠快，足夠乾淨。</p>
+            <div class="card-accent" aria-hidden="true"></div>
+          </article>
+          <article class="gallery-item reveal" data-reveal-delay="2">
+            <div class="card-num" aria-hidden="true">03</div>
+            <h3>容器般的<br>「數位留白」</h3>
+            <p>留白不是空洞，是呼吸的空間。我們相信，一個好的數位空間，應該讓使用者的目光有地方停留，有地方放鬆。</p>
+            <div class="card-accent" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <section id="work">
-        <h2>精選案例</h2>
-        </section>
+    <!-- ══ SECTION 3：痛點對照 ══ -->
+    <section id="section-pain" class="section-pain" aria-labelledby="pain-h2">
+      <div class="koto-container">
+        <div class="section-label" aria-hidden="true">03</div>
+        <h2 id="pain-h2" class="section-title reveal">你是否也苦於<br>數位世界的喧囂與繁贅？</h2>
+        <dl class="pain-grid">
+          <div class="pain-row reveal" data-reveal-delay="0">
+            <div class="pain-left">
+              <div class="pain-tag">
+                <span class="pain-icon" aria-hidden="true">⊘</span>
+                <dt>資訊太混亂</dt>
+              </div>
+              <p class="pain-desc">每個頁面都在搶注意力，使用者根本不知道該看哪裡。</p>
+            </div>
+            <div class="pain-right">
+              <dd>
+                <span class="solution-label">KOTO 解法</span>
+                手工鍛造的純淨代碼，能為你擋掉 70% 的感官過載。清晰的視覺層級，讓每一個重點都被準確接收。
+              </dd>
+            </div>
+          </div>
+          <div class="pain-row reveal" data-reveal-delay="1">
+            <div class="pain-left">
+              <div class="pain-tag">
+                <span class="pain-icon" aria-hidden="true">⊘</span>
+                <dt>系統太臃腫</dt>
+              </div>
+              <p class="pain-desc">套版外掛堆疊，網站愈來愈慢，改一個東西，壞三個地方。</p>
+            </div>
+            <div class="pain-right">
+              <dd>
+                <span class="solution-label">KOTO 解法</span>
+                從零手寫，不依賴臃腫框架。輕盈的代碼帶來極速載入，每一個功能都精準存在，沒有多餘。
+              </dd>
+            </div>
+          </div>
+          <div class="pain-row reveal" data-reveal-delay="2">
+            <div class="pain-left">
+              <div class="pain-tag">
+                <span class="pain-icon" aria-hidden="true">⊘</span>
+                <dt>缺乏高奢質感</dt>
+              </div>
+              <p class="pain-desc">用了模板，做出來的網站看起來跟別人都一樣，沒有靈魂。</p>
+            </div>
+            <div class="pain-right">
+              <dd>
+                <span class="solution-label">KOTO 解法</span>
+                每一個專案都是唯一的。我們深入品牌核心，找到屬於你的那個「小事」，然後把它做到極致。
+              </dd>
+            </div>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-    <footer id="contact">
-        <p>「大世界很複雜，我們回小事裡見。」</p>
-        </footer>
+    <!-- ══ SECTION 4：合作流程 ══ -->
+    <section id="section-process" class="section-process" aria-labelledby="process-h2">
+      <div class="koto-container">
+        <div class="section-label" aria-hidden="true">04</div>
+        <h2 id="process-h2" class="section-title reveal">與我們前行的軌跡</h2>
+      </div>
+      <div class="timeline-wrap">
+        <!-- SVG line drawn by JS -->
+        <svg class="timeline-svg" id="timeline-svg" aria-hidden="true" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D1D1D1"/>
+              <stop offset="85%" stop-color="#D1D1D1"/>
+              <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line id="timeline-line" x1="50%" y1="0" x2="50%" y2="100%" stroke="url(#lineGrad)" stroke-width="1"/>
+        </svg>
+
+        <div class="timeline-items koto-container">
+          <div class="timeline-item reveal" data-reveal-delay="0" data-side="left">
+            <div class="timeline-node" aria-hidden="true"><div class="node-dot"></div></div>
+            <div class="timeline-content">
+              <div class="timeline-step" aria-hidden="true">01</div>
+              <h3>需求解構與範疇定義</h3>
+              <h4>精準釐清需求、梳理核心邏輯</h4>
+              <p>搬張椅子，我們先退回你的品牌初衷裡聊聊。不急著動筆，先把問題看清楚。</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-reveal-delay="1" data-side="right">
+            <div class="timeline-node" aria-hidden="true"><div class="node-dot"></div></div>
+            <div class="timeline-content">
+              <div class="timeline-step" aria-hidden="true">02</div>
+              <h3>品牌靈魂敘事打磨</h3>
+              <h4>找到屬於你的那個「小事」</h4>
+              <p>文字、語氣、敘事弧線。我們幫你找到那個最真實、最有穿透力的品牌聲音。</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-reveal-delay="2" data-side="left">
+            <div class="timeline-node" aria-hidden="true"><div class="node-dot"></div></div>
+            <div class="timeline-content">
+              <div class="timeline-step" aria-hidden="true">03</div>
+              <h3>視覺設計與原型打磨</h3>
+              <h4>每一個像素都值得被認真對待</h4>
+              <p>從色彩、字型到間距，每一個視覺決策都有理由。我們呈現的是設計稿，不是靈感板。</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-reveal-delay="3" data-side="right">
+            <div class="timeline-node" aria-hidden="true"><div class="node-dot"></div></div>
+            <div class="timeline-content">
+              <div class="timeline-step" aria-hidden="true">04</div>
+              <h3>代碼鍛造與動態實作</h3>
+              <h4>手工，不是量產</h4>
+              <p>拋棄套版，逐行手工鍛造。動畫有物理感，互動有回饋感，細節經得起放大鏡。</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-reveal-delay="4" data-side="left">
+            <div class="timeline-node" aria-hidden="true"><div class="node-dot"></div></div>
+            <div class="timeline-content">
+              <div class="timeline-step" aria-hidden="true">05</div>
+              <h3>上線護航與優化迭代</h3>
+              <h4>上線不是終點，是起點</h4>
+              <p>監控效能數據，收集真實用戶回饋，持續微調。我們陪你走過網站生命週期的每一個階段。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5：精選作品 ══ -->
+    <section id="section-work" class="section-work" aria-labelledby="work-h2">
+      <div class="koto-container">
+        <div class="section-label" aria-hidden="true">05</div>
+        <h2 id="work-h2" class="section-title reveal">被隆重對待的作品</h2>
+        <div class="work-list focus-gallery">
+
+          <article class="work-item gallery-item reveal" data-reveal-delay="0">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="查看：某品牌線上美學館設計作品（另開新視窗）">
+              <div class="work-img-wrap">
+                <div class="work-img-placeholder" aria-hidden="true">
+                  <div class="placeholder-inner">
+                    <span>01</span>
+                  </div>
+                </div>
+              </div>
+              <div class="work-info">
+                <div class="work-meta">
+                  <span class="work-num" aria-hidden="true">01</span>
+                  <div class="work-tags">
+                    <span class="tag">客製化 UI/UX</span>
+                    <span class="tag">WordPress 手工代碼</span>
+                  </div>
+                </div>
+                <h3>某品牌線上美學館</h3>
+                <p class="work-challenge"><strong>挑戰：</strong>超過 500 種工藝物件需要在線上被尊重地呈現，而非淪為電商清單。</p>
+                <p class="work-solution"><strong>解法：</strong>拋棄套版，逐行手工鍛造沉浸式藝廊體驗，讓每一件物件都被隆重對待。</p>
+                <span class="work-arrow" aria-hidden="true">⟶</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-item gallery-item reveal" data-reveal-delay="1">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="查看：某餐飲品牌官方網站設計作品（另開新視窗）">
+              <div class="work-img-wrap">
+                <div class="work-img-placeholder" aria-hidden="true">
+                  <div class="placeholder-inner">
+                    <span>02</span>
+                  </div>
+                </div>
+              </div>
+              <div class="work-info">
+                <div class="work-meta">
+                  <span class="work-num" aria-hidden="true">02</span>
+                  <div class="work-tags">
+                    <span class="tag">品牌視覺整合</span>
+                    <span class="tag">全端開發</span>
+                  </div>
+                </div>
+                <h3>某餐飲品牌官方網站</h3>
+                <p class="work-challenge"><strong>挑戰：</strong>老品牌數位化轉型，在保留溫度的同時，建立現代感的線上形象。</p>
+                <p class="work-solution"><strong>解法：</strong>深挖品牌二十年歷史底蘊，以東方活版印刷美學重新詮釋數位視覺語言。</p>
+                <span class="work-arrow" aria-hidden="true">⟶</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-item gallery-item reveal" data-reveal-delay="2">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="查看：SaaS 產品官網設計作品（另開新視窗）">
+              <div class="work-img-wrap">
+                <div class="work-img-placeholder" aria-hidden="true">
+                  <div class="placeholder-inner">
+                    <span>03</span>
+                  </div>
+                </div>
+              </div>
+              <div class="work-info">
+                <div class="work-meta">
+                  <span class="work-num" aria-hidden="true">03</span>
+                  <div class="work-tags">
+                    <span class="tag">SaaS Landing Page</span>
+                    <span class="tag">轉換率優化</span>
+                  </div>
+                </div>
+                <h3>SaaS 產品官方網站</h3>
+                <p class="work-challenge"><strong>挑戰：</strong>技術產品難以用視覺說故事，使用者在三秒內看不懂就離開。</p>
+                <p class="work-solution"><strong>解法：</strong>以心流設計引導視線，用絲滑的 Scroll 敘事把複雜功能拆解成令人信服的小片段。</p>
+                <span class="work-arrow" aria-hidden="true">⟶</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6：頁尾表單 ══ -->
+    <section id="section-contact" class="section-contact" aria-labelledby="contact-h2">
+      <div class="koto-container">
+        <div class="section-label" aria-hidden="true">06</div>
+        <h2 id="contact-h2" class="section-title reveal">大世界很複雜，<br>我們回小事裡見。</h2>
+
+        <div class="contact-form-wrap reveal" id="contact-form-wrap">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <!-- Honeypot anti-spam -->
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="hp-field">請勿填寫此欄位</label>
+              <input type="text" id="hp-field" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <p class="form-sentence" id="form-sentence">
+              你好，我們是 KOTO studio。
+              <br>
+              我想為我的
+              <span class="form-select-wrap">
+                <button type="button" class="form-select-btn" id="type-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="選擇服務類型">
+                  <span class="select-value" id="type-value">[ 品牌官網 ]</span>
+                  <span class="select-caret" aria-hidden="true">⌄</span>
+                </button>
+                <ul class="form-dropdown" id="type-dropdown" role="listbox" aria-label="服務類型選項">
+                  <li role="option" data-value="品牌官網" aria-selected="true">品牌官網</li>
+                  <li role="option" data-value="電商網站">電商網站</li>
+                  <li role="option" data-value="產品落地頁">產品落地頁</li>
+                  <li role="option" data-value="作品集網站">作品集網站</li>
+                  <li role="option" data-value="SaaS 官網">SaaS 官網</li>
+                </ul>
+                <!-- Mobile BottomSheet -->
+                <div class="koto-bottom-sheet" id="type-sheet" role="dialog" aria-modal="true" aria-label="選擇服務類型">
+                  <div class="sheet-handle" aria-hidden="true"></div>
+                  <p class="sheet-title">服務類型</p>
+                  <ul class="sheet-options" id="type-sheet-options">
+                    <li data-value="品牌官網">品牌官網</li>
+                    <li data-value="電商網站">電商網站</li>
+                    <li data-value="產品落地頁">產品落地頁</li>
+                    <li data-value="作品集網站">作品集網站</li>
+                    <li data-value="SaaS 官網">SaaS 官網</li>
+                  </ul>
+                </div>
+                <div class="sheet-backdrop" id="type-backdrop"></div>
+              </span>
+              打造一個
+              <span class="form-select-wrap">
+                <button type="button" class="form-select-btn" id="goal-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="選擇設計目標">
+                  <span class="select-value" id="goal-value">[ 有靈魂的 ]</span>
+                  <span class="select-caret" aria-hidden="true">⌄</span>
+                </button>
+                <ul class="form-dropdown" id="goal-dropdown" role="listbox" aria-label="設計目標選項">
+                  <li role="option" data-value="有靈魂的" aria-selected="true">有靈魂的</li>
+                  <li role="option" data-value="高轉換率的">高轉換率的</li>
+                  <li role="option" data-value="高奢質感的">高奢質感的</li>
+                  <li role="option" data-value="極簡純淨的">極簡純淨的</li>
+                </ul>
+                <div class="koto-bottom-sheet" id="goal-sheet" role="dialog" aria-modal="true" aria-label="選擇設計目標">
+                  <div class="sheet-handle" aria-hidden="true"></div>
+                  <p class="sheet-title">設計目標</p>
+                  <ul class="sheet-options" id="goal-sheet-options">
+                    <li data-value="有靈魂的">有靈魂的</li>
+                    <li data-value="高轉換率的">高轉換率的</li>
+                    <li data-value="高奢質感的">高奢質感的</li>
+                    <li data-value="極簡純淨的">極簡純淨的</li>
+                  </ul>
+                </div>
+                <div class="sheet-backdrop" id="goal-backdrop"></div>
+              </span>
+              網頁，
+              <br>
+              預算大約
+              <span class="form-select-wrap">
+                <button type="button" class="form-select-btn" id="budget-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="選擇預算範圍">
+                  <span class="select-value" id="budget-value">[ 10–30 萬 ]</span>
+                  <span class="select-caret" aria-hidden="true">⌄</span>
+                </button>
+                <ul class="form-dropdown" id="budget-dropdown" role="listbox" aria-label="預算範圍選項">
+                  <li role="option" data-value="5 萬以下" aria-selected="false">5 萬以下</li>
+                  <li role="option" data-value="5–10 萬" aria-selected="false">5–10 萬</li>
+                  <li role="option" data-value="10–30 萬" aria-selected="true">10–30 萬</li>
+                  <li role="option" data-value="30 萬以上" aria-selected="false">30 萬以上</li>
+                </ul>
+                <div class="koto-bottom-sheet" id="budget-sheet" role="dialog" aria-modal="true" aria-label="選擇預算範圍">
+                  <div class="sheet-handle" aria-hidden="true"></div>
+                  <p class="sheet-title">預算範圍</p>
+                  <ul class="sheet-options" id="budget-sheet-options">
+                    <li data-value="5 萬以下">5 萬以下</li>
+                    <li data-value="5–10 萬">5–10 萬</li>
+                    <li data-value="10–30 萬">10–30 萬</li>
+                    <li data-value="30 萬以上">30 萬以上</li>
+                  </ul>
+                </div>
+                <div class="sheet-backdrop" id="budget-backdrop"></div>
+              </span>
+              。
+              <br>
+              我的信箱是
+              <span class="form-email-wrap">
+                <label for="email-input" class="visually-hidden">您的電子信箱</label>
+                <input
+                  type="email"
+                  id="email-input"
+                  name="email"
+                  class="form-email-input"
+                  placeholder="hello@yourname.com"
+                  autocomplete="email"
+                  aria-required="true"
+                  aria-describedby="email-error"
+                >
+                <span class="email-error" id="email-error" role="alert" aria-live="polite"></span>
+              </span>
+            </p>
+
+            <input type="hidden" name="service_type" id="hidden-type" value="品牌官網">
+            <input type="hidden" name="design_goal" id="hidden-goal" value="有靈魂的">
+            <input type="hidden" name="budget" id="hidden-budget" value="10–30 萬">
+
+            <div class="form-submit-row">
+              <button type="submit" class="form-submit-btn" aria-label="送出合作詢問">
+                <span>送出</span>
+                <span class="btn-arrow" aria-hidden="true">⟶</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Success State -->
+          <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+            <p class="success-text">收到了。✦<br>我們會在 2 個工作天內聯繫您。</p>
+          </div>
+
+          <!-- Error State -->
+          <div class="form-error-msg" id="form-error-msg" role="alert" aria-live="polite" hidden>
+            <p>網路連線有點問題，請稍後再試，<br>或直接寄信至 <a href="mailto:hello@koto.studio">hello@koto.studio</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="koto-footer" aria-label="頁腳">
+    <div class="koto-container footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">KOTO studio</span>
+        <p class="footer-tagline">大世界很複雜，我們回小事裡見。</p>
+      </div>
+      <nav class="footer-socials" aria-label="社群連結">
+        <a href="#" rel="noopener noreferrer" aria-label="Threads">Threads</a>
+        <a href="#" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+        <a href="#" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+        <a href="#" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      </nav>
+    </div>
+    <div class="koto-container footer-bottom">
+      <span class="footer-copy">© 2025 KOTO Studio. All rights reserved.</span>
+      <span class="footer-easter" id="footer-easter" role="button" tabindex="0" aria-label="彩蛋">Piece of cake.</span>
+    </div>
+  </footer>
+
+  <!-- Easter Egg Canvas -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <script src="main.js"></script>
 </body>
 </html>
