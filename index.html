@@ -426,11 +426,15 @@
           <div class="contact-form-col">
             <form id="contact-form" action="https://formspree.io/f/xjgdewar" method="POST" novalidate>
 
-              <!-- Honeypot -->
+              <!-- Honeypot + Formspree 防 Spam 設定 -->
               <div class="visually-hidden" aria-hidden="true">
                 <label for="hp-field">請勿填寫此欄位</label>
                 <input type="text" id="hp-field" name="_gotcha" tabindex="-1" autocomplete="off">
               </div>
+              <!-- 告訴 Formspree 回覆信寄到哪裡 -->
+              <input type="hidden" name="_replyto" value="kotostudio.net@gmail.com">
+              <!-- 表單主旨，方便 Gmail 辨識 -->
+              <input type="hidden" name="_subject" value="✦ KOTO Studio 新詢單通知">
 
               <div class="form-row-2col">
                 <div class="form-field">
