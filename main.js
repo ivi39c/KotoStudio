@@ -295,37 +295,6 @@ function initEasterEgg() {
 }
 
 
-/* ══════════════════════════════════════════════════════════════
-   9. 模板展示篩選
-   ══════════════════════════════════════════════════════════════ */
-function initTemplateFilter() {
-  const btns  = $$('.filter-btn');
-  const cards = $$('.template-card');
-  if (!btns.length) return;
-
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-
-      // 更新按鈕狀態
-      btns.forEach(b => {
-        b.classList.remove('is-active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('is-active');
-      btn.setAttribute('aria-selected', 'true');
-
-      // 篩選卡片
-      cards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.classList.remove('is-hidden');
-        } else {
-          card.classList.add('is-hidden');
-        }
-      });
-    });
-  });
-}
 
 /* ══════════════════════════════════════════════════════════════
    8. 作品卡片 focus-gallery（手機 Touch 互動）
@@ -359,6 +328,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdowns();
   initForm();
   initEasterEgg();
-  initTemplateFilter();
   initGalleryTouch();
 });
