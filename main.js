@@ -103,44 +103,10 @@ function initReveal() {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   4. Section 4 時間軸 SVG 動畫
+   4. Section 4 流程卡片（無 SVG，純 IntersectionObserver）
    ══════════════════════════════════════════════════════════════ */
 function initTimeline() {
-  const wrap = $('.timeline-wrap');
-  const line = $('#timeline-line');
-  if (!wrap || !line) return;
-
-  if (prefersReducedMotion()) return;
-
-  // SVG 尺寸跟容器同步
-  const svg = $('#timeline-svg');
-
-  const syncSvgSize = () => {
-    const h = wrap.offsetHeight;
-    svg.setAttribute('height', h);
-    svg.setAttribute('viewBox', `0 0 1 ${h}`);
-    line.setAttribute('y2', h);
-  };
-
-  // 用 stroke-dasharray 技術讓線條隨滾動延伸
-  const updateLine = () => {
-    const rect = wrap.getBoundingClientRect();
-    const wh   = window.innerHeight;
-    const progress = Math.min(1, Math.max(0,
-      (wh - rect.top) / (rect.height + wh)
-    ));
-    const totalLen = wrap.offsetHeight;
-    line.style.strokeDasharray = totalLen;
-    line.style.strokeDashoffset = totalLen * (1 - progress);
-  };
-
-  line.style.strokeDasharray = wrap.offsetHeight;
-  line.style.strokeDashoffset = wrap.offsetHeight;
-
-  syncSvgSize();
-  window.addEventListener('scroll', updateLine, { passive: true });
-  window.addEventListener('resize', () => { syncSvgSize(); updateLine(); });
-  updateLine();
+  // 流程已改為卡片，無需 SVG 動畫，reveal 由 initReveal 統一處理
 }
 
 /* ══════════════════════════════════════════════════════════════

@@ -602,7 +602,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   margin-bottom: 32px;
 }
@@ -860,119 +860,92 @@ img { display: block; max-width: 100%; height: auto; }
   .pain-right { padding-left: 0; border-left: none; border-top: 1px solid var(--gray-ultra); padding-top: 24px; }
 }
 
-/* ── 10. Section 4：時間軸 ──────────────────────────────────── */
+
+/* ── Section 4：流程卡片（4步驟）────────────────────────────── */
 .section-process {
   padding: 15vh 0;
   background: var(--white);
-  position: relative;
 }
 
-.timeline-wrap {
-  position: relative;
-  margin-top: 20px;
-}
-
-.timeline-svg {
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.timeline-items { position: relative; z-index: 1; }
-
-.timeline-item {
+.process-cards {
   display: grid;
-  grid-template-columns: 1fr 40px 1fr;
-  gap: 0;
-  margin-bottom: 0;
-  padding: 60px 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 16px;
 }
 
-/* 左右交錯 */
-.timeline-item[data-side="left"] .timeline-content  { grid-column: 1; text-align: right; padding-right: 56px; }
-.timeline-item[data-side="left"] .timeline-node     { grid-column: 2; }
-.timeline-item[data-side="left"] .timeline-step     { display: none; } /* show on right-side only for cleanliness */
-.timeline-item[data-side="right"] .timeline-content { grid-column: 3; text-align: left; padding-left: 56px; }
-.timeline-item[data-side="right"] .timeline-node    { grid-column: 2; }
-.timeline-item[data-side="left"] > *:not(.timeline-content):not(.timeline-node) { grid-column: 3; }
-
-.timeline-node {
+.process-card {
+  background: var(--oat);
+  padding: 40px 32px;
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 8px;
-}
-.node-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--gray-light);
-  border: 1px solid var(--gray-light);
+  flex-direction: column;
+  gap: 16px;
   transition: all 0.4s var(--ease-koto);
+  overflow: hidden;
+}
+.process-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--terra);
+  transition: width 0.5s var(--ease-koto);
+}
+.process-card:hover { background: var(--white); box-shadow: 0 8px 32px rgba(0,0,0,0.05); }
+.process-card:hover::after { width: 100%; }
+
+.process-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  background: var(--terra);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
   flex-shrink: 0;
 }
-.timeline-item.is-visible .node-dot {
-  background: var(--terra);
-  border-color: var(--terra);
-  box-shadow: 0 0 0 6px var(--terra-glow);
-  transform: scale(1.3);
-}
 
-.timeline-step {
+.process-body h3 {
   font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  color: var(--gray-light);
-  margin-bottom: 12px;
-}
-
-.timeline-content h3 {
-  font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--carbon);
   letter-spacing: 0.04em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   line-height: 1.3;
 }
-
-.timeline-content h4 {
+.process-body p {
   font-size: 13px;
-  font-weight: 400;
-  color: var(--gray-mid);
-  letter-spacing: 0.08em;
-  margin-bottom: 16px;
-}
-
-.timeline-content p {
-  font-size: 14px;
   line-height: 1.9;
   color: var(--gray-dark);
-  max-width: 320px;
 }
-.timeline-item[data-side="left"] .timeline-content p { margin-left: auto; }
 
-/* Mobile 時間軸 */
-@media (max-width: 767px) {
-  .timeline-svg { left: 24px; transform: none; }
-  .timeline-item {
-    grid-template-columns: 40px 1fr;
-    padding: 40px 0;
-  }
-  .timeline-item[data-side="left"] .timeline-content,
-  .timeline-item[data-side="right"] .timeline-content {
-    grid-column: 2;
-    text-align: left;
-    padding-left: 24px;
-    padding-right: 0;
-  }
-  .timeline-item[data-side="left"] .timeline-node,
-  .timeline-item[data-side="right"] .timeline-node { grid-column: 1; }
-  .timeline-content p { max-width: 100%; margin-left: 0 !important; }
+.process-deliverable {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-ultra);
 }
+.process-deliverable span {
+  font-size: 12px;
+  color: var(--moss-deep);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 1024px) {
+  .process-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+  .process-cards { grid-template-columns: 1fr; gap: 1px; }
+  .process-card  { padding: 28px 20px; }
+}
+
 
 /* ── 11. Section 5：作品展示 ─────────────────────────────────── */
 .section-work {
