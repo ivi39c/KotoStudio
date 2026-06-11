@@ -32,7 +32,7 @@
   <!-- ══ NAV ══ -->
   <nav class="koto-nav" id="koto-nav" aria-label="主要導覽">
     <div class="koto-container nav-inner">
-      <a href="#" class="nav-logo" aria-label="KOTO Studio 首頁">KOTO studio</a>
+      <a href="#" class="nav-logo" aria-label="KOTO Studio 首頁">KOTO Studio</a>
       <ul class="nav-links" role="list">
         <li><a href="#section-services">Services</a></li>
         <li><a href="#section-work">Selected Work</a></li>
@@ -527,7 +527,7 @@
             </div>
 
             <p class="form-sentence" id="form-sentence">
-              你好，我們是 KOTO studio。
+              你好，我們是 KOTO Studio。
               <br>
               我想為我的
               <span class="form-select-wrap">
@@ -542,19 +542,7 @@
                   <li role="option" data-value="作品集網站">作品集網站</li>
                   <li role="option" data-value="SaaS 官網">SaaS 官網</li>
                 </ul>
-                <!-- Mobile BottomSheet -->
-                <div class="koto-bottom-sheet" id="type-sheet" role="dialog" aria-modal="true" aria-label="選擇服務類型">
-                  <div class="sheet-handle" aria-hidden="true"></div>
-                  <p class="sheet-title">服務類型</p>
-                  <ul class="sheet-options" id="type-sheet-options">
-                    <li data-value="品牌官網">品牌官網</li>
-                    <li data-value="電商網站">電商網站</li>
-                    <li data-value="行銷專頁">行銷專頁</li>
-                    <li data-value="作品集網站">作品集網站</li>
-                    <li data-value="SaaS 官網">SaaS 官網</li>
-                  </ul>
-                </div>
-                <div class="sheet-backdrop" id="type-backdrop"></div>
+                <!-- type-sheet 已移至 body 底部 -->
               </span>
               打造一個
               <span class="form-select-wrap">
@@ -568,17 +556,7 @@
                   <li role="option" data-value="高奢質感的">高奢質感的</li>
                   <li role="option" data-value="極簡純淨的">極簡純淨的</li>
                 </ul>
-                <div class="koto-bottom-sheet" id="goal-sheet" role="dialog" aria-modal="true" aria-label="選擇設計目標">
-                  <div class="sheet-handle" aria-hidden="true"></div>
-                  <p class="sheet-title">設計目標</p>
-                  <ul class="sheet-options" id="goal-sheet-options">
-                    <li data-value="有靈魂的">有靈魂的</li>
-                    <li data-value="高詢單轉換">高詢單轉換</li>
-                    <li data-value="高奢質感的">高奢質感的</li>
-                    <li data-value="極簡純淨的">極簡純淨的</li>
-                  </ul>
-                </div>
-                <div class="sheet-backdrop" id="goal-backdrop"></div>
+                <!-- goal-sheet 已移至 body 底部 -->
               </span>
               網頁，
               <br>
@@ -594,17 +572,7 @@
                   <li role="option" data-value="10–30 萬" aria-selected="true">10–30 萬</li>
                   <li role="option" data-value="30 萬以上" aria-selected="false">30 萬以上</li>
                 </ul>
-                <div class="koto-bottom-sheet" id="budget-sheet" role="dialog" aria-modal="true" aria-label="選擇預算範圍">
-                  <div class="sheet-handle" aria-hidden="true"></div>
-                  <p class="sheet-title">預算範圍</p>
-                  <ul class="sheet-options" id="budget-sheet-options">
-                    <li data-value="5 萬以下">5 萬以下</li>
-                    <li data-value="5–10 萬">5–10 萬</li>
-                    <li data-value="10–30 萬">10–30 萬</li>
-                    <li data-value="30 萬以上">30 萬以上</li>
-                  </ul>
-                </div>
-                <div class="sheet-backdrop" id="budget-backdrop"></div>
+                <!-- budget-sheet 已移至 body 底部 -->
               </span>
               。
               <br>
@@ -656,7 +624,7 @@
   <footer class="koto-footer" aria-label="頁腳">
     <div class="koto-container footer-inner">
       <div class="footer-left">
-        <span class="footer-logo">KOTO studio</span>
+        <span class="footer-logo">KOTO Studio</span>
         <p class="footer-tagline">大世界很複雜，我們回小事裡見。</p>
       </div>
       <nav class="footer-socials" aria-label="社群連結">
@@ -674,6 +642,45 @@
 
   <!-- Easter Egg Canvas -->
   <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+
+  <!-- ══ BottomSheets（手機）放在 body 直接子層，position:fixed 才正確 ══ -->
+  <div class="koto-bottom-sheet" id="type-sheet" role="dialog" aria-modal="true" aria-label="選擇服務類型">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <p class="sheet-title">服務類型</p>
+    <ul class="sheet-options" id="type-sheet-options">
+      <li data-value="品牌官網">品牌官網</li>
+      <li data-value="電商網站">電商網站</li>
+      <li data-value="行銷專頁">行銷專頁</li>
+      <li data-value="作品集網站">作品集網站</li>
+      <li data-value="SaaS 官網">SaaS 官網</li>
+    </ul>
+  </div>
+
+  <div class="koto-bottom-sheet" id="goal-sheet" role="dialog" aria-modal="true" aria-label="選擇設計目標">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <p class="sheet-title">設計目標</p>
+    <ul class="sheet-options" id="goal-sheet-options">
+      <li data-value="有靈魂的">有靈魂的</li>
+      <li data-value="高詢單轉換">高詢單轉換</li>
+      <li data-value="高奢質感的">高奢質感的</li>
+      <li data-value="極簡純淨的">極簡純淨的</li>
+    </ul>
+  </div>
+
+  <div class="koto-bottom-sheet" id="budget-sheet" role="dialog" aria-modal="true" aria-label="選擇預算範圍">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <p class="sheet-title">預算範圍</p>
+    <ul class="sheet-options" id="budget-sheet-options">
+      <li data-value="5 萬以下">5 萬以下</li>
+      <li data-value="5–10 萬">5–10 萬</li>
+      <li data-value="10–30 萬">10–30 萬</li>
+      <li data-value="30 萬以上">30 萬以上</li>
+    </ul>
+  </div>
+
+  <!-- 共用 Backdrop（一個就夠） -->
+  <div class="sheet-backdrop" id="global-backdrop"></div>
 
   <script src="main.js"></script>
 </body>
