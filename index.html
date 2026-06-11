@@ -416,103 +416,112 @@
     <!-- ══ SECTION 6：頁尾表單 ══ -->
     <section id="section-contact" class="section-contact" aria-labelledby="contact-h2">
       <div class="koto-container">
-        <div class="section-label" aria-hidden="true">06</div>
-        <h2 id="contact-h2" class="section-title reveal">大世界很複雜，<br>我們回小事裡見。</h2>
+        <div class="section-label" aria-hidden="true">06 · CONTACT</div>
+        <h2 id="contact-h2" class="section-title reveal">告訴我們你的需求</h2>
+        <p class="contact-intro reveal">填寫以下表單，我們將在 2 個工作天內與您聯繫。</p>
 
-        <div class="contact-form-wrap reveal" id="contact-form-wrap">
-          <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-            <!-- Honeypot anti-spam -->
-            <div class="visually-hidden" aria-hidden="true">
-              <label for="hp-field">請勿填寫此欄位</label>
-              <input type="text" id="hp-field" name="_gotcha" tabindex="-1" autocomplete="off">
-            </div>
+        <div class="contact-wrap reveal" id="contact-form-wrap">
 
-            <p class="form-sentence" id="form-sentence">
-              你好，我們是 KOTO Studio。
-              <br>
-              我想為我的
-              <span class="form-select-wrap">
-                <button type="button" class="form-select-btn" id="type-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="選擇服務類型">
-                  <span class="select-value" id="type-value">[ 品牌官方網站 ]</span>
-                  <span class="select-caret" aria-hidden="true">⌄</span>
-                </button>
-                <ul class="form-dropdown" id="type-dropdown" role="listbox" aria-label="服務類型選項">
-                  <li role="option" data-value="品牌官方網站" aria-selected="true">品牌官方網站</li>
-                  <li role="option" data-value="行銷專頁">行銷專頁</li>
-                  <li role="option" data-value="電商購物網站">電商購物網站</li>
-                </ul>
-                <!-- type-sheet 已移至 body 底部 -->
-              </span>
-              打造一個
-              <span class="form-select-wrap">
-                <button type="button" class="form-select-btn" id="goal-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="選擇設計目標">
-                  <span class="select-value" id="goal-value">[ 有靈魂的 ]</span>
-                  <span class="select-caret" aria-hidden="true">⌄</span>
-                </button>
-                <ul class="form-dropdown" id="goal-dropdown" role="listbox" aria-label="設計目標選項">
-                  <li role="option" data-value="有靈魂的" aria-selected="true">有靈魂的</li>
-                  <li role="option" data-value="高詢單轉換">高詢單轉換</li>
-                  <li role="option" data-value="高奢質感的">高奢質感的</li>
-                  <li role="option" data-value="極簡純淨的">極簡純淨的</li>
-                </ul>
-                <!-- goal-sheet 已移至 body 底部 -->
-              </span>
-              網頁，
-              <br>
-              預算大約
-              <span class="form-select-wrap">
-                <button type="button" class="form-select-btn" id="budget-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="選擇預算範圍">
-                  <span class="select-value" id="budget-value">[ 10–30 萬 ]</span>
-                  <span class="select-caret" aria-hidden="true">⌄</span>
-                </button>
-                <ul class="form-dropdown" id="budget-dropdown" role="listbox" aria-label="預算範圍選項">
-                  <li role="option" data-value="5 萬以下" aria-selected="false">5 萬以下</li>
-                  <li role="option" data-value="5–10 萬" aria-selected="false">5–10 萬</li>
-                  <li role="option" data-value="10–30 萬" aria-selected="true">10–30 萬</li>
-                  <li role="option" data-value="30 萬以上" aria-selected="false">30 萬以上</li>
-                </ul>
-                <!-- budget-sheet 已移至 body 底部 -->
-              </span>
-              。
-              <br>
-              我的信箱是
-              <span class="form-email-wrap">
-                <label for="email-input" class="visually-hidden">您的電子信箱</label>
-                <input
-                  type="email"
-                  id="email-input"
-                  name="email"
-                  class="form-email-input"
-                  placeholder="hello@yourname.com"
-                  autocomplete="email"
-                  aria-required="true"
-                  aria-describedby="email-error"
-                >
-                <span class="email-error" id="email-error" role="alert" aria-live="polite"></span>
-              </span>
-            </p>
+          <!-- ── 左欄：表單 ── -->
+          <div class="contact-form-col">
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
 
-            <input type="hidden" name="service_type" id="hidden-type" value="品牌官方網站">
-            <input type="hidden" name="design_goal" id="hidden-goal" value="有靈魂的">
-            <input type="hidden" name="budget" id="hidden-budget" value="10–30 萬">
+              <!-- Honeypot -->
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="hp-field">請勿填寫此欄位</label>
+                <input type="text" id="hp-field" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
 
-            <div class="form-submit-row">
-              <button type="submit" class="form-submit-btn" aria-label="送出合作詢問">
-                <span>送出</span>
+              <div class="form-row-2col">
+                <div class="form-field">
+                  <label for="f-name">姓名 <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="f-name" name="name" placeholder="王小明" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                  <label for="f-email">聯絡信箱 <span class="req" aria-hidden="true">*</span></label>
+                  <input type="email" id="f-email" name="email" placeholder="hello@brand.com" autocomplete="email" required aria-describedby="email-err">
+                  <span class="field-error" id="email-err" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="f-service">需要哪種服務？<span class="req" aria-hidden="true">*</span></label>
+                <div class="select-wrap">
+                  <select id="f-service" name="service_type" required>
+                    <option value="">請選擇服務類型</option>
+                    <option value="品牌官方網站">品牌官方網站</option>
+                    <option value="行銷專頁">行銷專頁</option>
+                    <option value="電商購物網站">電商購物網站</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="f-budget">預算範圍</label>
+                <div class="select-wrap">
+                  <select id="f-budget" name="budget">
+                    <option value="">請選擇預算範圍</option>
+                    <option value="5 萬以下">5 萬以下</option>
+                    <option value="5–10 萬">5–10 萬</option>
+                    <option value="10–30 萬">10–30 萬</option>
+                    <option value="30 萬以上">30 萬以上</option>
+                    <option value="尚未確定">尚未確定</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="f-message">簡單描述你的需求</label>
+                <textarea id="f-message" name="message" rows="4" placeholder="例如：我是一家手工皮革品牌，想要一個有質感的品牌官網，目前沒有網站⋯"></textarea>
+              </div>
+
+              <button type="submit" class="form-submit-btn" id="submit-btn" aria-label="送出需求">
+                <span>送出需求</span>
                 <span class="btn-arrow" aria-hidden="true">⟶</span>
               </button>
+
+            </form>
+
+            <!-- 成功訊息 -->
+            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+              <p class="success-text">收到了。✦<br>我們會在 2 個工作天內與您聯繫。</p>
             </div>
-          </form>
 
-          <!-- Success State -->
-          <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
-            <p class="success-text">收到了。✦<br>我們會在 2 個工作天內聯繫您。</p>
+            <!-- 失敗訊息 -->
+            <div class="form-error-msg" id="form-error-msg" role="alert" aria-live="polite" hidden>
+              <p>網路有點問題，請稍後再試，<br>或直接寄信至 <a href="mailto:kotostudio.net@gmail.com">kotostudio.net@gmail.com</a></p>
+            </div>
           </div>
 
-          <!-- Error State -->
-          <div class="form-error-msg" id="form-error-msg" role="alert" aria-live="polite" hidden>
-            <p>網路連線有點問題，請稍後再試，<br>或直接寄信至 <a href="mailto:hello@koto.studio">hello@koto.studio</a></p>
+          <!-- ── 右欄：聯絡資訊 ── -->
+          <div class="contact-info-col">
+
+            <div class="info-block">
+              <div class="info-label">Email</div>
+              <div class="info-value">
+                <a href="mailto:kotostudio.net@gmail.com">kotostudio.net@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <div class="info-label">回覆時間</div>
+              <div class="info-value">2 個工作天內回覆</div>
+            </div>
+
+            <div class="promise-box">
+              <div class="promise-title">我們承諾</div>
+              <ul class="promise-list">
+                <li>免費初次諮詢，不收任何費用</li>
+                <li>不硬銷售，先了解你的需求</li>
+                <li>報價透明，無隱藏費用</li>
+                <li>每一個專案都親自執行</li>
+              </ul>
+            </div>
+
+            <p class="form-note">* 為必填欄位</p>
+
           </div>
+
         </div>
       </div>
     </section>
@@ -541,43 +550,6 @@
 
   <!-- Easter Egg Canvas -->
   <canvas id="confetti-canvas" aria-hidden="true"></canvas>
-
-
-  <!-- ══ BottomSheets（手機）放在 body 直接子層，position:fixed 才正確 ══ -->
-  <div class="koto-bottom-sheet" id="type-sheet" role="dialog" aria-modal="true" aria-label="選擇服務類型">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <p class="sheet-title">服務類型</p>
-    <ul class="sheet-options" id="type-sheet-options">
-      <li data-value="品牌官方網站">品牌官方網站</li>
-      <li data-value="行銷專頁">行銷專頁</li>
-      <li data-value="電商購物網站">電商購物網站</li>
-    </ul>
-  </div>
-
-  <div class="koto-bottom-sheet" id="goal-sheet" role="dialog" aria-modal="true" aria-label="選擇設計目標">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <p class="sheet-title">設計目標</p>
-    <ul class="sheet-options" id="goal-sheet-options">
-      <li data-value="有靈魂的">有靈魂的</li>
-      <li data-value="高詢單轉換">高詢單轉換</li>
-      <li data-value="高奢質感的">高奢質感的</li>
-      <li data-value="極簡純淨的">極簡純淨的</li>
-    </ul>
-  </div>
-
-  <div class="koto-bottom-sheet" id="budget-sheet" role="dialog" aria-modal="true" aria-label="選擇預算範圍">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <p class="sheet-title">預算範圍</p>
-    <ul class="sheet-options" id="budget-sheet-options">
-      <li data-value="5 萬以下">5 萬以下</li>
-      <li data-value="5–10 萬">5–10 萬</li>
-      <li data-value="10–30 萬">10–30 萬</li>
-      <li data-value="30 萬以上">30 萬以上</li>
-    </ul>
-  </div>
-
-  <!-- 共用 Backdrop（一個就夠） -->
-  <div class="sheet-backdrop" id="global-backdrop"></div>
 
   <script src="main.js"></script>
 </body>

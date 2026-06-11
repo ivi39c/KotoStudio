@@ -1078,120 +1078,117 @@ img { display: block; max-width: 100%; height: auto; }
   .work-arrow { display: none; }
 }
 
-/* ── 12. Section 6：表單 ─────────────────────────────────────── */
+
+/* ── Section 6：新版聯絡表單 ─────────────────────────────────── */
 .section-contact {
-  padding: 15vh 0 10vh;
+  padding: 15vh 0 12vh;
   background: var(--oat);
 }
 
-.contact-form-wrap {
-  max-width: 860px;
-}
-
-.form-sentence {
-  font-family: var(--font-display);
-  font-size: clamp(20px, 3vw, 28px);
-  font-weight: 500;
-  line-height: 2;
-  color: var(--carbon);
-  letter-spacing: 0.04em;
-}
-
-/* 選單按鈕 */
-.form-select-wrap { position: relative; display: inline-block; }
-
-.form-select-btn {
-  font-family: var(--font-display);
-  font-size: inherit;
-  font-weight: 500;
-  color: var(--carbon);
-  border-bottom: 2px solid var(--moss);
-  padding: 0 4px 2px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: opacity 0.2s;
-  line-height: inherit;
-}
-.form-select-btn:hover { opacity: 0.7; }
-
-.select-caret {
-  font-size: 14px;
-  color: var(--moss);
-  transition: transform 0.3s var(--ease-koto);
-}
-.form-select-btn[aria-expanded="true"] .select-caret { transform: rotate(180deg); }
-
-/* Desktop Dropdown */
-.form-dropdown {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  background: var(--white);
-  border: 1px solid var(--gray-ultra);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  min-width: 160px;
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s var(--ease-koto), transform 0.25s var(--ease-koto);
-}
-.form-dropdown.is-open {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(-50%) translateY(0);
-}
-.form-dropdown li {
-  padding: 12px 20px;
-  font-family: var(--font-display);
+.contact-intro {
   font-size: 15px;
-  color: var(--carbon);
-  cursor: pointer;
-  transition: background 0.2s;
-  letter-spacing: 0.04em;
+  color: var(--gray-mid);
+  letter-spacing: 0.06em;
+  margin-top: -40px;
+  margin-bottom: 56px;
 }
-.form-dropdown li:hover { background: var(--oat); }
-.form-dropdown li[aria-selected="true"] { color: var(--moss); }
 
-/* Email 輸入 */
-.form-email-wrap {
-  display: inline-block;
-  position: relative;
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
 }
-.form-email-input {
-  font-family: var(--font-display);
-  font-size: inherit;
-  font-weight: 400;
-  color: var(--carbon);
+
+/* ── 左欄：表單 ── */
+.contact-form-col {}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-field {
+  margin-bottom: 32px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gray-mid);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.req { color: var(--terra); }
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--carbon);
-  outline: none;
-  padding: 0 4px 4px;
-  width: clamp(200px, 30vw, 360px);
-  letter-spacing: 0.04em;
-  line-height: inherit;
-  transition: border-color 0.3s;
-}
-.form-email-input::placeholder { color: var(--gray-light); }
-.form-email-input:focus { border-color: var(--moss); }
-.form-email-input.is-error { border-color: #C0392B; }
-
-.email-error {
-  display: block;
+  border-bottom: 1px solid var(--gray-light);
+  padding: 10px 0;
   font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--carbon);
+  outline: none;
+  transition: border-color 0.3s var(--ease-koto);
+  letter-spacing: 0.04em;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--gray-light); }
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--moss); }
+.form-field input.is-error { border-color: #C0392B; }
+
+.form-field textarea {
+  resize: none;
+  line-height: 1.9;
+}
+
+/* Select 下拉 */
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: '⌄';
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-mid);
+  font-size: 14px;
+  pointer-events: none;
+}
+.form-field select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gray-light);
+  padding: 10px 24px 10px 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--carbon);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease-koto);
+  letter-spacing: 0.04em;
+}
+.form-field select:focus { border-color: var(--moss); }
+.form-field select option { background: var(--white); color: var(--carbon); }
+
+.field-error {
+  display: block;
   font-size: 12px;
   color: #C0392B;
-  letter-spacing: 0.04em;
   margin-top: 4px;
   min-height: 16px;
 }
 
-/* Submit */
-.form-submit-row { margin-top: 52px; }
+/* Submit 按鈕 */
 .form-submit-btn {
   display: inline-flex;
   align-items: center;
@@ -1199,103 +1196,115 @@ img { display: block; max-width: 100%; height: auto; }
   background: var(--terra);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   padding: 16px 36px;
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
   transition: all 0.3s var(--ease-koto);
   box-shadow: 0 4px 20px var(--terra-glow);
 }
 .form-submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(212, 163, 115, 0.4);
+  box-shadow: 0 8px 32px rgba(212,163,115,0.4);
 }
+.form-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .btn-arrow { transition: transform 0.3s var(--ease-koto); }
 .form-submit-btn:hover .btn-arrow { transform: translateX(4px); }
 
 /* 成功 / 失敗 */
 .form-success, .form-error-msg {
-  padding: 40px 0;
+  padding: 32px 0;
   animation: fade-up 0.5s var(--ease-koto) forwards;
 }
 .success-text {
   font-family: var(--font-display);
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(20px, 2.5vw, 26px);
   font-weight: 500;
   line-height: 1.8;
   color: var(--moss-deep);
   letter-spacing: 0.04em;
 }
-.form-error-msg p { font-size: 15px; color: var(--gray-dark); }
+.form-error-msg p { font-size: 14px; color: var(--gray-dark); line-height: 1.9; }
 .form-error-msg a { color: var(--terra); border-bottom: 1px solid var(--terra); }
 
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ── 右欄：資訊 ── */
+.contact-info-col { padding-top: 4px; }
+
+.info-block { margin-bottom: 32px; }
+
+.info-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gray-light);
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
-/* BottomSheet（手機） */
-.koto-bottom-sheet {
-  position: fixed;
-  bottom: 0; left: 0;
-  width: 100%;
+.info-value {
+  font-size: 15px;
+  color: var(--carbon);
+  line-height: 1.8;
+}
+.info-value a {
+  color: var(--carbon);
+  border-bottom: 1px solid var(--gray-light);
+  transition: border-color 0.3s, color 0.3s;
+}
+.info-value a:hover {
+  color: var(--moss-deep);
+  border-color: var(--moss-deep);
+}
+
+.promise-box {
   background: var(--white);
-  border-radius: 16px 16px 0 0;
-  padding: 20px 0 env(safe-area-inset-bottom, 20px);
-  z-index: 1000;
-  transform: translateY(100%);
-  transition: transform 0.35s var(--ease-koto);
-  box-shadow: 0 -8px 40px rgba(0,0,0,0.1);
+  border-left: 2px solid var(--moss);
+  padding: 24px 28px;
+  margin-top: 8px;
+  margin-bottom: 24px;
 }
-.koto-bottom-sheet.is-active { transform: translateY(0); }
-.sheet-handle {
-  width: 40px; height: 4px;
-  background: var(--gray-ultra);
-  border-radius: 2px;
-  margin: 0 auto 20px;
-}
-.sheet-title {
+.promise-title {
   font-family: var(--font-display);
   font-size: 13px;
-  letter-spacing: 0.2em;
-  color: var(--gray-mid);
-  text-align: center;
-  margin-bottom: 16px;
+  font-weight: 600;
+  color: var(--moss-deep);
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
 }
-.sheet-options li {
-  padding: 18px 32px;
-  font-family: var(--font-display);
-  font-size: 18px;
-  color: var(--carbon);
-  letter-spacing: 0.04em;
-  border-top: 1px solid var(--gray-ultra);
-  cursor: pointer;
-  transition: background 0.2s;
+.promise-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.sheet-options li:hover, .sheet-options li.is-selected { background: var(--oat); color: var(--moss); }
-
-.sheet-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(26,26,26,0.3);
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s var(--ease-koto);
+.promise-list li {
+  font-size: 13px;
+  color: var(--gray-dark);
+  line-height: 1.7;
 }
-.sheet-backdrop.is-active {
-  opacity: 1;
-  pointer-events: all;
+.promise-list li::before {
+  content: '✓  ';
+  color: var(--moss-deep);
 }
 
-/* Desktop 隱藏 BottomSheet */
-@media (min-width: 768px) {
-  .koto-bottom-sheet, .sheet-backdrop { display: none !important; }
+.form-note {
+  font-size: 12px;
+  color: var(--gray-light);
+  letter-spacing: 0.06em;
 }
-/* Mobile 隱藏 Desktop Dropdown */
+
+/* RWD */
+@media (max-width: 1024px) {
+  .contact-wrap { gap: 48px; }
+}
 @media (max-width: 767px) {
-  .form-dropdown { display: none !important; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+  .form-row-2col { grid-template-columns: 1fr; gap: 0; }
+  .contact-info-col { border-top: 1px solid var(--gray-ultra); padding-top: 40px; }
 }
+
 
 /* ── 13. Footer ──────────────────────────────────────────────── */
 .koto-footer {
