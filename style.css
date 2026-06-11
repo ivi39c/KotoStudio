@@ -271,7 +271,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .hero-text h1 {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.5vw, 64px);
+  font-size: clamp(32px, 4.5vw, 56px);
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: 0.03em;
@@ -468,6 +468,7 @@ img { display: block; max-width: 100%; height: auto; }
   font-style: normal;
   color: var(--terra);
   position: relative;
+  white-space: nowrap;
 }
 .hero-text h1 em::after {
   content: '';
@@ -683,30 +684,21 @@ img { display: block; max-width: 100%; height: auto; }
   letter-spacing: 0.04em;
 }
 
-.service-meta {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.service-cta {
   padding-top: 20px;
   border-top: 1px solid var(--gray-ultra);
+  margin-top: auto;
 }
 
-.service-time {
-  font-size: 12px;
-  color: var(--gray-mid);
-  letter-spacing: 0.06em;
+.service-cta-link {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--moss-deep);
+  border-bottom: 1px solid var(--moss-deep);
+  padding-bottom: 1px;
+  transition: opacity 0.3s var(--ease-koto);
 }
-
-.service-price {
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--carbon);
-  letter-spacing: 0.04em;
-  background: rgba(212,163,115,0.12);
-  padding: 3px 12px;
-  border-radius: 20px;
-}
+.service-cta-link:hover { opacity: 0.6; }
 
 .services-note {
   text-align: center;
@@ -1306,6 +1298,184 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 
+
+/* ── Hero 文案升級 ───────────────────────────────────────────── */
+.hero-dash {
+  color: var(--terra);
+  font-style: normal;
+}
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--gray-mid);
+  margin-bottom: 36px;
+}
+
+/* ── 模板展示 Section ────────────────────────────────────────── */
+.section-templates {
+  padding: 15vh 0;
+  background: var(--oat);
+}
+.templates-intro {
+  font-size: 15px;
+  color: var(--gray-mid);
+  line-height: 1.9;
+  max-width: 600px;
+  margin-top: -36px;
+  margin-bottom: 48px;
+}
+.templates-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--gray-mid);
+  background: transparent;
+  border: 1px solid var(--gray-ultra);
+  padding: 7px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-koto);
+}
+.filter-btn:hover { border-color: var(--carbon); color: var(--carbon); }
+.filter-btn.is-active { background: var(--carbon); border-color: var(--carbon); color: var(--white); }
+
+/* 模板網格 */
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.template-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-koto);
+}
+.template-card:hover {
+  box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+.template-card.is-hidden { display: none; }
+
+/* 圖片區 */
+.template-img-link { display: block; }
+.template-img {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--gray-ultra);
+}
+.template-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s var(--ease-koto);
+  display: block;
+}
+.template-card:hover .template-img img { transform: scale(1.04); }
+.template-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--gray-light);
+}
+
+/* Hover Overlay */
+.template-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,26,26,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-koto);
+}
+.template-card:hover .template-overlay { opacity: 1; }
+.template-overlay span {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 10px 24px;
+  border-radius: 6px;
+}
+
+/* 模板資訊 */
+.template-info {
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.template-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--moss-deep);
+  background: rgba(74,93,78,0.08);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+  align-self: flex-start;
+}
+.template-info h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--carbon);
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+.template-info p {
+  font-size: 12px;
+  color: var(--gray-mid);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.btn-consult {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: var(--terra);
+  padding: 8px 16px;
+  border-radius: 6px;
+  align-self: flex-start;
+  transition: opacity 0.3s;
+  box-shadow: 0 2px 10px var(--terra-glow);
+}
+.btn-consult:hover { opacity: 0.85; }
+
+.templates-note {
+  text-align: center;
+  padding: 16px 0;
+}
+.templates-note p { font-size: 13px; color: var(--gray-mid); }
+
+@media (max-width: 1024px) {
+  .templates-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+  .templates-grid { grid-template-columns: 1fr; gap: 16px; }
+  .template-card:hover { transform: none; }
+  .template-overlay { display: none; }
+}
+
 /* ── 13. Footer ──────────────────────────────────────────────── */
 .koto-footer {
   background: var(--oat);
@@ -1389,3 +1559,64 @@ img { display: block; max-width: 100%; height: auto; }
   z-index: 9999;
   opacity: 0;
 }
+
+/* ── WordPress 說明區塊 ─────────────────────────────────────── */
+.section-wp {
+  padding: 15vh 0;
+  background: var(--white);
+}
+
+.wp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.wp-item {
+  padding: 36px 28px;
+  background: var(--oat);
+  transition: all 0.4s var(--ease-koto);
+  position: relative;
+  overflow: hidden;
+}
+.wp-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--terra);
+  transition: width 0.5s var(--ease-koto);
+}
+.wp-item:hover { background: var(--white); box-shadow: 0 8px 32px rgba(0,0,0,0.05); }
+.wp-item:hover::after { width: 100%; }
+
+.wp-icon {
+  font-size: 16px;
+  color: var(--terra);
+  margin-bottom: 16px;
+}
+
+.wp-item h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--carbon);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.wp-item p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--gray-dark);
+}
+
+@media (max-width: 1024px) {
+  .wp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+  .wp-grid { grid-template-columns: 1fr; gap: 1px; }
+  .wp-item { padding: 24px 20px; }
+}
+
