@@ -149,10 +149,12 @@ function initTimeline() {
 function initDropdowns() {
   // 每個選單的設定
   const dropdownConfigs = [
-    { btnId: 'type-btn',   dropId: 'type-dropdown',   valueId: 'type-value',   hiddenId: 'hidden-type',   sheetId: 'type-sheet',   sheetOptId: 'type-sheet-options',   backdropId: 'type-backdrop'   },
-    { btnId: 'goal-btn',   dropId: 'goal-dropdown',   valueId: 'goal-value',   hiddenId: 'hidden-goal',   sheetId: 'goal-sheet',   sheetOptId: 'goal-sheet-options',   backdropId: 'goal-backdrop'   },
-    { btnId: 'budget-btn', dropId: 'budget-dropdown', valueId: 'budget-value', hiddenId: 'hidden-budget', sheetId: 'budget-sheet', sheetOptId: 'budget-sheet-options', backdropId: 'budget-backdrop' },
+    { btnId: 'type-btn',   dropId: 'type-dropdown',   valueId: 'type-value',   hiddenId: 'hidden-type',   sheetId: 'type-sheet',   sheetOptId: 'type-sheet-options'   },
+    { btnId: 'goal-btn',   dropId: 'goal-dropdown',   valueId: 'goal-value',   hiddenId: 'hidden-goal',   sheetId: 'goal-sheet',   sheetOptId: 'goal-sheet-options'   },
+    { btnId: 'budget-btn', dropId: 'budget-dropdown', valueId: 'budget-value', hiddenId: 'hidden-budget', sheetId: 'budget-sheet', sheetOptId: 'budget-sheet-options' },
   ];
+  // 共用一個 backdrop
+  const globalBackdrop = $('#global-backdrop');
 
   const closeAll = () => {
     dropdownConfigs.forEach(({ btnId, dropId }) => {
@@ -171,8 +173,7 @@ function initDropdowns() {
     const hidden   = $(`#${hiddenId}`);
     const sheet    = $(`#${sheetId}`);
     const sheetOpts= $(`#${sheetOptId}`);
-    const backdrop = $(`#${backdropId}`);
-
+    
     if (!btn) return;
 
     const setValue = (val) => {
@@ -213,19 +214,28 @@ function initDropdowns() {
 
     // ── Mobile BottomSheet ──
     const openSheet = () => {
-      if (!sheet || !backdrop) return;
+      if (!sheet) return;
+      // 先關掉其他 sheet
+      $$('.koto-bottom-sheet').forEach(s => s.classList.remove('is-active'));
       sheet.classList.add('is-active');
-      backdrop.classList.add('is-active');
+      if (globalBackdrop) globalBackdrop.classList.add('is-active');
       document.body.style.overflow = 'hidden';
     };
     const closeSheet = () => {
-      if (!sheet || !backdrop) return;
+      if (!sheet) return;
       sheet.classList.remove('is-active');
-      backdrop.classList.remove('is-active');
+      if (globalBackdrop) globalBackdrop.classList.remove('is-active');
       document.body.style.overflow = '';
     };
 
-    if (backdrop) backdrop.addEventListener('click', closeSheet);
+    if (globalBackdrop && !globalBackdrop._listenerAdded) {
+      globalBackdrop.addEventListener('click', () => {
+        $$('.koto-bottom-sheet').forEach(s => s.classList.remove('is-active'));
+        globalBackdrop.classList.remove('is-active');
+        document.body.style.overflow = '';
+      });
+      globalBackdrop._listenerAdded = true;
+    }
 
     if (sheetOpts) {
       $$(`#${sheetOptId} li`).forEach(li => {
