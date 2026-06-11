@@ -40,7 +40,6 @@
       <a href="#" class="nav-logo" aria-label="KOTO Studio 首頁">KOTO Studio</a>
       <ul class="nav-links" role="list">
         <li><a href="#section-services">服務項目</a></li>
-        <li><a href="#section-templates">模板展示</a></li>
         <li><a href="#section-process">合作流程</a></li>
         <li><a href="#section-contact">聯絡我們</a></li>
       </ul>
@@ -55,7 +54,6 @@
     <button class="nav-close" id="nav-close" aria-label="關閉選單">✕</button>
     <ul role="list">
       <li><a href="#section-services" class="nav-mobile-link">服務項目</a></li>
-      <li><a href="#section-templates" class="nav-mobile-link">模板展示</a></li>
       <li><a href="#section-process" class="nav-mobile-link">合作流程</a></li>
       <li><a href="#section-contact" class="nav-mobile-link">聯絡我們</a></li>
     </ul>
@@ -81,10 +79,58 @@
             </a>
           </div>
         </div>
-        <div class="hero-deco" aria-hidden="true">
-          <div class="deco-circle"></div>
-          <div class="deco-line"></div>
-          <div class="deco-dot"></div>
+        <!-- CSS 瀏覽器 Mockup -->
+        <div class="hero-mockup" aria-hidden="true">
+          <div class="mockup-browser">
+            <div class="mockup-bar">
+              <div class="mockup-dots">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
+              </div>
+              <div class="mockup-url">koto.studio</div>
+              <div class="mockup-arrow">↗</div>
+            </div>
+            <div class="mockup-screen">
+              <!-- 模擬網站內容 -->
+              <div class="mock-nav">
+                <div class="mock-logo"></div>
+                <div class="mock-links">
+                  <div class="mock-link"></div>
+                  <div class="mock-link"></div>
+                  <div class="mock-link"></div>
+                </div>
+              </div>
+              <div class="mock-hero">
+                <div class="mock-eyebrow"></div>
+                <div class="mock-h1"></div>
+                <div class="mock-h1 mock-h1--short"></div>
+                <div class="mock-body"></div>
+                <div class="mock-body mock-body--short"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card">
+                  <div class="mock-card-icon"></div>
+                  <div class="mock-card-title"></div>
+                  <div class="mock-card-text"></div>
+                  <div class="mock-card-text mock-card-text--short"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-icon mock-card-icon--accent"></div>
+                  <div class="mock-card-title"></div>
+                  <div class="mock-card-text"></div>
+                  <div class="mock-card-text mock-card-text--short"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-icon"></div>
+                  <div class="mock-card-title"></div>
+                  <div class="mock-card-text"></div>
+                  <div class="mock-card-text mock-card-text--short"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="hero-scroll-hint animate-in" data-delay="5" aria-hidden="true">
@@ -187,41 +233,12 @@
     </section>
 
 
-    <!-- ══ WordPress 說明區塊 ══ -->
-    <section class="section-wp" aria-labelledby="wp-h2">
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">為什麼用 WordPress</div>
-        <h2 id="wp-h2" class="section-title reveal">我們用 WordPress，<br>因為它對你最好</h2>
-        <div class="wp-grid">
-          <div class="wp-item reveal" data-reveal-delay="0">
-            <div class="wp-icon" aria-hidden="true">◎</div>
-            <h3>你可以自己更新內容</h3>
-            <p>網站上線後，換一張圖、改一段文字，你自己就能做，不用每次都找我們，省時又省錢。</p>
-          </div>
-          <div class="wp-item reveal" data-reveal-delay="1">
-            <div class="wp-icon" aria-hidden="true">◈</div>
-            <h3>全球 43% 的網站都在用</h3>
-            <p>從個人品牌到《紐約時報》、迪士尼都在用 WordPress。成熟穩定、生態豐富，不用擔心技術過時。</p>
-          </div>
-          <div class="wp-item reveal" data-reveal-delay="2">
-            <div class="wp-icon" aria-hidden="true">◉</div>
-            <h3>SEO 友善，Google 喜歡</h3>
-            <p>WordPress 的程式架構對搜尋引擎非常友善。加上我們的 SEO 基礎設定，讓你的網站更容易被找到。</p>
-          </div>
-          <div class="wp-item reveal" data-reveal-delay="3">
-            <div class="wp-icon" aria-hidden="true">◇</div>
-            <h3>未來要擴充很容易</h3>
-            <p>今天是品牌官網，明天想加購物車、會員系統、多語言？WordPress 都能擴充，不用砍掉重練。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ SECTION 3：痛點對照 ══ -->
+    <!-- ══ SECTION 3：痛點 + WordPress 合併 ══ -->
     <section id="section-pain" class="section-pain" aria-labelledby="pain-h2">
       <div class="koto-container">
         <div class="section-label" aria-hidden="true">你的煩惱我們懂</div>
         <h2 id="pain-h2" class="section-title reveal">這些煩惱，<br>你是否也有過？</h2>
+
         <dl class="pain-grid">
           <div class="pain-row reveal" data-reveal-delay="0">
             <div class="pain-left">
@@ -234,10 +251,11 @@
             <div class="pain-right">
               <dd>
                 <span class="solution-label">KOTO 解法</span>
-                我們在開始動工前，花足夠的時間理解你的品牌和期望。設計稿確認後才進入開發，不會讓你拿到一個「不對味」的成品。
+                開工前我們花足夠的時間理解你的品牌。設計稿確認後才進入開發，不會讓你拿到一個「不對味」的成品。
               </dd>
             </div>
           </div>
+
           <div class="pain-row reveal" data-reveal-delay="1">
             <div class="pain-left">
               <div class="pain-tag">
@@ -249,10 +267,11 @@
             <div class="pain-right">
               <dd>
                 <span class="solution-label">KOTO 解法</span>
-                我們從架構階段就把速度和 SEO 寫進去。手機版不是事後補做，而是一開始就同步設計開發。
+                架構階段就把速度和 SEO 寫進去。手機版不是事後補做，一開始就同步設計開發。WordPress 的架構天生對 Google 友善。
               </dd>
             </div>
           </div>
+
           <div class="pain-row reveal" data-reveal-delay="2">
             <div class="pain-left">
               <div class="pain-tag">
@@ -264,189 +283,35 @@
             <div class="pain-right">
               <dd>
                 <span class="solution-label">KOTO 解法</span>
-                KOTO Studio 只做客製化，不接套版案。每一個專案我們都親自執行，你的網站不會被外包或用 AI 一鍵生成。
+                KOTO Studio 只做客製化，不接套版案。每個專案親自執行，不外包、不用 AI 一鍵生成。
               </dd>
             </div>
           </div>
         </dl>
-      </div>
-    </section>
 
-
-    <!-- ══ 模板展示 Section ══ -->
-    <section id="section-templates" class="section-templates" aria-labelledby="templates-h2">
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">風格參考</div>
-        <h2 id="templates-h2" class="section-title reveal">找到你喜歡的<br>設計方向</h2>
-        <p class="templates-intro reveal">以下是精選的 WordPress 版型風格參考。實際專案我們會根據你的品牌重新客製——顏色、字體、內容、功能全部調整，不會跟任何人撞版。</p>
-
-        <div class="templates-filter reveal" role="tablist" aria-label="模板分類">
-          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">全部</button>
-          <button class="filter-btn" data-filter="brand" role="tab" aria-selected="false">品牌官網</button>
-          <button class="filter-btn" data-filter="shop" role="tab" aria-selected="false">電商</button>
-          <button class="filter-btn" data-filter="portfolio" role="tab" aria-selected="false">作品集</button>
+        <!-- WordPress 優勢條 -->
+        <div class="wp-bar reveal" data-reveal-delay="3">
+          <p class="wp-bar-label" aria-hidden="true">為什麼用 WordPress？</p>
+          <div class="wp-bar-items">
+            <div class="wp-bar-item">
+              <span class="wp-bar-icon" aria-hidden="true">✓</span>
+              <span>你可以自己更新內容</span>
+            </div>
+            <div class="wp-bar-item">
+              <span class="wp-bar-icon" aria-hidden="true">✓</span>
+              <span>全球 43% 的網站都在用</span>
+            </div>
+            <div class="wp-bar-item">
+              <span class="wp-bar-icon" aria-hidden="true">✓</span>
+              <span>SEO 友善，Google 喜歡</span>
+            </div>
+            <div class="wp-bar-item">
+              <span class="wp-bar-icon" aria-hidden="true">✓</span>
+              <span>未來要擴充很容易</span>
+            </div>
+          </div>
         </div>
 
-        <div class="templates-grid" id="templates-grid">
-
-          <div class="template-card" data-category="brand">
-            <a href="https://startersites.io/blocksy/charity/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Charity 模板">
-              <div class="template-img">
-                <img src="https://www.xiaolikt.com/uploads/18fee74f-7f7a-4f39-92bb-29621f52e73b.webp"
-                     alt="Charity WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Charity</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">品牌官網</span>
-              <h3>Charity</h3>
-              <p>公益、非營利、社會企業</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="brand">
-            <a href="https://startersites.io/blocksy/business/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Business 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/Business-1.jpg"
-                     alt="Business WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Business</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">品牌官網</span>
-              <h3>Business</h3>
-              <p>顧問、B2B 企業、專業服務</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="brand">
-            <a href="https://startersites.io/blocksy/web-agency/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Web Agency 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/WebAgency-1.jpg"
-                     alt="Web Agency WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Web Agency</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">品牌官網</span>
-              <h3>Web Agency</h3>
-              <p>設計公司、數位代理商</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="shop">
-            <a href="https://startersites.io/blocksy/modern-shop/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Modern Shop 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/ModernShop-1.jpg"
-                     alt="Modern Shop WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Modern Shop</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">電商</span>
-              <h3>Modern Shop</h3>
-              <p>服飾、生活選品、現代電商</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="shop">
-            <a href="https://startersites.io/blocksy/homi/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Homi 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/Homi-1.jpg"
-                     alt="Homi WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Homi</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">電商</span>
-              <h3>Homi</h3>
-              <p>家居、傢俱、居家佈置電商</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="shop">
-            <a href="https://startersites.io/blocksy/garderobe/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Garderobe 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/Garderobe-1.jpg"
-                     alt="Garderobe WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Garderobe</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">電商</span>
-              <h3>Garderobe</h3>
-              <p>精品服飾、高端時尚電商</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="portfolio">
-            <a href="https://startersites.io/blocksy/persona/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Persona 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/Persona-1.jpg"
-                     alt="Persona WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Persona</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">作品集</span>
-              <h3>Persona</h3>
-              <p>設計師、攝影師、創作者</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="portfolio">
-            <a href="https://startersites.io/blocksy/tasty/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Tasty 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/Tasty-1.jpg"
-                     alt="Tasty WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Tasty</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">作品集</span>
-              <h3>Tasty</h3>
-              <p>美食部落格、食譜網站</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-          <div class="template-card" data-category="portfolio">
-            <a href="https://startersites.io/blocksy/justice/" target="_blank" rel="noopener noreferrer" class="template-img-link" aria-label="預覽 Justice 模板">
-              <div class="template-img">
-                <img src="https://cdn.startertemplatecloud.com/wp-content/uploads/2023/01/Justice-1.jpg"
-                     alt="Justice WordPress 模板截圖" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<div class=template-placeholder>Justice</div>'">
-                <div class="template-overlay"><span>線上預覽 ⟶</span></div>
-              </div>
-            </a>
-            <div class="template-info">
-              <span class="template-tag">作品集</span>
-              <h3>Justice</h3>
-              <p>律師、法律顧問、專業人士</p>
-              <a href="#section-contact" class="btn-consult">詢問此風格</a>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="templates-note reveal">
-          <p>沒有喜歡的風格？<a href="#section-contact" class="services-note-link">告訴我們你的想法，我們從零開始設計 ⟶</a></p>
-        </div>
       </div>
     </section>
 

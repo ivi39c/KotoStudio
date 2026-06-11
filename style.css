@@ -317,47 +317,7 @@ img { display: block; max-width: 100%; height: auto; }
 .cta-arrow { transition: transform 0.3s var(--ease-koto); }
 .hero-cta:hover .cta-arrow { transform: translateX(4px); }
 
-/* 裝飾圖形 */
-.hero-deco {
-  position: relative;
-  height: 420px;
-}
-.deco-circle {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px; height: 300px;
-  border: 1px solid var(--gray-ultra);
-  border-radius: 50%;
-  animation: rotate-slow 30s linear infinite;
-}
-.deco-circle::before {
-  content: '';
-  position: absolute;
-  top: -4px; left: 50%;
-  width: 8px; height: 8px;
-  background: var(--terra);
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
-.deco-line {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  width: 1px; height: 200px;
-  background: linear-gradient(to bottom, transparent, var(--gray-light), transparent);
-}
-.deco-dot {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 6px; height: 6px;
-  background: var(--moss);
-  border-radius: 50%;
-}
 
-@keyframes rotate-slow {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
@@ -394,6 +354,176 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 767px) {
   .hero-text h1 { font-size: 30px; }
 }
+
+
+/* ── Hero Browser Mockup ────────────────────────────────────── */
+.hero-mockup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 20px 40px;
+}
+
+.mockup-browser {
+  width: 100%;
+  max-width: 520px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.08),
+    0 24px 48px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+  transition: transform 0.6s var(--ease-koto);
+}
+.hero-mockup:hover .mockup-browser {
+  transform: perspective(1000px) rotateY(-1deg) rotateX(0deg);
+}
+
+/* 瀏覽器頂部列 */
+.mockup-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #F0EDE8;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mockup-dots {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot--red    { background: #FF5F57; }
+.dot--yellow { background: #FFBD2E; }
+.dot--green  { background: #28C840; }
+
+.mockup-url {
+  flex: 1;
+  background: var(--white);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--gray-mid);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+.mockup-arrow {
+  font-size: 12px;
+  color: var(--gray-light);
+  flex-shrink: 0;
+}
+
+/* 模擬網站畫面 */
+.mockup-screen {
+  background: #FDFCFA;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 模擬導覽列 */
+.mock-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(249,246,240,0.9);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.mock-logo {
+  width: 60px; height: 8px;
+  background: var(--carbon);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.mock-links {
+  display: flex;
+  gap: 12px;
+}
+.mock-link {
+  width: 28px; height: 6px;
+  background: var(--gray-light);
+  border-radius: 2px;
+}
+
+/* 模擬 Hero */
+.mock-hero {
+  padding: 24px 20px 20px;
+  background: var(--oat);
+}
+.mock-eyebrow {
+  width: 50px; height: 4px;
+  background: var(--gray-light);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+.mock-h1 {
+  width: 75%; height: 14px;
+  background: var(--carbon);
+  border-radius: 3px;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+.mock-h1--short { width: 55%; }
+.mock-body {
+  width: 90%; height: 6px;
+  background: var(--gray-light);
+  border-radius: 2px;
+  margin-bottom: 6px;
+  opacity: 0.5;
+}
+.mock-body--short { width: 65%; margin-bottom: 16px; }
+.mock-cta {
+  width: 80px; height: 26px;
+  background: var(--terra);
+  border-radius: 6px;
+  opacity: 0.8;
+}
+
+/* 模擬三欄卡片 */
+.mock-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--gray-ultra);
+}
+.mock-card {
+  background: var(--white);
+  padding: 14px 12px;
+}
+.mock-card-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--gray-ultra);
+  margin-bottom: 10px;
+}
+.mock-card-icon--accent { background: rgba(212,163,115,0.3); }
+.mock-card-title {
+  width: 70%; height: 7px;
+  background: var(--carbon);
+  border-radius: 2px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+.mock-card-text {
+  width: 90%; height: 5px;
+  background: var(--gray-light);
+  border-radius: 2px;
+  margin-bottom: 4px;
+  opacity: 0.5;
+}
+.mock-card-text--short { width: 60%; }
+
+@media (max-width: 1024px) { .hero-mockup { display: none; } }
+
 
 /* ── 8. Section 2：核心價值 ─────────────────────────────────── */
 .section-values {
@@ -852,6 +982,76 @@ img { display: block; max-width: 100%; height: auto; }
   .pain-right { padding-left: 0; border-left: none; border-top: 1px solid var(--gray-ultra); padding-top: 24px; }
 }
 
+
+
+/* ── WordPress 優勢條 ───────────────────────────────────────── */
+.wp-bar {
+  margin-top: 64px;
+  padding: 32px 48px;
+  background: var(--white);
+  border: 1px solid var(--gray-ultra);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.wp-bar-label {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--carbon);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 48px;
+  border-right: 1px solid var(--gray-ultra);
+}
+
+.wp-bar-items {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.wp-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--carbon);
+  letter-spacing: 0.06em;
+  padding: 0 24px;
+  border-right: 1px solid var(--gray-ultra);
+}
+.wp-bar-item:first-child { padding-left: 0; }
+.wp-bar-item:last-child  { padding-right: 0; border-right: none; }
+
+.wp-bar-icon {
+  width: 22px;
+  height: 22px;
+  background: rgba(74,93,78,0.1);
+  color: var(--moss-deep);
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .wp-bar { grid-template-columns: 1fr; gap: 24px; }
+  .wp-bar-label { padding-right: 0; border-right: none; border-bottom: 1px solid var(--gray-ultra); padding-bottom: 20px; }
+  .wp-bar-items { gap: 16px; }
+  .wp-bar-item  { padding: 0; border-right: none; }
+}
+@media (max-width: 767px) {
+  .wp-bar { padding: 24px 20px; }
+  .wp-bar-items { flex-direction: column; gap: 12px; }
+}
 
 /* ── Section 4：流程卡片（4步驟）────────────────────────────── */
 .section-process {
@@ -1312,170 +1512,6 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 36px;
 }
 
-/* ── 模板展示 Section ────────────────────────────────────────── */
-.section-templates {
-  padding: 15vh 0;
-  background: var(--oat);
-}
-.templates-intro {
-  font-size: 15px;
-  color: var(--gray-mid);
-  line-height: 1.9;
-  max-width: 600px;
-  margin-top: -36px;
-  margin-bottom: 48px;
-}
-.templates-filter {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 48px;
-}
-.filter-btn {
-  font-family: var(--font-body);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  color: var(--gray-mid);
-  background: transparent;
-  border: 1px solid var(--gray-ultra);
-  padding: 7px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s var(--ease-koto);
-}
-.filter-btn:hover { border-color: var(--carbon); color: var(--carbon); }
-.filter-btn.is-active { background: var(--carbon); border-color: var(--carbon); color: var(--white); }
-
-/* 模板網格 */
-.templates-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 40px;
-}
-.template-card {
-  background: var(--white);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.4s var(--ease-koto);
-}
-.template-card:hover {
-  box-shadow: 0 12px 48px rgba(0,0,0,0.1);
-  transform: translateY(-4px);
-}
-.template-card.is-hidden { display: none; }
-
-/* 圖片區 */
-.template-img-link { display: block; }
-.template-img {
-  position: relative;
-  aspect-ratio: 16/10;
-  overflow: hidden;
-  background: var(--gray-ultra);
-}
-.template-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 0.6s var(--ease-koto);
-  display: block;
-}
-.template-card:hover .template-img img { transform: scale(1.04); }
-.template-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 16px;
-  color: var(--gray-light);
-}
-
-/* Hover Overlay */
-.template-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(26,26,26,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-koto);
-}
-.template-card:hover .template-overlay { opacity: 1; }
-.template-overlay span {
-  font-family: var(--font-body);
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.6);
-  padding: 10px 24px;
-  border-radius: 6px;
-}
-
-/* 模板資訊 */
-.template-info {
-  padding: 20px 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.template-tag {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--moss-deep);
-  background: rgba(74,93,78,0.08);
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-bottom: 4px;
-  align-self: flex-start;
-}
-.template-info h3 {
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--carbon);
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-}
-.template-info p {
-  font-size: 12px;
-  color: var(--gray-mid);
-  line-height: 1.6;
-  margin-bottom: 8px;
-}
-.btn-consult {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  background: var(--terra);
-  padding: 8px 16px;
-  border-radius: 6px;
-  align-self: flex-start;
-  transition: opacity 0.3s;
-  box-shadow: 0 2px 10px var(--terra-glow);
-}
-.btn-consult:hover { opacity: 0.85; }
-
-.templates-note {
-  text-align: center;
-  padding: 16px 0;
-}
-.templates-note p { font-size: 13px; color: var(--gray-mid); }
-
-@media (max-width: 1024px) {
-  .templates-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 767px) {
-  .templates-grid { grid-template-columns: 1fr; gap: 16px; }
-  .template-card:hover { transform: none; }
-  .template-overlay { display: none; }
-}
-
 /* ── 13. Footer ──────────────────────────────────────────────── */
 .koto-footer {
   background: var(--oat);
@@ -1561,62 +1597,5 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ── WordPress 說明區塊 ─────────────────────────────────────── */
-.section-wp {
-  padding: 15vh 0;
-  background: var(--white);
-}
 
-.wp-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-}
-
-.wp-item {
-  padding: 36px 28px;
-  background: var(--oat);
-  transition: all 0.4s var(--ease-koto);
-  position: relative;
-  overflow: hidden;
-}
-.wp-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 2px;
-  background: var(--terra);
-  transition: width 0.5s var(--ease-koto);
-}
-.wp-item:hover { background: var(--white); box-shadow: 0 8px 32px rgba(0,0,0,0.05); }
-.wp-item:hover::after { width: 100%; }
-
-.wp-icon {
-  font-size: 16px;
-  color: var(--terra);
-  margin-bottom: 16px;
-}
-
-.wp-item h3 {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--carbon);
-  letter-spacing: 0.04em;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-
-.wp-item p {
-  font-size: 13px;
-  line-height: 1.9;
-  color: var(--gray-dark);
-}
-
-@media (max-width: 1024px) {
-  .wp-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 767px) {
-  .wp-grid { grid-template-columns: 1fr; gap: 1px; }
-  .wp-item { padding: 24px 20px; }
-}
 
