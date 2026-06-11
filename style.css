@@ -987,70 +987,61 @@ img { display: block; max-width: 100%; height: auto; }
 /* ── WordPress 優勢條 ───────────────────────────────────────── */
 .wp-bar {
   margin-top: 64px;
-  padding: 32px 48px;
+  padding: 28px 40px;
   background: var(--white);
   border: 1px solid var(--gray-ultra);
   border-radius: 8px;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 180px 1fr;
   align-items: center;
-  gap: 48px;
+  gap: 0;
 }
 
 .wp-bar-label {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
   color: var(--carbon);
   white-space: nowrap;
-  flex-shrink: 0;
-  padding-right: 48px;
+  padding-right: 32px;
   border-right: 1px solid var(--gray-ultra);
 }
 
 .wp-bar-items {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .wp-bar-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 13px;
   color: var(--carbon);
-  letter-spacing: 0.06em;
-  padding: 0 24px;
+  letter-spacing: 0.04em;
+  padding: 0 20px;
   border-right: 1px solid var(--gray-ultra);
+  white-space: nowrap;
 }
-.wp-bar-item:first-child { padding-left: 0; }
-.wp-bar-item:last-child  { padding-right: 0; border-right: none; }
+.wp-bar-item:last-child { border-right: none; }
 
 .wp-bar-icon {
-  width: 22px;
-  height: 22px;
-  background: rgba(74,93,78,0.1);
   color: var(--moss-deep);
-  font-size: 11px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 12px;
   flex-shrink: 0;
 }
 
 @media (max-width: 1024px) {
-  .wp-bar { grid-template-columns: 1fr; gap: 24px; }
-  .wp-bar-label { padding-right: 0; border-right: none; border-bottom: 1px solid var(--gray-ultra); padding-bottom: 20px; }
-  .wp-bar-items { gap: 16px; }
-  .wp-bar-item  { padding: 0; border-right: none; }
+  .wp-bar { grid-template-columns: 1fr; padding: 24px 28px; }
+  .wp-bar-label { padding-right: 0; border-right: none; border-bottom: 1px solid var(--gray-ultra); padding-bottom: 16px; margin-bottom: 16px; }
+  .wp-bar-items { grid-template-columns: repeat(2, 1fr); gap: 12px 0; }
+  .wp-bar-item  { padding: 6px 0; border-right: none; white-space: normal; }
 }
 @media (max-width: 767px) {
-  .wp-bar { padding: 24px 20px; }
-  .wp-bar-items { flex-direction: column; gap: 12px; }
+  .wp-bar { padding: 20px; }
+  .wp-bar-items { grid-template-columns: 1fr; gap: 10px; }
 }
 
 /* ── Section 4：流程卡片（4步驟）────────────────────────────── */
@@ -1597,5 +1588,3 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ── WordPress 說明區塊 ─────────────────────────────────────── */
-
-
