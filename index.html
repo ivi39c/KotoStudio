@@ -1,608 +1,315 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <title>KOTO Studio｜客製化 WordPress 網頁設計 · 品牌官網 · 電商網站</title>
-  <meta name="description" content="KOTO Studio 專注客製化 WordPress 網頁設計，提供品牌官網、行銷專頁、電商網站建置服務。不套版、不將就，每個專案親自執行，讓你的品牌被記住。">
-  <link rel="canonical" href="https://koto.studio/">
-
-  <!-- OG / Social -->
-  <meta property="og:title" content="KOTO Studio｜客製化 WordPress 網頁設計">
-  <meta property="og:description" content="大世界很複雜，我們回小事裡見。">
-  <meta property="og:image" content="https://koto.studio/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://koto.studio/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- 強制瀏覽器不快取（開發期間使用）-->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOTO Studio — 把重要的事，說清楚</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ══ NAV ══ -->
-  <nav class="koto-nav" id="koto-nav" aria-label="主要導覽">
-    <div class="koto-container nav-inner">
-      <a href="#" class="nav-logo" aria-label="KOTO Studio 首頁">KOTO Studio</a>
-      <ul class="nav-links" role="list">
-        <li><a href="#section-services">服務項目</a></li>
-        <li><a href="#section-process">合作流程</a></li>
-        <li><a href="#section-contact">聯絡我們</a></li>
-      </ul>
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-mobile-overlay">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Overlay -->
-  <div class="nav-mobile-overlay" id="nav-mobile-overlay" role="dialog" aria-modal="true" aria-label="行動裝置選單">
-    <button class="nav-close" id="nav-close" aria-label="關閉選單">✕</button>
-    <ul role="list">
-      <li><a href="#section-services" class="nav-mobile-link">服務項目</a></li>
-      <li><a href="#section-process" class="nav-mobile-link">合作流程</a></li>
-      <li><a href="#section-contact" class="nav-mobile-link">聯絡我們</a></li>
-    </ul>
+<header id="hdr">
+  <div class="wrap">
+    <button class="logo" data-go="home">KOTO <small>Studio</small></button>
+    <nav class="main">
+      <button data-go="quickscan">快篩</button>
+      <button data-go="about">關於</button>
+    </nav>
+    <button class="btn btn-primary nav-cta" data-go="quickscan">預約快篩</button>
+    <button class="burger" id="burger" aria-label="選單" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
+  <div class="menu-panel" id="menu">
+    <button class="nav" data-go="quickscan">快篩</button>
+    <button class="nav" data-go="about">關於</button>
+    <button class="btn btn-primary" data-go="quickscan">預約快篩</button>
+  </div>
+</header>
 
-  <main>
-
-    <!-- ══ SECTION 1：品牌開場 ══ -->
-    <section id="section-hero" class="section-hero" aria-labelledby="hero-h1">
-      <div class="koto-container hero-inner">
-        <div class="hero-text">
-          <p class="hero-eyebrow animate-in" data-delay="0">— KOTO Studio</p>
-          <h1 id="hero-h1" class="animate-in" data-delay="1">我們只接<br>一種案子<span class="hero-dash">——</span></h1>
-          <p class="hero-sub hero-sub--large animate-in" data-delay="2">做得漂亮、跑得快、<br>業主看得懂的那種。</p>
-<p class="hero-tagline animate-in" data-delay="3">WordPress 建站 · 客製化網頁設計</p>
-          <div class="hero-ctas animate-in" data-delay="4">
-            <a href="#section-contact" class="hero-cta" aria-label="免費諮詢專案">
-              <span>免費諮詢專案</span>
-              <span class="cta-arrow" aria-hidden="true">⟶</span>
-            </a>
-            <a href="#section-services" class="hero-cta-ghost" aria-label="查看服務與報價">
-              查看服務與報價
-            </a>
-          </div>
-        </div>
-        <!-- CSS 瀏覽器 Mockup -->
-        <div class="hero-mockup" aria-hidden="true">
-          <div class="mockup-browser">
-            <div class="mockup-bar">
-              <div class="mockup-dots">
-                <span class="dot dot--red"></span>
-                <span class="dot dot--yellow"></span>
-                <span class="dot dot--green"></span>
-              </div>
-              <div class="mockup-url">koto.studio</div>
-              <div class="mockup-arrow">↗</div>
-            </div>
-            <div class="mockup-screen">
-              <!-- 模擬網站內容 -->
-              <div class="mock-nav">
-                <div class="mock-logo"></div>
-                <div class="mock-links">
-                  <div class="mock-link"></div>
-                  <div class="mock-link"></div>
-                  <div class="mock-link"></div>
-                </div>
-              </div>
-              <div class="mock-hero">
-                <div class="mock-eyebrow"></div>
-                <div class="mock-h1"></div>
-                <div class="mock-h1 mock-h1--short"></div>
-                <div class="mock-body"></div>
-                <div class="mock-body mock-body--short"></div>
-                <div class="mock-cta"></div>
-              </div>
-              <div class="mock-cards">
-                <div class="mock-card">
-                  <div class="mock-card-icon"></div>
-                  <div class="mock-card-title"></div>
-                  <div class="mock-card-text"></div>
-                  <div class="mock-card-text mock-card-text--short"></div>
-                </div>
-                <div class="mock-card">
-                  <div class="mock-card-icon mock-card-icon--accent"></div>
-                  <div class="mock-card-title"></div>
-                  <div class="mock-card-text"></div>
-                  <div class="mock-card-text mock-card-text--short"></div>
-                </div>
-                <div class="mock-card">
-                  <div class="mock-card-icon"></div>
-                  <div class="mock-card-title"></div>
-                  <div class="mock-card-text"></div>
-                  <div class="mock-card-text mock-card-text--short"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- ===================== HOME ===================== -->
+<main class="page active" id="home">
+  <section class="hero center">
+    <div class="wrap c-wide">
+      <h1 class="display">你的網站有人看，<br>卻沒有人詢價。</h1>
+      <p class="body-lg mt-lg">問題通常不是流量不夠，<br>而是買家看完，還是看不懂你在賣什麼。</p>
+      <p class="audience mt-lg">為 10–100 人的 B2B 公司而做。</p>
+      <div class="hero-actions mt-xl">
+        <button class="btn btn-primary" data-go="quickscan">了解網站快篩</button>
+        <button class="link" data-go="about">KOTO 是什麼 →</button>
       </div>
-      <div class="hero-scroll-hint animate-in" data-delay="5" aria-hidden="true">
-        <span class="scroll-line"></span>
-        <span class="scroll-label">scroll</span>
-      </div>
-    </section>
-
-    <!-- ══ SECTION 2：核心價值 ══ -->
-    <section id="section-values" class="section-values" aria-labelledby="values-h2">
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">為什麼選我們</div>
-        <h2 id="values-h2" class="section-title reveal">我們為什麼<br>與眾不同？</h2>
-        <div class="values-grid focus-gallery">
-          <article class="gallery-item reveal" data-reveal-delay="0">
-            <div class="card-num" aria-hidden="true">01</div>
-            <h3>不套版，<br>每個專案都唯一</h3>
-            <p>我們不用現成模板套版了事。每一個網站都從品牌核心出發，手工鍛造，確保你的網站跟任何人都不一樣。</p>
-            <div class="card-accent" aria-hidden="true"></div>
-          </article>
-          <article class="gallery-item reveal" data-reveal-delay="1">
-            <div class="card-num" aria-hidden="true">02</div>
-            <h3>速度快，<br>手機平板都好看</h3>
-            <p>網站跑得慢、手機版跑版，是業主最常遇到的問題。我們從一開始就把效能和 RWD 寫進每一行程式碼。</p>
-            <div class="card-accent" aria-hidden="true"></div>
-          </article>
-          <article class="gallery-item reveal" data-reveal-delay="2">
-            <div class="card-num" aria-hidden="true">03</div>
-            <h3>設計有質感，<br>業主看得懂</h3>
-            <p>美不是只有設計師才能感受到的東西。我們讓每一個設計決策都有理由，也讓業主在提案時就能清楚感受到。</p>
-            <div class="card-accent" aria-hidden="true"></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     </div>
+  </section>
 
-    <!-- ══ SECTION 2.5：我們能為你做什麼 ══ -->
-    <section id="section-services" class="section-services" aria-labelledby="services-h2">
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">我們能為你做的事</div>
-        <h2 id="services-h2" class="section-title reveal">我們提供<br>哪些服務？</h2>
-
-        <div class="services-grid services-grid--3col">
-
-          <article class="service-card reveal" data-reveal-delay="0">
-            <div class="service-icon" aria-hidden="true">◎</div>
-            <div class="service-body">
-              <h3>品牌官方網站</h3>
-              <p class="service-desc">讓客戶第一眼就記住你。幫你打造一個能說故事、建立信任、讓人想繼續往下滑的品牌官網。</p>
-              <ul class="service-includes" aria-label="包含服務">
-                <li>✓ 品牌視覺定調與設計</li>
-                <li>✓ WordPress 客製化開發</li>
-                <li>✓ RWD 全裝置適配</li>
-                <li>✓ SEO 基礎架構</li>
-                <li>✓ 聯絡表單整合</li>
-              </ul>
-
-            </div>
-          </article>
-
-          <article class="service-card reveal" data-reveal-delay="1">
-            <div class="service-icon" aria-hidden="true">◈</div>
-            <div class="service-body">
-              <h3>行銷專頁</h3>
-              <p class="service-desc">你只有三秒鐘。單頁式設計讓產品第一眼說服訪客，把流量變詢單、把點擊變訂單。</p>
-              <ul class="service-includes" aria-label="包含服務">
-                <li>✓ 高詢單轉換版面設計</li>
-                <li>✓ 滾動動態敘事體驗</li>
-                <li>✓ 單頁式，無需後台管理</li>
-                <li>✓ GA4 ／ 追蹤碼整合</li>
-              </ul>
-
-            </div>
-          </article>
-
-          <article class="service-card reveal" data-reveal-delay="2">
-            <div class="service-icon" aria-hidden="true">◉</div>
-            <div class="service-body">
-              <h3>電商購物網站</h3>
-              <p class="service-desc">讓商品被好好對待。以 WooCommerce 打造沉浸式購物體驗，讓消費者在美感中完成結帳。</p>
-              <ul class="service-includes" aria-label="包含服務">
-                <li>✓ 商品頁客製化設計</li>
-                <li>✓ WooCommerce 建置</li>
-                <li>✓ 金流 ／ 物流系統整合</li>
-                <li>✓ 管理後臺介面</li>
-                <li>✓ 會員系統整合</li>
-              </ul>
-
-            </div>
-          </article>
-
-        </div>
-
-        <div class="services-note reveal" data-reveal-delay="3">
-          <p>每個專案都不一樣，我們會根據你的需求量身報價。<a href="#section-contact" class="services-note-link">告訴我們你的需求 ⟶</a></p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ══ SECTION 3：痛點 + WordPress 合併 ══ -->
-    <section id="section-pain" class="section-pain" aria-labelledby="pain-h2">
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">你的煩惱我們懂</div>
-        <h2 id="pain-h2" class="section-title reveal">這些煩惱，<br>你是否也有過？</h2>
-
-        <dl class="pain-grid">
-          <div class="pain-row reveal" data-reveal-delay="0">
-            <div class="pain-left">
-              <div class="pain-tag">
-                <span class="pain-icon" aria-hidden="true">⊘</span>
-                <dt>網站做完跟想像差很多</dt>
-              </div>
-              <p class="pain-desc">跟設計公司溝通了很久，成品卻完全不是自己要的感覺。</p>
-            </div>
-            <div class="pain-right">
-              <dd>
-                <span class="solution-label">KOTO 解法</span>
-                開工前我們花足夠的時間理解你的品牌。設計稿確認後才進入開發，不會讓你拿到一個「不對味」的成品。
-              </dd>
-            </div>
-          </div>
-
-          <div class="pain-row reveal" data-reveal-delay="1">
-            <div class="pain-left">
-              <div class="pain-tag">
-                <span class="pain-icon" aria-hidden="true">⊘</span>
-                <dt>網站跑很慢、手機版很醜</dt>
-              </div>
-              <p class="pain-desc">Google 搜不到、手機打開跑版、頁面要等好幾秒才載入。</p>
-            </div>
-            <div class="pain-right">
-              <dd>
-                <span class="solution-label">KOTO 解法</span>
-                架構階段就把速度和 SEO 寫進去。手機版不是事後補做，一開始就同步設計開發。WordPress 的架構天生對 Google 友善。
-              </dd>
-            </div>
-          </div>
-
-          <div class="pain-row reveal" data-reveal-delay="2">
-            <div class="pain-left">
-              <div class="pain-tag">
-                <span class="pain-icon" aria-hidden="true">⊘</span>
-                <dt>找了好幾家都不滿意</dt>
-              </div>
-              <p class="pain-desc">價格便宜的用套版應付，貴的又說不清楚差在哪裡。</p>
-            </div>
-            <div class="pain-right">
-              <dd>
-                <span class="solution-label">KOTO 解法</span>
-                KOTO Studio 只做客製化，不接套版案。每個專案親自執行，不外包、不用 AI 一鍵生成。
-              </dd>
-            </div>
-          </div>
-        </dl>
-
-        <!-- WordPress 優勢條 -->
-        <div class="wp-bar reveal" data-reveal-delay="3">
-          <p class="wp-bar-label" aria-hidden="true">為什麼用 WordPress？</p>
-          <div class="wp-bar-items">
-            <div class="wp-bar-item">
-              <span class="wp-bar-icon" aria-hidden="true">✓</span>
-              <span>你可以自己更新內容</span>
-            </div>
-            <div class="wp-bar-item">
-              <span class="wp-bar-icon" aria-hidden="true">✓</span>
-              <span>全球 43% 的網站都在用</span>
-            </div>
-            <div class="wp-bar-item">
-              <span class="wp-bar-icon" aria-hidden="true">✓</span>
-              <span>SEO 友善，Google 喜歡</span>
-            </div>
-            <div class="wp-bar-item">
-              <span class="wp-bar-icon" aria-hidden="true">✓</span>
-              <span>未來要擴充很容易</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-        <!-- ══ SECTION 4：合作流程 ══ -->
-    <section id="section-process" class="section-process" aria-labelledby="process-h2">
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">合作流程</div>
-        <h2 id="process-h2" class="section-title reveal">網站架設流程，<br>用心完成每一步</h2>
-
-        <div class="process-cards">
-
-          <div class="process-card reveal" data-reveal-delay="0">
-            <div class="process-num" aria-hidden="true">1</div>
-            <div class="process-body">
-              <h3>確認網站需求</h3>
-              <p>與你深入討論網站架構、設計風格、功能需求等細節，確保方向完全對齊。</p>
-            </div>
-            <div class="process-deliverable">
-              <span>✓ 需求確認書</span>
-              <span>✓ 報價單</span>
-            </div>
-          </div>
-
-          <div class="process-card reveal" data-reveal-delay="1">
-            <div class="process-num" aria-hidden="true">2</div>
-            <div class="process-body">
-              <h3>視覺設計與製作</h3>
-              <p>從品牌視覺定調到 WordPress 完整開發，每一個像素手工鍛造，打造高質感網站體驗。</p>
-            </div>
-            <div class="process-deliverable">
-              <span>✓ 高擬真設計稿</span>
-              <span>✓ 兩輪修改機會</span>
-            </div>
-          </div>
-
-          <div class="process-card reveal" data-reveal-delay="2">
-            <div class="process-num" aria-hidden="true">3</div>
-            <div class="process-body">
-              <h3>測試優化調整</h3>
-              <p>完成初版後進行跨裝置測試與細節調整，確保手機、平板、電腦都完美呈現。</p>
-            </div>
-            <div class="process-deliverable">
-              <span>✓ 跨裝置測試報告</span>
-              <span>✓ 可預覽測試連結</span>
-            </div>
-          </div>
-
-          <div class="process-card reveal" data-reveal-delay="3">
-            <div class="process-num" aria-hidden="true">4</div>
-            <div class="process-body">
-              <h3>正式上線</h3>
-              <p>網站正式上線，提供後台操作教學，並附 30 天免費維護保固，讓你安心經營。</p>
-            </div>
-            <div class="process-deliverable">
-              <span>✓ 後台操作教學</span>
-              <span>✓ 30 天免費保固</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ SECTION 5：精選作品 ══ 目前隱藏，有作品後移除 hidden 即可顯示 ══ -->
-    <section id="section-work" class="section-work" aria-labelledby="work-h2" hidden>
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">05</div>
-        <h2 id="work-h2" class="section-title reveal">被隆重對待的作品</h2>
-        <div class="work-list focus-gallery">
-
-          <article class="work-item gallery-item reveal" data-reveal-delay="0">
-            <a href="#" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="查看：某品牌線上美學館設計作品（另開新視窗）">
-              <div class="work-img-wrap">
-                <div class="work-img-placeholder" aria-hidden="true">
-                  <div class="placeholder-inner">
-                    <span>01</span>
-                  </div>
-                </div>
-              </div>
-              <div class="work-info">
-                <div class="work-meta">
-                  <span class="work-num" aria-hidden="true">01</span>
-                  <div class="work-tags">
-                    <span class="tag">客製化 UI/UX</span>
-                    <span class="tag">WordPress 手工程式碼</span>
-                  </div>
-                </div>
-                <h3>某品牌線上美學館</h3>
-                <p class="work-challenge"><strong>挑戰：</strong>超過 500 種工藝物件需要在線上被尊重地呈現，而非淪為電商清單。</p>
-                <p class="work-solution"><strong>解法：</strong>捨棄現成版型，逐行手工鍛造沉浸式藝廊體驗，讓每一件物件都被隆重對待。</p>
-                <span class="work-arrow" aria-hidden="true">⟶</span>
-              </div>
-            </a>
-          </article>
-
-          <article class="work-item gallery-item reveal" data-reveal-delay="1">
-            <a href="#" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="查看：某餐飲品牌官方網站設計作品（另開新視窗）">
-              <div class="work-img-wrap">
-                <div class="work-img-placeholder" aria-hidden="true">
-                  <div class="placeholder-inner">
-                    <span>02</span>
-                  </div>
-                </div>
-              </div>
-              <div class="work-info">
-                <div class="work-meta">
-                  <span class="work-num" aria-hidden="true">02</span>
-                  <div class="work-tags">
-                    <span class="tag">品牌視覺整合</span>
-                    <span class="tag">全端開發</span>
-                  </div>
-                </div>
-                <h3>某餐飲品牌官方網站</h3>
-                <p class="work-challenge"><strong>挑戰：</strong>老品牌數位化轉型，在保留溫度的同時，建立現代感的線上形象。</p>
-                <p class="work-solution"><strong>解法：</strong>深挖品牌二十年歷史底蘊，以東方活版印刷美學重新詮釋數位視覺語言。</p>
-                <span class="work-arrow" aria-hidden="true">⟶</span>
-              </div>
-            </a>
-          </article>
-
-          <article class="work-item gallery-item reveal" data-reveal-delay="2">
-            <a href="#" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="查看：SaaS 產品官網設計作品（另開新視窗）">
-              <div class="work-img-wrap">
-                <div class="work-img-placeholder" aria-hidden="true">
-                  <div class="placeholder-inner">
-                    <span>03</span>
-                  </div>
-                </div>
-              </div>
-              <div class="work-info">
-                <div class="work-meta">
-                  <span class="work-num" aria-hidden="true">03</span>
-                  <div class="work-tags">
-                    <span class="tag">SaaS Landing Page</span>
-                    <span class="tag">詢單轉換優化</span>
-                  </div>
-                </div>
-                <h3>SaaS 產品官方網站</h3>
-                <p class="work-challenge"><strong>挑戰：</strong>技術產品難以用視覺說故事，使用者在三秒內看不懂就離開。</p>
-                <p class="work-solution"><strong>解法：</strong>以心流設計引導視線，用絲滑的 Scroll 敘事把複雜功能拆解成令人信服的小片段。</p>
-                <span class="work-arrow" aria-hidden="true">⟶</span>
-              </div>
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ SECTION 6：頁尾表單 ══ -->
-    <section id="section-contact" class="section-contact" aria-labelledby="contact-h2">
-      <div class="koto-container">
-        <div class="section-label" aria-hidden="true">06 · CONTACT</div>
-        <h2 id="contact-h2" class="section-title reveal">準備好了嗎？<br>讓我們來聊聊</h2>
-        <p class="contact-intro reveal">填寫以下表單，我們將在 2 個工作天內回覆，初次諮詢完全免費。</p>
-
-        <div class="contact-wrap reveal" id="contact-form-wrap">
-
-          <!-- ── 左欄：表單 ── -->
-          <div class="contact-form-col">
-            <form id="contact-form" action="https://formspree.io/f/xjgdewar" method="POST" novalidate>
-
-              <!-- Honeypot + Formspree 防 Spam 設定 -->
-              <div class="visually-hidden" aria-hidden="true">
-                <label for="hp-field">請勿填寫此欄位</label>
-                <input type="text" id="hp-field" name="_gotcha" tabindex="-1" autocomplete="off">
-              </div>
-              <!-- 告訴 Formspree 回覆信寄到哪裡 -->
-              <input type="hidden" name="_replyto" value="kotostudio.net@gmail.com">
-              <!-- 表單主旨，方便 Gmail 辨識 -->
-              <input type="hidden" name="_subject" value="✦ KOTO Studio 新詢單通知">
-
-              <div class="form-row-2col">
-                <div class="form-field">
-                  <label for="f-name">姓名 <span class="req" aria-hidden="true">*</span></label>
-                  <input type="text" id="f-name" name="name" placeholder="王小明" autocomplete="name" required>
-                </div>
-                <div class="form-field">
-                  <label for="f-email">聯絡信箱 <span class="req" aria-hidden="true">*</span></label>
-                  <input type="email" id="f-email" name="email" placeholder="hello@brand.com" autocomplete="email" required aria-describedby="email-err">
-                  <span class="field-error" id="email-err" role="alert" aria-live="polite"></span>
-                </div>
-              </div>
-
-              <div class="form-field">
-                <label for="f-service">需要哪種服務？<span class="req" aria-hidden="true">*</span></label>
-                <div class="select-wrap">
-                  <select id="f-service" name="service_type" required>
-                    <option value="">請選擇服務類型</option>
-                    <option value="品牌官方網站">品牌官方網站</option>
-                    <option value="行銷專頁">行銷專頁</option>
-                    <option value="電商購物網站">電商購物網站</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-field">
-                <label for="f-budget">預算範圍</label>
-                <div class="select-wrap">
-                  <select id="f-budget" name="budget">
-                    <option value="">請選擇預算範圍</option>
-                    <option value="5 萬以下">5 萬以下</option>
-                    <option value="5–10 萬">5–10 萬</option>
-                    <option value="10–30 萬">10–30 萬</option>
-                    <option value="30 萬以上">30 萬以上</option>
-                    <option value="尚未確定">尚未確定</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-field">
-                <label for="f-message">簡單描述你的需求</label>
-                <textarea id="f-message" name="message" rows="4" placeholder="例如：我是一家手工皮革品牌，想要一個有質感的品牌官網，目前沒有網站⋯"></textarea>
-              </div>
-
-              <button type="submit" class="form-submit-btn" id="submit-btn" aria-label="送出需求">
-                <span>送出需求</span>
-                <span class="btn-arrow" aria-hidden="true">⟶</span>
-              </button>
-
-            </form>
-
-            <!-- 成功訊息 -->
-            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
-              <p class="success-text">收到了。✦<br>我們會在 2 個工作天內與您聯繫。</p>
-            </div>
-
-            <!-- 失敗訊息 -->
-            <div class="form-error-msg" id="form-error-msg" role="alert" aria-live="polite" hidden>
-              <p>網路有點問題，請稍後再試，<br>或直接寄信至 <a href="mailto:kotostudio.net@gmail.com">kotostudio.net@gmail.com</a></p>
-            </div>
-          </div>
-
-          <!-- ── 右欄：聯絡資訊 ── -->
-          <div class="contact-info-col">
-
-            <div class="info-block">
-              <div class="info-label">Email</div>
-              <div class="info-value">
-                <a href="mailto:kotostudio.net@gmail.com">kotostudio.net@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="info-block">
-              <div class="info-label">回覆時間</div>
-              <div class="info-value">2 個工作天內回覆</div>
-            </div>
-
-            <div class="promise-box">
-              <div class="promise-title">我們承諾</div>
-              <ul class="promise-list">
-                <li>免費初次諮詢，不收任何費用</li>
-                <li>不硬銷售，先了解你的需求</li>
-                <li>報價透明，無隱藏費用</li>
-                <li>每一個專案都親自執行</li>
-              </ul>
-            </div>
-
-            <p class="form-note">* 為必填欄位</p>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ══ FOOTER ══ -->
-  <footer class="koto-footer" aria-label="頁腳">
-    <div class="koto-container footer-inner">
-      <div class="footer-left">
-        <span class="footer-logo">KOTO Studio</span>
-        <p class="footer-tagline">專注客製化 WordPress 網頁設計</p>
-      </div>
-      <nav class="footer-socials" aria-label="社群連結">
-        <a href="#" rel="noopener noreferrer" aria-label="Threads">Threads</a>
-        <a href="#" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-        <a href="#" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
-        <a href="#" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-      </nav>
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">買家在你的網站上，看不懂這五件事：</h2>
+      <ul class="barrier-list mt-lg">
+        <li><span class="idx">01</span><span>看不懂你到底在做什麼</span></li>
+        <li><span class="idx">02</span><span>看不懂你是賣給誰的</span></li>
+        <li><span class="idx">03</span><span>看不懂你和別人有什麼不同</span></li>
+        <li><span class="idx">04</span><span>看不懂為什麼該相信你</span></li>
+        <li><span class="idx">05</span><span>看不懂下一步該怎麼做</span></li>
+      </ul>
+      <p class="mt-xl">只要其中一件看不懂，買家就會關掉網頁，去看下一家。<br>而他不會告訴你他為什麼走。</p>
     </div>
-    <div class="koto-container footer-bottom">
-      <span class="footer-copy">© 2026 KOTO Studio. All rights reserved.</span>
-      <span class="footer-easter" id="footer-easter" role="button" tabindex="0" aria-label="彩蛋">Piece of cake.</span>
+  </section>
+
+  <section>
+    <div class="wrap c-wide">
+      <h2 class="h2">KOTO 怎麼幫你：</h2>
+      <div class="grid-3 mt-lg">
+        <div class="step"><div class="idx">1</div><div class="name">看</div><div class="desc">我們用買家的角度，重新看一次你的網站。</div></div>
+        <div class="step"><div class="idx">2</div><div class="name">指出</div><div class="desc">告訴你哪裡讓人看不懂，並附上你網站上的原文證據。</div></div>
+        <div class="step"><div class="idx">3</div><div class="name">你決定</div><div class="desc">要不要修、找誰修，都由你決定。我們不推銷。</div></div>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- Easter Egg Canvas -->
-  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+  <section>
+    <div class="wrap c-default">
+      <div class="product-card">
+        <div class="eyebrow">入口產品</div>
+        <h2 class="h2">網站快篩</h2>
+        <p class="mt-md muted">48 小時，讓你看見「你想說的」和「網站實際說的」差了多遠。<br>不用大改版，先花一個小成本，確認問題在哪。</p>
+        <div class="mt-xl"><button class="btn btn-primary" data-go="quickscan">了解網站快篩</button></div>
+      </div>
+    </div>
+  </section>
 
-  <script src="main.js"></script>
+  <section>
+    <div class="wrap c-default center">
+      <p class="trust-stmt">我們不講感覺，只講證據。報告裡的每一個判斷，都會附上你網站上的原文或畫面，你可以自己對照，確認我們說的對不對。</p>
+      <p class="founder-line">KOTO 是一人工作室。你的網站，從頭到尾由同一個人負責看，沒有轉手、沒有對接窗口。</p>
+      <div class="case-slot">案例位（預留・隱藏）— 有可公開案例後填入</div>
+    </div>
+  </section>
+
+  <section class="surface-block cta-block">
+    <div class="wrap c-default">
+      <h2 class="h2">你的網站，陌生買家三分鐘看得懂嗎？</h2>
+      <div class="mt-xl"><button class="btn btn-primary" data-go="quickscan">了解網站快篩</button></div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== QUICK SCAN ===================== -->
+<main class="page" id="quickscan">
+  <section class="hero">
+    <div class="wrap c-wide">
+      <div class="qs-hero">
+        <div>
+          <div class="eyebrow">網站快篩</div>
+          <h1 class="display">網站快篩</h1>
+          <p class="body-lg mt-lg muted">48 小時內，找出你想說的，和網站實際說的，中間差在哪。</p>
+          <p class="qs-meta">48 小時內交付</p>
+          <div class="mt-xl"><button class="btn btn-primary" data-go="contact">預約網站快篩 — <span class="price">NT$3,800</span></button></div>
+        </div>
+        <aside class="deliver-card">
+          <div class="caption">你會拿到：</div>
+          <ul>
+            <li>一份 PDF 報告（約 5 頁）</li>
+            <li>一段錄影解說（約 10 分鐘）</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">報告長這樣：</h2>
+      <div class="samples mt-lg">
+        <figure class="sample">
+          <div class="ph"><span>總覽頁截圖・待補</span></div>
+          <figcaption>總覽頁：五個理解障礙，一眼看出哪裡卡住。</figcaption>
+        </figure>
+        <figure class="sample">
+          <div class="ph"><span>對照頁截圖・待補</span></div>
+          <figcaption>對照頁：左邊是你說你在賣什麼，右邊是網站實際傳達的——中間的落差，就是買家看不懂的地方。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">這份報告包含：</h2>
+      <ul class="num-list mt-lg">
+        <li><span class="idx">1</span><div><div class="name">網站訊息總覽</div><div class="desc">買家看你的網站，第一眼接收到什麼。</div></div></li>
+        <li><span class="idx">2</span><div><div class="name">你說的 vs 網站說的</div><div class="desc">你以為網站在表達的，和它實際表達的，擺在一起看。</div></div></li>
+        <li><span class="idx">3</span><div><div class="name">三個主要理解障礙</div><div class="desc">最該優先處理的三個地方，以及為什麼。</div></div></li>
+        <li><span class="idx">4</span><div><div class="name">一句改寫示範</div><div class="desc">挑你網站上最關鍵的一句話，直接示範改寫前後的差別。</div></div></li>
+        <li><span class="idx">5</span><div><div class="name">三個改善方向</div><div class="desc">接下來可以往哪裡走，你自己評估。</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">怎麼進行：</h2>
+      <div class="stepbar mt-lg">
+        <div class="s"><span class="idx">1</span><span>你填一份表單（大約 8 分鐘）。</span></div>
+        <span class="arrow">→</span>
+        <div class="s"><span class="idx">2</span><span>我們用買家的角度分析你的網站。</span></div>
+        <span class="arrow">→</span>
+        <div class="s"><span class="idx">3</span><span>48 小時內，交付報告與錄影。</span></div>
+        <span class="arrow">→</span>
+        <div class="s"><span class="idx">4</span><span>要不要採取下一步，由你決定。</span></div>
+      </div>
+      <div class="nomeeting">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        全程不需開會。
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">我們會看這三頁：</h2>
+      <div class="scope mt-lg">
+        <div class="item">首頁</div>
+        <div class="item">一個主力產品 / 服務頁（你指定）</div>
+        <div class="item">關於頁</div>
+      </div>
+      <p class="caption mt-lg">我們不分析全站。這三頁是買家做決定前一定會看的頁——看得準，比看得多重要。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-wide">
+      <h2 class="h2">跟免費網站健檢有什麼不同</h2>
+      <div class="cmp mt-lg">
+        <div class="col left">
+          <div class="colhead">免費網站健檢</div>
+          <div class="row">多半在看 SEO、網站速度、技術分數</div>
+          <div class="row">看的是機器</div>
+        </div>
+        <div class="col right">
+          <div class="colhead">KOTO 網站快篩</div>
+          <div class="row">看的是買家到底看不看得懂</div>
+          <div class="row">看的是人</div>
+        </div>
+      </div>
+      <p class="cmp-note">免費健檢告訴你網站「跑得快不快」。我們告訴你網站「說得清不清楚」。</p>
+
+      <h2 class="h2 mt-2xl">跟我自己丟給 AI 有什麼不同</h2>
+      <div class="c-default cmp-para">
+        <p>AI 可以給你一堆建議，而且免費。但 AI 不會為它的結論負責，不會人工核對，也沒有人具名。KOTO 的每一個判斷都經過人工驗證、附上你網站的原文證據，最後掛的是一個真人的名字。工具我們也用，但對結論負責的，是人。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default center">
+      <div class="price-big">NT$3,800</div>
+      <p class="mt-md">如果你看完覺得沒講到重點，我們免費再做一版，不另外收費。</p>
+      <p class="mt-sm muted">這筆費用，可全額折抵後續的網站服務。</p>
+    </div>
+  </section>
+
+  <section class="surface-block cta-block">
+    <div class="wrap c-default">
+      <h2 class="h2">花一個小成本，先用買家的眼睛，重看一次自己的網站。</h2>
+      <div class="mt-xl"><button class="btn btn-primary" data-go="contact">預約網站快篩 — <span class="price">NT$3,800</span></button></div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== ABOUT ===================== -->
+<main class="page" id="about">
+  <section class="hero">
+    <div class="wrap c-default">
+      <h1 class="h1">KOTO 在解決一個很少有人說出口的問題。</h1>
+      <p class="mt-lg">很多 B2B 公司產品很強，網站也有人看，但詢價就是不來。不是因為東西不好，是因為買家看不懂——看不懂你在做什麼、跟別人差在哪、為什麼該相信你。</p>
+      <p class="mt-md">這種流失是無聲的。沒有人會寫信告訴你「我本來想問，但你的網站讓我看不懂」。KOTO 做的，就是把這些看不懂的地方找出來。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">從頭到尾，由同一個人負責。</h2>
+      <p class="mt-lg">KOTO 是一人工作室。你的網站從第一眼到報告完成，都是同一個人在看，沒有轉手、沒有外包、沒有「對接窗口」。</p>
+      <p class="mt-md">長期幫 B2B 與製造業的公司做網站，看過太多「產品很好、網站卻說不清楚」的例子。這份工作，就是把你心裡知道、但網站沒講出來的價值，變成買家看得懂的樣子。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">有些事，我們刻意不做：</h2>
+      <ul class="reject-list mt-lg">
+        <li><span class="dash">—</span>不做 SEO</li>
+        <li><span class="dash">—</span>不做廣告投放</li>
+        <li><span class="dash">—</span>不做流量成長</li>
+        <li><span class="dash">—</span>不做數位行銷顧問</li>
+      </ul>
+      <p class="mt-xl">我們只專注一件事：找出網站裡讓買家看不懂的地方。專心做一件事，才做得深。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap c-default">
+      <h2 class="h2">跟 KOTO 合作，你可以預期：</h2>
+      <div class="stance mt-lg">
+        <div class="s"><div class="p">只講證據，不講感覺。</div><div class="d">每個判斷都附上你網站的原文，你可以自己核對。</div></div>
+        <div class="s"><div class="p">做得到才說，做不到先講。</div><div class="d">我們不誇大、不承諾我們控制不了的結果。</div></div>
+        <div class="s"><div class="p">指出問題，不製造焦慮。</div><div class="d">我們用事實讓你看清現況，不靠嚇你來成交。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="surface-block cta-block">
+    <div class="wrap c-default">
+      <h2 class="h2">不論你想先試一次，還是先聊聊，都可以。</h2>
+      <div class="dual-cta mt-xl">
+        <button class="btn btn-primary" data-go="contact">預約網站快篩</button>
+        <button class="btn btn-secondary" data-go="contact">先聊聊</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== CONTACT ===================== -->
+<main class="page" id="contact">
+  <section class="hero">
+    <div class="wrap c-narrow center">
+      <h1 class="h1">告訴我們，你想處理的事。</h1>
+      <p class="mt-lg muted">不用準備得很完整，把現在的狀況講給我們就好。我們會在兩個工作天內回信，不會有業務電話、不會一直追著你。</p>
+    </div>
+  </section>
+
+  <section class="pt0">
+    <div class="wrap c-narrow">
+      <div class="form" id="ksForm">
+        <div class="field"><label>怎麼稱呼你？</label><input type="text" name="name"></div>
+        <div class="field"><label>Email</label><input type="email" name="email">
+          <div class="err"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>請填寫有效的 Email</div></div>
+        <div class="field"><label>你的公司網址</label><input type="text" name="url"></div>
+        <div class="field"><label>想處理什麼？（簡單講講就好）</label><textarea name="msg"></textarea></div>
+        <div><button class="btn btn-primary btn-block" id="submitBtn">送出</button></div>
+      </div>
+      <p class="post-submit mt-xl" id="postSubmit">送出後，我們會在兩個工作天內，用 Email 回覆你。接下來怎麼進行，我們信裡會說清楚。</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap c-wide foot">
+    <div class="name">KOTO Studio</div>
+    <nav>
+      <button data-go="home">首頁</button>
+      <button data-go="quickscan">快篩</button>
+      <button data-go="about">關於</button>
+      <button data-go="contact">聯絡</button>
+    </nav>
+    <div class="email">kotostudio.net@gmail.com</div>
+    <div class="copy">© 2026 KOTO Studio</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
